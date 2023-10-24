@@ -7,6 +7,8 @@ Para o projeto da AACD, foram criadas duas personas para o melhor entendimento d
 
 ### Persona 1
 
+![Lucas Teixeira](./img/persona%203.PNG)
+
 **Nome:** Lucas Teixeira Neves
 **Informações Demográficas:** 5 anos, nasceu e cresceu em uma família humilde de São Mateus. Atualmente ele estuda em um colégio público de sua região chamado São João Evangelista.
 **Background:** Lucas nasceu prematuro com 34 semanas. Com 1 ano a sua mãe percebeu que ele não conseguia andar. Após diversos exames, os médicos concluíram que ele possuía paralisia cerebral. Há 4 anos ele frequenta a AACD. 
@@ -18,6 +20,8 @@ Dores, necessidades e desejos: Lucas enfrenta desafios na expressão verbal, o q
 
 ### Persona 2
 
+![Marina Lopes](./img/persona.PNG)
+
 **Nome:** Marina Lopes Siqueira
 **Formação:** Graduada em Psicologia com especialização em Terapia Ocupacional.
 **Informações Demográficas:** 37 anos, nasceu em Campos Eliseos e se formou em terapia ocupacional na faculdade Cruzeiro do Sul.
@@ -26,7 +30,6 @@ Dores, necessidades e desejos: Lucas enfrenta desafios na expressão verbal, o q
 **Cenários de interação:** Durante suas consultas na clínica da AACD
 **Interesses e hábitos relacionados ao sistema ou produto:** Marina já teve contato com equipamentos de alta tecnologia em um evento recentemente. Porém, não possui um contato frequente com o sistema. 
 **Nível de letramento digital:** Médio/alto
-
 
 
 ### User Stories 
