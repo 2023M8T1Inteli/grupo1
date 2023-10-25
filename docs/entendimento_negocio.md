@@ -19,10 +19,10 @@ Através dessa análise inovadora, buscamos identificar oportunidades para criar
 Para entendermos melhor a matriz de avaliação de Oceano Azul, vamos analisar os oito parâmetros-chave que compõem essa métrica. Esses parâmetros são divididos em quatro categorias principais: preço, qualidade, tecnologia e acessibilidade. Cada categoria é composta por dois parâmetros, que será apresentado nas figuras 1 e 2 e descritos abaixo.
 
 Figura 1: Parâmetros e notas da matriz de avaliação de Oceano Azul
-<img src=".\docs\img\parametros_oceano_azul.png">
+![Parâmetros da Matriz de Oceano Azul] (https://github.com/2023M8T1Inteli/grupo1/blob/avaliacao-oceano-azul/docs/img/parametros_avaliacao_oceano_azul.png)
 
 Figura 2: Gráfico de comparação de parâmetros da matriz de avaliação de Oceano Azul
-<img src=".\docs\img\matriz_avaliacao_oceano_azul.png">
+![Gráfico da Matriz de Oceano Azul] (https://github.com/2023M8T1Inteli/grupo1/blob/avaliacao-oceano-azul/docs/img/matriz_avaliacao_oceano_azul.png)
 
 ### Preço
 
