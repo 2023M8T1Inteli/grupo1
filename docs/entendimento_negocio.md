@@ -49,3 +49,46 @@ O atributo de parceria foi avaliado com base na diversidade de parceiros que pod
 O atributo de modelo de negócios foi avaliado com base nas fontes de financiamento e nos fluxos de receita. A AACD e o Sick Kids atuam majoritariamente com capital proveniente do pagamento de impostos da população e pode atender também através de convênios e/ou seguros saúde. O Shriners atua com capital proveniente de doações de pessoas e empresas, além de receber investimentos governamentais e de convênios e/ou seguros saúde. Por conta da maior abrangência em seu modelo de negócios, o Shrines leva vantagem neste atributo da comparação e consequentemente, a maior nota, sendo avaliado com nota 9, enquanto a AACD recebeu nota 6, uma vez que seu investimento primário é controlado e relativamente baixo para a demanda de ação (em comparação interna de quando a instituição era considerada "portas abertas") e o Sick Kids recebeu nota 7, pois seu maior investimento não é diretamente financeiro, mas em alunos estudantes da universidade de Toronto que fazem estágios e/ou residência na instituição e colaboram com o tratamento dos pacientes. Neste aspecto, o ideal seria aumentar as notas de todas as instituições, mas assim como o atributo de parceria, é importante entender que não é por conta própria que elas tenham essas necessidades, mas por motivos externos.
 
 ## Análise Financeira
+
+**Visão Geral do Projeto:**
+
+O projeto consiste em fornecer um "Tapete Sensorial Ligado ao Greg Maker" para a AACD, com o objetivo de aprimorar a qualidade de vida, autonomia e independência de crianças, adolescentes e adultos com leves desordens neurológicas. O tapete sensorial foi projetado para estimular sensações táteis e proprioceptivas, melhorando as respostas motoras funcionais e auxiliando nas atividades de vida diária (AVD) dos pacientes. Além disso, o tapete proporciona experiências relacionadas às funções cognitivas, como discriminação figura-fundo, constância de formas, memória visual, relações espaciais, discriminação visual e reconhecimento de cores e formas.
+
+**Método de Análise:**
+
+Construímos dois cenários: um que não inclui os custos dos desenvolvedores do projeto, o que corresponde a uma parceria com a Inteli. No entanto, consideramos relevante apresentar uma visão em que incluímos esses custos de desenvolvimento para fins de comparação, como se o projeto não tivesse sido realizado em parceria com uma organização sem fins lucrativos.
+
+**Cenário 1: Sem Custos de Desenvolvimento**
+
+Neste cenário, supomos que não há custos de desenvolvimento, e nossos únicos custos incluem a aquisição do Greg Maker e do tapete sensorial.
+
+Tabela de Custos Anuais (Sem Desenvolvimento):
+
+| Despesa                | Custo Anual   |
+|------------------------|---------------|
+| Greg Maker             | R$ 500,00      |
+| Tapete Sensorial       | R$ 450,00      |
+| **Custo Total**        | **R$ 950,00**  |
+
+**Cenário 2: Com Custos de Desenvolvimento (10 Semanas de Trabalho)**
+
+Neste cenário, consideramos o custo dos desenvolvedores com base em 10 semanas de trabalho. Supomos que o salário médio mensal por desenvolvedor júnior seja de R$ 5.000,00.
+
+Cálculo do Custo de Desenvolvimento (10 Semanas):
+
+8 desenvolvedores * (R$ 5.000,00/mês / 4 semanas) * 10 semanas = R$ 100.000,00
+
+Tabela de Custos Anuais (Com Desenvolvimento):
+
+| Despesa                | Custo Anual   |
+|------------------------|---------------|
+| Desenvolvimento (Custo dos Desenvolvedores) | R$ 100.000,00  |
+| Greg Maker             | R$ 500,00      |
+| Tapete Sensorial       | R$ 450,00      |
+| **Custo Total**        | **R$ 100.950,00** |
+
+**Considerações Adicionais:**
+
+* É importante destacar que esta análise é uma estimativa e que o projeto é uma parceria entre a AACD e o Inteli. Portanto, alguns custos podem variar caso o projeto seja reproduzido em outra situação.
+  
+* A análise foi feita com base em estimativas então pode haver alterações nos valores fornecidos.
