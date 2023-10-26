@@ -24,7 +24,7 @@ Dores, necessidades e desejos: Lucas enfrenta desafios na expressão verbal, o q
 
 **Nome:** Marina Lopes Siqueira
 **Formação:** Graduada em Psicologia com especialização em Terapia Ocupacional.
-**Informações Demográficas:** 37 anos, nasceu em Campos Eliseos e se formou em terapia ocupacional na faculdade Cruzeiro do Sul.
+**Informações Demográficas:** 44 anos, nasceu em Campos Eliseos e se formou em terapia ocupacional na faculdade Cruzeiro do Sul.
 **Background:** Marina é uma terapeuta ocupacional altamente qualificada, nascida em São Paulo e dedicada à sua profissão. Ela atualmente desempenha um papel crucial na AACD (Associação de Assistência à Criança Deficiente), onde coloca sua expertise em terapia ocupacional para melhorar a vida de pacientes com deficiências físicas e condições de saúde complexas. Sua abordagem personalizada e seu compromisso com o bem-estar de seus pacientes fazem dela uma profissional excepcional na área.
 **Dores, necessidades e desejos:** Marina tem dificuldades de trabalhar por conta da baixa tecnologia dos itens utilizados nas consultas com as crianças 
 **Cenários de interação:** Durante suas consultas na clínica da AACD
