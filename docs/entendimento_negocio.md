@@ -48,6 +48,33 @@ O atributo de parceria foi avaliado com base na diversidade de parceiros que pod
 ### Modelo de Negócio
 O atributo de modelo de negócios foi avaliado com base nas fontes de financiamento e nos fluxos de receita. A AACD e o Sick Kids atuam majoritariamente com capital proveniente do pagamento de impostos da população e pode atender também através de convênios e/ou seguros saúde. O Shriners atua com capital proveniente de doações de pessoas e empresas, além de receber investimentos governamentais e de convênios e/ou seguros saúde. Por conta da maior abrangência em seu modelo de negócios, o Shrines leva vantagem neste atributo da comparação e consequentemente, a maior nota, sendo avaliado com nota 9, enquanto a AACD recebeu nota 6, uma vez que seu investimento primário é controlado e relativamente baixo para a demanda de ação (em comparação interna de quando a instituição era considerada "portas abertas") e o Sick Kids recebeu nota 7, pois seu maior investimento não é diretamente financeiro, mas em alunos estudantes da universidade de Toronto que fazem estágios e/ou residência na instituição e colaboram com o tratamento dos pacientes. Neste aspecto, o ideal seria aumentar as notas de todas as instituições, mas assim como o atributo de parceria, é importante entender que não é por conta própria que elas tenham essas necessidades, mas por motivos externos.
 
+## Matriz de Risco
+
+![Matriz de Risco](./img/matriz_risco.png) 
+
+### Descrição da matriz de risco
+
+**Ameaça 1: Atraso na entrega por conta da alta complexidade** - Dada a complexidade envolvida na criação de compiladores, estamos antecipando a ocorrência de atrasos e já estamos trabalhando para identificar e resolver possíveis erros no planejamento, tornando o cumprimento dos prazos uma prioridade.
+
+**Ameça 2: User stories imprecisas** - Após conversas com o professor Chico e a TO, ficou evidente que estamos enfrentando desafios em entender completamente as necessidades das personas envolvidas. Embora estejamos abordando o projeto com empatia, reconhecemos que essa tarefa não será simples.
+
+**Ameaça 3: Demora na construção do front** - Não temos especialistas em desenvolvimento de frontend em nosso grupo, o que torna a construção dessa parte do projeto um desafio. Estamos organizando nossos esforços para garantir a melhor qualidade possível na criação do frontend.
+
+**Ameaça 4: Não conseguir idealizar uma proposta válida** - Neste módulo, nosso grupo teve dificuldade em criar uma proposta de projeto que se enquadrasse no escopo. Isso nos faz conscientes de que podem existir falhas não previstas em nosso projeto.
+
+**Ameaça 5: Não conseguir construir um compilador que atenda todas as necessidades** - Dado o caráter complexo do tema e a falta de experiência prévia no grupo, estamos cientes de que a criação de um compilador que atenda a todas as necessidades representará um desafio significativo. O sucesso nessa tarefa é crucial, pois o compilador é uma parte essencial da aplicação.
+
+**Oportunidade 1: Ajudar indivíduos com leves desordens neurológicas** - Todos no grupo veem este projeto como uma oportunidade valiosa para fazer a diferença na vida das pessoas, e estamos empenhados em fornecer qualquer ajuda possível para melhorar a qualidade de vida daqueles afetados.
+
+**Oportunidade 2: Ajudar a TO com um equipamento que auxilia no seu trabalho** - Além de desenvolver o software, estamos comprometidos em entregar o hardware (o tapete) com excelência. Nossa meta é fornecer um projeto completo que atenda às expectativas tanto em termos de software quanto de hardware.
+
+**Oportunidade 3: Criar um dispositivo que possa ser utilizado em larga escala** - Entregar um projeto viável para produção em larga escala é uma conquista significativa que nossa equipe deseja alcançar. Isso nos permitirá ajudar um grande número de pessoas, tornando o projeto ainda mais valioso.
+
+**Oportunidade 4: O grupo aprender a criar linguagens e compiladores** - Encaramos o desafio de construir uma linguagem e trabalhar com compiladores como uma oportunidade única de aprender conceitos complexos. Aplicar esses conhecimentos em um projeto relevante é uma parte fundamental de nossa abordagem.
+
+**Oportunidade 5: Aprender sobre um tema que é muito fora do comum no curso** - Uma das maiores oportunidades deste projeto é o aprendizado em um campo que geralmente não é abordado em cursos de ciência da computação. Estamos entusiasmados em aprender sobre inclusão e expandir nossos horizontes ao participar ativamente de um projeto que aborda realidades diferentes da nossa.
+
+
 ## Análise Financeira
 
 **Visão Geral do Projeto:**
