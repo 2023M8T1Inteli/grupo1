@@ -29,7 +29,7 @@ Dores, necessidades e desejos: Lucas enfrenta desafios na expressão verbal, o q
 **Dores, necessidades e desejos:** Marina tem dificuldades de trabalhar por conta da baixa tecnologia dos itens utilizados nas consultas com as crianças 
 **Cenários de interação:** Durante suas consultas na clínica da AACD
 **Interesses e hábitos relacionados ao sistema ou produto:** Marina já teve contato com equipamentos de alta tecnologia em um evento recentemente. Porém, não possui um contato frequente com o sistema. 
-**Nível de letramento digital:** Médio/alto
+**Nível de letramento digital:** Médio
 
 
 ### User Stories 
