@@ -12,7 +12,7 @@ Para o projeto da AACD, foram criadas duas personas para o melhor entendimento d
 **Nome:** Lucas Teixeira Neves
 **Informações Demográficas:** 5 anos, nasceu e cresceu em uma família humilde de São Mateus. Atualmente ele estuda em um colégio público de sua região chamado São João Evangelista.
 **Background:** Lucas nasceu prematuro com 34 semanas. Com 1 ano a sua mãe percebeu que ele não conseguia andar. Após diversos exames, os médicos concluíram que ele possuía paralisia cerebral. Há 4 anos ele frequenta a AACD. 
-Dores, necessidades e desejos: Lucas enfrenta desafios na expressão verbal, o que o motiva profundamente a buscar compreensão ao se comunicar.
+**Dores, necessidades e desejos:** Lucas enfrenta desafios na expressão verbal, o que o motiva profundamente a buscar compreensão ao se comunicar.
 **Cenários de interação com o sistema:** Durante suas consultas na clínica da AACD
 *Interesses e hábitos relacionados ao sistema ou produto:* Lucas não tem acesso a dispositivos tecnológicos atualmente; em vez disso, terapeutas o auxiliam utilizando livros e brinquedos como ferramentas terapêuticas.
 **Nível de letramento digital:** Baixa
