@@ -54,25 +54,25 @@ O atributo de modelo de negócios foi avaliado com base nas fontes de financiame
 
 ### Descrição da matriz de risco
 
-**Ameaça 1: Atraso na entrega por conta da alta complexidade** - Dada a complexidade envolvida na criação de compiladores, estamos antecipando a ocorrência de atrasos e já estamos trabalhando para identificar e resolver possíveis erros no planejamento, tornando o cumprimento dos prazos uma prioridade.
+**Ameaça 1: Atraso na entrega por conta da alta complexidade** - O grupo reconhece a complexidade envolvida na criação de compiladores, e está trabalhando ativamente para identificar e resolver possíveis erros no planejamento, priorizando o cumprimento dos prazos.
 
-**Ameça 2: User stories imprecisas** - Após conversas com o professor Chico e a TO, ficou evidente que estamos enfrentando desafios em entender completamente as necessidades das personas envolvidas. Embora estejamos abordando o projeto com empatia, reconhecemos que essa tarefa não será simples.
+**Ameça 2: User stories imprecisas** - Após conversas com o professor Chico e a TO, foi evidenciado que o grupo está enfrentando desafios na compreensão completa das necessidades das personas envolvidas. Embora o projeto seja abordado com empatia, a tarefa é reconhecida como não simples.
 
-**Ameaça 3: Demora na construção do front** - Não temos especialistas em desenvolvimento de frontend em nosso grupo, o que torna a construção dessa parte do projeto um desafio. Estamos organizando nossos esforços para garantir a melhor qualidade possível na criação do frontend.
+**Ameaça 3: Demora na construção do front** - Não existem especialistas em desenvolvimento de frontend no grupo, o que torna a construção dessa parte do projeto um desafio. Os esforços estão sendo organizados para assegurar a melhor qualidade possível na criação do frontend.
 
-**Ameaça 4: Não conseguir idealizar uma proposta válida** - Neste módulo, nosso grupo teve dificuldade em criar uma proposta de projeto que se enquadrasse no escopo. Isso nos faz conscientes de que podem existir falhas não previstas em nosso projeto.
+**Ameaça 4: Não conseguir idealizar uma proposta válida** -  Neste módulo, o grupo enfrentou dificuldades em criar uma proposta de projeto que se enquadrasse no escopo, tornando-os conscientes de possíveis falhas não previstas no projeto.
 
-**Ameaça 5: Não conseguir construir um compilador que atenda todas as necessidades** - Dado o caráter complexo do tema e a falta de experiência prévia no grupo, estamos cientes de que a criação de um compilador que atenda a todas as necessidades representará um desafio significativo. O sucesso nessa tarefa é crucial, pois o compilador é uma parte essencial da aplicação.
+**Ameaça 5: Não conseguir construir um compilador que atenda todas as necessidades** - Dado o caráter complexo do tema e a falta de experiência prévia no grupo, a equipe está ciente de que a criação de um compilador que atenda a todas as necessidades representará um desafio significativo. O sucesso nessa tarefa é crucial, uma vez que o compilador é uma parte essencial da aplicação.
 
-**Oportunidade 1: Ajudar indivíduos com leves desordens neurológicas** - Todos no grupo veem este projeto como uma oportunidade valiosa para fazer a diferença na vida das pessoas, e estamos empenhados em fornecer qualquer ajuda possível para melhorar a qualidade de vida daqueles afetados.
+**Oportunidade 1: Ajudar indivíduos com leves desordens neurológicas** - Todos no grupo veem este projeto como uma oportunidade valiosa para fazer a diferença na vida das pessoas e estão empenhados em fornecer qualquer ajuda possível para melhorar a qualidade de vida daqueles afetados.
 
-**Oportunidade 2: Ajudar a TO com um equipamento que auxilia no seu trabalho** - Além de desenvolver o software, estamos comprometidos em entregar o hardware (o tapete) com excelência. Nossa meta é fornecer um projeto completo que atenda às expectativas tanto em termos de software quanto de hardware.
+**Oportunidade 2: Ajudar a TO com um equipamento que auxilia no seu trabalho** - Além de desenvolver o software, o grupo está comprometido em entregar o hardware (o tapete) com excelência. A meta é fornecer um projeto completo que atenda às expectativas tanto em termos de software quanto de hardware.
 
-**Oportunidade 3: Criar um dispositivo que possa ser utilizado em larga escala** - Entregar um projeto viável para produção em larga escala é uma conquista significativa que nossa equipe deseja alcançar. Isso nos permitirá ajudar um grande número de pessoas, tornando o projeto ainda mais valioso.
+**Oportunidade 3: Criar um dispositivo que possa ser utilizado em larga escala** - Entregar um projeto viável para produção em larga escala é uma conquista significativa que a equipe deseja alcançar. Isso permitirá ajudar um grande número de pessoas, tornando o projeto ainda mais valioso.
 
-**Oportunidade 4: O grupo aprender a criar linguagens e compiladores** - Encaramos o desafio de construir uma linguagem e trabalhar com compiladores como uma oportunidade única de aprender conceitos complexos. Aplicar esses conhecimentos em um projeto relevante é uma parte fundamental de nossa abordagem.
+**Oportunidade 4: O grupo aprender a criar linguagens e compiladores** - O desafio de construir uma linguagem e trabalhar com compiladores é encarado como uma oportunidade única de aprender conceitos complexos. Aplicar esses conhecimentos em um projeto relevante é uma parte fundamental da abordagem do grupo.
 
-**Oportunidade 5: Aprender sobre um tema que é muito fora do comum no curso** - Uma das maiores oportunidades deste projeto é o aprendizado em um campo que geralmente não é abordado em cursos de ciência da computação. Estamos entusiasmados em aprender sobre inclusão e expandir nossos horizontes ao participar ativamente de um projeto que aborda realidades diferentes da nossa.
+**Oportunidade 5: Aprender sobre um tema que é muito fora do comum no curso** - Uma das maiores oportunidades deste projeto é o aprendizado em um campo que geralmente não é abordado em cursos de ciência da computação. O grupo está entusiasmado em aprender sobre inclusão e expandir seus horizontes ao participar ativamente de um projeto que aborda realidades diferentes da sua.
 
 
 ## Análise Financeira
