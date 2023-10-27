@@ -35,6 +35,11 @@
 &emsp; O atributo de atividades do cliente é composto pelas atividades que o cliente realiza para resolver os problemas que ele tem, que no caso são: _"O(a) terapeuta precisa criar atividades para os pacientes (crianças)"_ e _"Acompanhamento e atividades de vida diária para desenvolver o lado sensorial e o lado cognitivo dos pacientes"_.
 
 ## TAM, SAM e SOM
+&emsp; A análise TAM, SAM e SOM é usada para avaliar o tamanho do mercado e o potencial de crescimento de um produto ou serviço. Nesse contexto, a análise TAM, SAM e SOM é usada para avaliar o mercado de terapia ocupacional e tecnologia, com o objetivo de identificar oportunidades de diferenciação e inovação.
+
+&emsp; No contexto da AACD, o TAM (Total Addressable Market) representa o número total de pacientes que podem se beneficiar dos serviços de terapia ocupacional, com os recursos de tecnologia oferecidos pela AACD. O SAM (Serviceable Addressable Market) representa o número de pacientes que podem se beneficiar dos serviços de terapia ocupacional e tecnologia oferecidos pela AACD e outras instituições que atuam no mesmo setor. O SOM (Serviceable Obtainable Market) representa o número de pacientes que podem se beneficiar dos serviços de terapia ocupacional e tecnologia oferecidos pela AACD e outras instituições que atuam no mesmo setor e que podem ser alcançados pela AACD.
+
+&emsp; Usando informações estatísticas com base nas informações da organização World Cerebral Palsy Day, existem mais de 17 milhões de pessoas com deficiência ao redor do globo, das quais 300 mil são crianças com paralisia cerebral. No Brasil, estima-se que surjam entre 30 mil e 40 mil casos de paralisia cerebral todos os anos. Além disso, a AACD atende mais de 8000 pacientes por ano, incluindo crianças e adultos com paralisia cerebral e outras deficiências físicas e mentais.
 
 ## Matriz de Avaliação de Oceano Azul
 &emsp;A matriz de Oceano Azul é usada para avaliar o impacto das empresas que atuam no mesmo setor da AACD, nesse caso, na interseção da terapia ocupacional e tecnologia. Nesse contexto, escolhemos cuidadosamente três instituições líderes nesse nicho, a fim de analisar seu desempenho e identificar oportunidades de diferenciação.
