@@ -7,7 +7,7 @@ Para o projeto da AACD, foram criadas duas personas para o melhor entendimento d
 
 ### Persona 1
 
-![Lucas Teixeira](./img/persona%203.PNG)
+<img src="./img/persona%203.PNG" width=300px/>
 
 **Nome:** Lucas Teixeira Neves
 
@@ -26,7 +26,7 @@ Para o projeto da AACD, foram criadas duas personas para o melhor entendimento d
 
 ### Persona 2
 
-![Marina Lopes](./img/persona.PNG)
+<img src="./img/persona.PNG" width=300px/>
 
 **Nome:** Marina Lopes Siqueira
 
