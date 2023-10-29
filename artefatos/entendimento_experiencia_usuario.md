@@ -10,11 +10,17 @@ Para o projeto da AACD, foram criadas duas personas para o melhor entendimento d
 ![Lucas Teixeira](./img/persona%203.PNG)
 
 **Nome:** Lucas Teixeira Neves
+
 **Informações Demográficas:** 5 anos, nasceu e cresceu em uma família humilde de São Mateus. Atualmente ele estuda em um colégio público de sua região chamado São João Evangelista.
+
 **Background:** Lucas nasceu prematuro com 34 semanas. Com 1 ano a sua mãe percebeu que ele não conseguia andar. Após diversos exames, os médicos concluíram que ele possuía paralisia cerebral. Há 4 anos ele frequenta a AACD. 
+
 **Dores, necessidades e desejos:** Lucas enfrenta desafios na expressão verbal, o que o motiva profundamente a buscar compreensão ao se comunicar.
+
 **Cenários de interação com o sistema:** Durante suas consultas na clínica da AACD
+
 *Interesses e hábitos relacionados ao sistema ou produto:* Lucas não tem acesso a dispositivos tecnológicos atualmente; em vez disso, terapeutas o auxiliam utilizando livros e brinquedos como ferramentas terapêuticas.
+
 **Nível de letramento digital:** Baixa
 
 
@@ -23,12 +29,19 @@ Para o projeto da AACD, foram criadas duas personas para o melhor entendimento d
 ![Marina Lopes](./img/persona.PNG)
 
 **Nome:** Marina Lopes Siqueira
+
 **Formação:** Graduada em Psicologia com especialização em Terapia Ocupacional.
+
 **Informações Demográficas:** 44 anos, nasceu em Campos Eliseos e se formou em terapia ocupacional na faculdade Cruzeiro do Sul.
+
 **Background:** Marina é uma terapeuta ocupacional altamente qualificada, nascida em São Paulo e dedicada à sua profissão. Ela atualmente desempenha um papel crucial na AACD (Associação de Assistência à Criança Deficiente), onde coloca sua expertise em terapia ocupacional para melhorar a vida de pacientes com deficiências físicas e condições de saúde complexas. Sua abordagem personalizada e seu compromisso com o bem-estar de seus pacientes fazem dela uma profissional excepcional na área.
+
 **Dores, necessidades e desejos:** Marina tem dificuldades de trabalhar por conta da baixa tecnologia dos itens utilizados nas consultas com as crianças 
+
 **Cenários de interação:** Durante suas consultas na clínica da AACD
+
 **Interesses e hábitos relacionados ao sistema ou produto:** Marina já teve contato com equipamentos de alta tecnologia em um evento recentemente. Porém, não possui um contato frequente com o sistema. 
+
 **Nível de letramento digital:** Médio
 
 
