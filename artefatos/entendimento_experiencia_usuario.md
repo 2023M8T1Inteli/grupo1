@@ -45,22 +45,54 @@ Para o projeto da AACD, foram criadas duas personas para o melhor entendimento d
 **Nível de letramento digital:** Médio
 
 
-### User Stories 
+### User Story
 
-Como *terapeuta ocupacional*, gostaria de poder conectar meu tapete sensorial ao Greg Maker para personalizar a experiência sensorial com luzes e sons, proporcionando uma estimulação sensorial sob medida.
+User story é uma técnica utilizada no desenvolvimento ágil de software para descrever uma funcionalidade do ponto de vista do usuário, geralmente em um formato simples, como "Como [tipo de usuário], eu quero [realizar uma ação] para [atingir um objetivo]." Essas histórias capturam requisitos de forma clara e concisa, focando nas necessidades do usuário, o que facilita a comunicação entre os membros da equipe e ajuda a manter o cliente no centro do processo de desenvolvimento. A importância das user stories reside na sua capacidade de fornecer um entendimento compartilhado das funcionalidades desejadas, promovendo a priorização adequada, permitindo entregas incrementais e melhorando a flexibilidade para acomodar mudanças ao longo do projeto, resultando em produtos que melhor atendem às necessidades reais dos usuários.
 
-Como *terapeuta ocupacional*, desejo criar configurações específicas no Greg Maker para se alinharem com os objetivos terapêuticos do paciente, como promover a concentração, relaxamento ou desenvolver habilidades motoras.
 
-Como *terapeuta ocupacional*, gostaria de ter a capacidade de programar o Greg Maker para oferecer uma experiência sensorial que seja segura, envolvente e apropriada para o desenvolvimento infantil.
+| Épico    | Prioridade | Complexidade (Fibonacci)| User Story | Status   |
+| -------- |:--------:  | :-------------------:| -----------| :--------: |
+| Usabilidade |     10     | 1                    | Como *terapeuta ocupacional*, gostaria de poder conectar meu tapete sensorial ao Greg Maker para personalizar a experiência sensorial com luzes e sons, proporcionando uma estimulação sensorial sob medida. | Em desenvolvimento |
+| Cadastro |     9      | 1                    | Como *terapeuta ocupacional*, desejo criar configurações específicas no Greg Maker para se alinharem com os objetivos terapêuticos do paciente, como promover a concentração, relaxamento ou desenvolver habilidades motoras. | Em desenvolvimento |
+| Usabilidade | 10      | 13                   | Como *terapeuta ocupacional*, gostaria de ter a capacidade de programar o Greg Maker para oferecer uma experiência sensorial que seja segura, envolvente e apropriada para o desenvolvimento infantil. | Em desenvolvimento |
+| Programação | 10      | 13                   | Como *terapeuta ocupacional*, gostaria de usar o Greg Maker para controlar a intensidade e a duração da estimulação sensorial no tapete, para que eu possa adaptar a experiência às minhas necessidades e preferências específicas. | Em desenvolvimento |
+| Programação | 10      | 8                    | Como *terapeuta ocupacional*, desejo uma integração fácil entre o tapete sensorial e o Greg Maker, a fim de criar ambientes de aprendizagem mais envolventes e inclusivos para todos os alunos, independentemente de suas habilidades.| Em desenvolvimento |
+| Terapia | 10          | 2                    | Como *terapeuta ocupacional*, desejo a capacidade de sincronizar as atividades de linguagem e comunicação com estímulos sensoriais gerados pelo Greg Maker, criando uma experiência terapêutica mais envolvente.  | Em desenvolvimento |
+| Terapia | 10          | 21                   | Como *criança com mobilidade reduzida*, gostaria de uma interface acessível no Greg Maker que me permita controlar o tapete sensorial de forma independente, mesmo que eu tenha limitações de destreza. | Em desenvolvimento |
+| Programação | 9        | 21                   | Como *desenvolvedor do projeto*, desejo a capacidade de criar aplicativos complementares para o Greg Maker que ampliem suas funcionalidades, proporcionando uma experiência sensorial ainda mais personalizada.| Em desenvolvimento |
+| Terapia | 10          | 21                   | Como *criança com mobilidade reduzida*, gostaria de poder compartilhar minha experiência com o Greg Maker e o tapete sensorial com outras crianças em situações semelhantes, promovendo a comunidade e o apoio mútuo.| Em desenvolvimento |
 
-Como *terapeuta ocupacional*, gostaria de usar o Greg Maker para controlar a intensidade e a duração da estimulação sensorial no tapete, para que eu possa adaptar a experiência às minhas necessidades e preferências específicas.
 
-Como *terapeuta ocupacional*, desejo uma integração fácil entre o tapete sensorial e o Greg Maker, a fim de criar ambientes de aprendizagem mais envolventes e inclusivos para todos os alunos, independentemente de suas habilidades.
 
-Como *terapeuta ocupacional*, desejo a capacidade de sincronizar as atividades de linguagem e comunicação com estímulos sensoriais gerados pelo Greg Maker, criando uma experiência terapêutica mais envolvente.
 
-Como *criança com mobilidade reduzida*, gostaria de uma interface acessível no Greg Maker que me permita controlar o tapete sensorial de forma independente, mesmo que eu tenha limitações de destreza.
 
-Como *desenvolvedor do projeto*, desejo a capacidade de criar aplicativos complementares para o Greg Maker que ampliem suas funcionalidades, proporcionando uma experiência sensorial ainda mais personalizada.
 
-Como *criança com mobilidade reduzida*, gostaria de poder compartilhar minha experiência com o Greg Maker e o tapete sensorial com outras crianças em situações semelhantes, promovendo a comunidade e o apoio mútuo.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
