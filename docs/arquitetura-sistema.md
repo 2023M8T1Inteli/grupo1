@@ -2,6 +2,8 @@
 
 ## Diagrama da Arquitetura
 
+![Arquitetura Hardware Sprint 1](./img/arquitetura_hardware_sprint1.png)
+
 ## Descrição textual da Arquitetura
 
 Na arquitetura apresentada, existem três dispositivos principais, os quais estão relacionados ao uso de dois usuários diferentes. No sistema, temos um **Computador**, utilizado pelo **Terapeuta** para configurar as funções do tapete e o sistema de recompensas, proporcionando uma maior personalização da experiência do paciente. Além disso, há um **Greg Maker**, responsável por captar os sinais elétricos provenientes do tapete interativo e interpretá-los, transformando-os em comandos específicos no computador. Por fim, temos um **Tapete Interativo**, utilizado pelo **Paciente** durante as atividades, com o objetivo de estimular a realização de tarefas específicas.
