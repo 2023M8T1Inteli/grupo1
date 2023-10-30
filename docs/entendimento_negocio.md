@@ -48,4 +48,74 @@ O atributo de parceria foi avaliado com base na diversidade de parceiros que pod
 ### Modelo de Negócio
 O atributo de modelo de negócios foi avaliado com base nas fontes de financiamento e nos fluxos de receita. A AACD e o Sick Kids atuam majoritariamente com capital proveniente do pagamento de impostos da população e pode atender também através de convênios e/ou seguros saúde. O Shriners atua com capital proveniente de doações de pessoas e empresas, além de receber investimentos governamentais e de convênios e/ou seguros saúde. Por conta da maior abrangência em seu modelo de negócios, o Shrines leva vantagem neste atributo da comparação e consequentemente, a maior nota, sendo avaliado com nota 9, enquanto a AACD recebeu nota 6, uma vez que seu investimento primário é controlado e relativamente baixo para a demanda de ação (em comparação interna de quando a instituição era considerada "portas abertas") e o Sick Kids recebeu nota 7, pois seu maior investimento não é diretamente financeiro, mas em alunos estudantes da universidade de Toronto que fazem estágios e/ou residência na instituição e colaboram com o tratamento dos pacientes. Neste aspecto, o ideal seria aumentar as notas de todas as instituições, mas assim como o atributo de parceria, é importante entender que não é por conta própria que elas tenham essas necessidades, mas por motivos externos.
 
+## Matriz de Risco
+
+![Matriz de Risco](./img/matriz_risco.png) 
+
+### Descrição da matriz de risco
+
+**Ameaça 1: Atraso na entrega por conta da alta complexidade** - O grupo reconhece a complexidade envolvida na criação de compiladores, e está trabalhando ativamente para identificar e resolver possíveis erros no planejamento, priorizando o cumprimento dos prazos.
+
+**Ameça 2: User stories imprecisas** - Após conversas com o professor Chico e a TO, foi evidenciado que o grupo está enfrentando desafios na compreensão completa das necessidades das personas envolvidas. Embora o projeto seja abordado com empatia, a tarefa é reconhecida como não simples.
+
+**Ameaça 3: Demora na construção do front** - Não existem especialistas em desenvolvimento de frontend no grupo, o que torna a construção dessa parte do projeto um desafio. Os esforços estão sendo organizados para assegurar a melhor qualidade possível na criação do frontend.
+
+**Ameaça 4: Não conseguir idealizar uma proposta válida** -  Neste módulo, o grupo enfrentou dificuldades em criar uma proposta de projeto que se enquadrasse no escopo, tornando-os conscientes de possíveis falhas não previstas no projeto.
+
+**Ameaça 5: Não conseguir construir um compilador que atenda todas as necessidades** - Dado o caráter complexo do tema e a falta de experiência prévia no grupo, a equipe está ciente de que a criação de um compilador que atenda a todas as necessidades representará um desafio significativo. O sucesso nessa tarefa é crucial, uma vez que o compilador é uma parte essencial da aplicação.
+
+**Oportunidade 1: Ajudar indivíduos com leves desordens neurológicas** - Todos no grupo veem este projeto como uma oportunidade valiosa para fazer a diferença na vida das pessoas e estão empenhados em fornecer qualquer ajuda possível para melhorar a qualidade de vida daqueles afetados.
+
+**Oportunidade 2: Ajudar a TO com um equipamento que auxilia no seu trabalho** - Além de desenvolver o software, o grupo está comprometido em entregar o hardware (o tapete) com excelência. A meta é fornecer um projeto completo que atenda às expectativas tanto em termos de software quanto de hardware.
+
+**Oportunidade 3: Criar um dispositivo que possa ser utilizado em larga escala** - Entregar um projeto viável para produção em larga escala é uma conquista significativa que a equipe deseja alcançar. Isso permitirá ajudar um grande número de pessoas, tornando o projeto ainda mais valioso.
+
+**Oportunidade 4: O grupo aprender a criar linguagens e compiladores** - O desafio de construir uma linguagem e trabalhar com compiladores é encarado como uma oportunidade única de aprender conceitos complexos. Aplicar esses conhecimentos em um projeto relevante é uma parte fundamental da abordagem do grupo.
+
+**Oportunidade 5: Aprender sobre um tema que é muito fora do comum no curso** - Uma das maiores oportunidades deste projeto é o aprendizado em um campo que geralmente não é abordado em cursos de ciência da computação. O grupo está entusiasmado em aprender sobre inclusão e expandir seus horizontes ao participar ativamente de um projeto que aborda realidades diferentes da sua.
+
+
 ## Análise Financeira
+
+**Visão Geral do Projeto:**
+
+O projeto consiste em fornecer um "Tapete Sensorial Ligado ao Greg Maker" para a AACD, com o objetivo de aprimorar a qualidade de vida, autonomia e independência de crianças, adolescentes e adultos com leves desordens neurológicas. O tapete sensorial foi projetado para estimular sensações táteis e proprioceptivas, melhorando as respostas motoras funcionais e auxiliando nas atividades de vida diária (AVD) dos pacientes. Além disso, o tapete proporciona experiências relacionadas às funções cognitivas, como discriminação figura-fundo, constância de formas, memória visual, relações espaciais, discriminação visual e reconhecimento de cores e formas.
+
+**Método de Análise:**
+
+Construímos dois cenários: um que não inclui os custos dos desenvolvedores do projeto, o que corresponde a uma parceria com a Inteli. No entanto, consideramos relevante apresentar uma visão em que incluímos esses custos de desenvolvimento para fins de comparação, como se o projeto não tivesse sido realizado em parceria com uma organização sem fins lucrativos.
+
+**Cenário 1: Sem Custos de Desenvolvimento**
+
+Neste cenário, supomos que não há custos de desenvolvimento, e nossos únicos custos incluem a aquisição do Greg Maker e do tapete sensorial.
+
+Tabela de Custos Anuais (Sem Desenvolvimento):
+
+| Despesa                | Custo Anual   |
+|------------------------|---------------|
+| Greg Maker             | R$ 500,00      |
+| Tapete Sensorial       | R$ 450,00      |
+| **Custo Total**        | **R$ 950,00**  |
+
+**Cenário 2: Com Custos de Desenvolvimento (10 Semanas de Trabalho)**
+
+Neste cenário, consideramos o custo dos desenvolvedores com base em 10 semanas de trabalho. Supomos que o salário médio mensal por desenvolvedor júnior seja de R$ 5.000,00.
+
+Cálculo do Custo de Desenvolvimento (10 Semanas):
+
+8 desenvolvedores * (R$ 5.000,00/mês / 4 semanas) * 10 semanas = R$ 100.000,00
+
+Tabela de Custos Anuais (Com Desenvolvimento):
+
+| Despesa                | Custo Anual   |
+|------------------------|---------------|
+| Desenvolvimento (Custo dos Desenvolvedores) | R$ 100.000,00  |
+| Greg Maker             | R$ 500,00      |
+| Tapete Sensorial       | R$ 450,00      |
+| **Custo Total**        | **R$ 100.950,00** |
+
+**Considerações Adicionais:**
+
+* É importante destacar que esta análise é uma estimativa e que o projeto é uma parceria entre a AACD e o Inteli. Portanto, alguns custos podem variar caso o projeto seja reproduzido em outra situação.
+  
+* A análise foi feita com base em estimativas então pode haver alterações nos valores fornecidos.
