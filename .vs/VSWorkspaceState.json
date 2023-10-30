@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\docs",
+    "\\docs\\img"
   ],
-  "SelectedNode": "\\artigo",
+  "SelectedNode": "\\docs\\entendimento_negocio.md",
   "PreviewInSolutionExplorer": false
 }
