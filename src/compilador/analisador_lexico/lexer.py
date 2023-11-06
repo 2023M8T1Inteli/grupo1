@@ -17,21 +17,19 @@ def lexer(codigo_fonte, token_patterns):
 
     while posicao < len(codigo_fonte):
         match = None
+
         for pattern, tipo in token_patterns:
             regex = re.compile(pattern, re.DOTALL)
             match = regex.match(codigo_fonte, posicao)
+
             if match:
                 valor = match.group(0)
+
                 if valor == '/':
-                     posicao = match.end()
-                     for pattern, _ in token_patterns:
-                        regex = re.compile(pattern, re.DOTALL)
-                        match2 = regex.match(codigo_fonte, posicao)
-                        if match2:
-                            valor2 = match2.group(0)
-                            if valor2 == '/':
-                                comentario = True
-                if not valor.isspace() and tipo != 'COMENTARIO' and not comentario:  # Ignora espaços em branco
+                    posicao = match.end()
+                    comentario = any(p.startswith('/') for p, _ in token_patterns)
+
+                if not valor.isspace() and tipo != 'COMENTARIO' and not comentario:
                     if tipo == "STRING":
                         tokens.append(Token("DQUOTE", valor[0], linha))
                         tokens.append(Token(tipo, valor[1:-1], linha))
@@ -46,9 +44,9 @@ def lexer(codigo_fonte, token_patterns):
             if codigo_fonte[posicao] == '\n':
                 linha += 1
                 comentario = False
-            else:
-                if not codigo_fonte[posicao].isspace():
-                    raise ValueError(f"Erro léxico: Caractere inesperado em '{codigo_fonte[posicao]}' na linha {linha} e na posição {posicao}")
+            elif not codigo_fonte[posicao].isspace():
+                raise ValueError(f"Erro léxico: Caractere inesperado em '{codigo_fonte[posicao]}' na linha {linha} e na posição {posicao}")
+
             posicao += 1
 
     tokens.append(Token("EOF", "EOF", linha + 1))
