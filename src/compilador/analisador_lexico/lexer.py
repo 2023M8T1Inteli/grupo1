@@ -3,6 +3,7 @@ from token_class import Token
 from token_patterns import token_patterns
 
 def ler_codigo(arq):
+    # Função que faz a leitura do código fonte do arquivo
 	codigo = ""
 	with open(arq, "r", encoding="utf-8") as f:
 		codigo = f.read()
@@ -27,10 +28,14 @@ def lexer(codigo_fonte, token_patterns):
 
                 if valor == '/':
                     posicao = match.end()
+                # Verificando se existe algum comentário continuado no código
                     comentario = any(p.startswith('/') for p, _ in token_patterns)
 
+                # Ignorando espaços em branco e comentários
                 if not valor.isspace() and tipo != 'COMENTARIO' and not comentario:
                     if tipo == "STRING":
+                    # Fazendo a separação de aspas duplas em uma string
+                        tokens.append(Token("DQUOTE", valor[0], linha))
                         tokens.append(Token("DQUOTE", valor[0], linha))
                         tokens.append(Token(tipo, valor[1:-1], linha))
                         tokens.append(Token("DQUOTE", valor[-1], linha))
@@ -42,6 +47,7 @@ def lexer(codigo_fonte, token_patterns):
 
         if not match:
             if codigo_fonte[posicao] == '\n':
+            # Atualizando o número da linha ao encontrar uma quebra de linha
                 linha += 1
                 comentario = False
             elif not codigo_fonte[posicao].isspace():
@@ -55,6 +61,7 @@ def lexer(codigo_fonte, token_patterns):
 
 
 if __name__ == '__main__':
+    # Lendo o código-fonte do arquivo "codigo.txt" e realizando a análise léxica
     codigo_fonte = ler_codigo("codigo.txt")
     tokens = lexer(codigo_fonte, token_patterns)
     for token in tokens:
