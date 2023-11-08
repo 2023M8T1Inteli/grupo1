@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="../css/coding.css" />
   </head>
   <body>
     <div id="header"></div>
@@ -11,15 +12,33 @@
       <div id="objects"></div>
       <div id="cenario"></div>
       <div id="tapete"></div>
+      <div class="code-block conditionals">
+        SE
+        <div class="droppable-area dropzone">+</div>
+        ENTÃO
+        <div class="droppable-area">+</div>
+      </div>
     </div>
     <div id="footer">
-      <div id="conditional-if">SE ... ENTÃO ...</div>
-      <div class="code-word keyword conditional">SENÃO ...</div>
-      <div class="code-word">QUADRANTE</div>
-      <div class="code-word" id="igual-a">É IGUAL A</div>
+      <div class="code-word conditionals" draggable="true">
+        SE ... ENTÃO ...
+      </div>
+      <div class="code-word conditionals" draggable="true">SENÃO ...</div>
+      <div class="code-word variables" id="quadrante" draggable="true">
+        QUADRANTE
+      </div>
+      <div class="code-word relationals" draggable="true">É IGUAL A</div>
       <div class="code-word">ARROW UP</div>
     </div>
-    <div id="editor-teste"></div>
+
+    <div id="editor-teste" class="dropzone"></div>
+
+    <div>
+      <p>SE</p>
+      <div class="dropzone conditional conditions"></div>
+      <p>ENTÃO</p>
+      <div id="dropzone actions"></div>
+    </div>
 
     <script type="module" src="../scripts/coding.js"></script>
   </body>
