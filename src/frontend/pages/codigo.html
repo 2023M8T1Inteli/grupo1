@@ -4,14 +4,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/codigo.css">
+    <script src="../scripts/codigo.js"></script>
     <title>Editor</title>
   </head>
   <body>
     <div id="header"></div>
     <div id="middle">
       <div id="objects"></div>
-      <div id="cenario"></div>
-      <div id="tapete"></div>
+      <div id="cenario">
+        <div id="fundo-cenario">
+          <div id="tab">
+            <button class="tabbutton" onclick="trocarTab(event, 'canvas')">Cenário</button>
+            <button class="tabbutton" onclick="trocarTab(event, 'editor')">Editor</button>
+          </div>
+          <div id="canvas" class="tabcontent"></div>
+          <div id="editor" class="tabcontent"></div>
+        </div>
+      </div>
+      <div id="tapete">
+        <h3 id="tapete-tab">Tapete</h3>
+      </div>
     </div>
     <div id="footer"></div>
   </body>
