@@ -6,3 +6,6 @@ class Token:
 
     def __repr__(self):
         return f"({self.tipo} {self.valor} {self.linha})"
+    
+    def __str__(self):
+        return f"({self.tipo} {self.valor} {self.linha})"

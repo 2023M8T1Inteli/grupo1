@@ -25,5 +25,6 @@ token_patterns = [
     (r'"[^"]*"', 'STRING'),  # Conteúdo entre aspas duplas
     (r'"', 'DQUOTE'),  # Operadores lógicos
     (r'=', 'ASSIGN'),
-    (r'\(|\)', 'PARENTESES'),  # Parênteses
+    (r'\(', 'LPAR'),  # LPAR
+    (r'\)', 'RPAR'),  # RPAR
 ]
