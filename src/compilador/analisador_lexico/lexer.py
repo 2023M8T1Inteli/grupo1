@@ -13,6 +13,7 @@ def lexer(codigo_fonte, token_patterns):
     tokens = []
     posicao = 0
     linha = 1
+    linhaComentario = 0
     comentario = False
 
     while posicao < len(codigo_fonte):
@@ -29,17 +30,21 @@ def lexer(codigo_fonte, token_patterns):
                     posicao = match.end()
                     # Verificando se existe algum comentário continuado no código
                     comentario = any(p.startswith('/') for p, _ in token_patterns)
+                
+                if tipo == 'COMENTARIO':
+                    for x in range(len(valor)):
+                        if valor[x] == '\n':
+                            linhaComentario += 1
 
                 # Ignorando espaços em branco e comentários
                 if not valor.isspace() and tipo != 'COMENTARIO' and not comentario:
                     if tipo == "STRING":
                         # Fazendo a separação de aspas duplas em uma string
-                        tokens.append(Token("DQUOTE", valor[0], linha))
-                        tokens.append(Token("DQUOTE", valor[0], linha))
-                        tokens.append(Token(tipo, valor[1:-1], linha))
-                        tokens.append(Token("DQUOTE", valor[-1], linha))
+                        tokens.append(Token("DQUOTE", valor[0], linha + linhaComentario))
+                        tokens.append(Token(tipo, valor[1:-1], linha + linhaComentario))
+                        tokens.append(Token("DQUOTE", valor[-1], linha + linhaComentario))
                     else:
-                        tokens.append(Token(tipo, valor, linha))
+                        tokens.append(Token(tipo, valor, linha + linhaComentario))
 
                 posicao = match.end()
                 break
@@ -54,7 +59,7 @@ def lexer(codigo_fonte, token_patterns):
 
             posicao += 1
 
-    tokens.append(Token("EOF", "EOF", linha + 1))
+    tokens.append(Token("EOF", "EOF", linha + linhaComentario + 1))
 
     return tokens
 
