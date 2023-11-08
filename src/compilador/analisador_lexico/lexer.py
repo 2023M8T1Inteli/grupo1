@@ -1,4 +1,5 @@
 import re
+from syntactic import syntatic
 from token_class import Token
 from token_patterns import token_patterns
 
@@ -69,3 +70,5 @@ if __name__ == '__main__':
     tokens = lexer(codigo_fonte, token_patterns)
     for token in tokens:
         print(token)
+    syntax = syntatic(tokens)
+    syntax.analyze()
