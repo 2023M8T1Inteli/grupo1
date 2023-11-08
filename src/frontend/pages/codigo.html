@@ -7,22 +7,23 @@
     <script src="../scripts/codigo.js"></script>
     <title>Editor</title>
   </head>
-  <body>
+  <body onload="clicarCenario()">
     <div id="header"></div>
     <div id="middle">
       <div id="objects"></div>
       <div id="cenario">
         <div id="fundo-cenario">
           <div id="tab">
-            <button class="tabbutton" onclick="trocarTab(event, 'canvas')">Cenário</button>
-            <button class="tabbutton" onclick="trocarTab(event, 'editor')">Editor</button>
+            <button id="botaoCanvas" class="tabbutton" onclick="trocarTab(event, 'canvas')">Cenário</button>
+            <button id="botaoEditor" class="tabbutton" onclick="trocarTab(event, 'editor')">Editor</button>
           </div>
-          <div id="canvas" class="tabcontent"></div>
+          <div id="canvas" class="tabcontent" ondrop="drop_handler(event)" ondragover="dragover_handler(event)"></div>
           <div id="editor" class="tabcontent"></div>
         </div>
       </div>
       <div id="tapete">
         <h3 id="tapete-tab">Tapete</h3>
+        <div id="id1" class="dragged-div" draggable="true" ondragstart="onDragStart(event)">Dragged Div</div>
       </div>
     </div>
     <div id="footer"></div>

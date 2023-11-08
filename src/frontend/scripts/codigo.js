@@ -1,23 +1,57 @@
 function trocarTab(evt, tab) {
-    // Declare all variables
-    var i, tabcontent, tabbutton;
-  
-    // Get all elements with class="tabcontent" and hide them
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-      tabcontent[i].style.display = "none";
-    }
-  
-    // Get all elements with class="tabbutton" and remove the class "active"
-    tabbutton = document.getElementsByClassName("tabbutton");
-    for (i = 0; i < tabbutton.length; i++) {
-      tabbutton[i].className = tabbutton[i].className.replace(" active", "");
-    }
-  
-    // Show the current tab, and add an "active" class to the button that opened the tab
-    document.getElementById(tab).style.display = "block";
-    evt.currentTarget.className += " active";
+  const tabcontents = document.getElementsByClassName("tabcontent");
+  for (const content of tabcontents) {
+    content.style.display = "none";
   }
 
-let offsetX;
-let offsetY;
+  const tabbuttons = document.getElementsByClassName("tabbutton");
+  for (const button of tabbuttons) {
+    button.classList.remove("active");
+  }
+
+  const selectedTab = document.getElementById(tab);
+  if (selectedTab) {
+    selectedTab.style.display = "block";
+    evt.currentTarget.classList.add("active");
+  }
+}
+
+function clicarCenario() {
+  document.getElementById("botaoCanvas").click();
+}
+
+let offsetX, offsetY;
+
+onDragStart = function(ev) {
+  const rect = ev.target.getBoundingClientRect();
+  offsetX = ev.clientX - rect.x;
+  offsetY = ev.clientY - rect.y;
+
+  ev.dataTransfer.setData("text/plain", ev.target.id);
+};
+
+drop_handler = function(ev) {
+  ev.preventDefault();
+
+  const left = parseInt(canvas.style.left);
+  const top = parseInt(canvas.style.top);
+
+  const canvasStyle = window.getComputedStyle(canvas);
+  const canvasLeft = parseInt(canvasStyle.left);
+  const canvasTop = parseInt(canvasStyle.top);
+
+  const draggedItemId = ev.dataTransfer.getData("text/plain");
+  const draggedItem = document.getElementById(draggedItemId);
+
+  if (draggedItem) {
+    draggedItem.classList.add('dragged-div');
+    draggedItem.style.left = ev.clientX - canvasLeft - offsetX + 'px';
+    draggedItem.style.top = ev.clientY - canvasTop - offsetY + 'px';
+    canvas.appendChild(draggedItem);
+  }
+};
+
+dragover_handler = function(ev) {
+  ev.preventDefault();
+  ev.dataTransfer.dropEffect = "move";
+};
