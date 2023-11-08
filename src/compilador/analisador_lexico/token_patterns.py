@@ -12,12 +12,12 @@ token_patterns = [
     (r'\bfaca\b', 'FACA'),
     (r'\bnao\b', 'NAO'),
     (r'\+|-|ou', 'OPSUM'),
+    (r'\bler\b|\bler_varios\b|\bmostrar\b|\btocar\b|\bmostrar_tocar\b|\besperar\b', 'COMANDO'),  # Comandos
     (r'\*|/|%|e', 'OPMUL'),
     (r'\^', 'OPPOW'),  # Operadores matemáticos
     (r'\binicio\b', 'LBLOCK'),
     (r'\bfim\b', 'RBLOCK'),
     (r'\bverdade\b|\bfalso\b', 'BOOLEAN'),
-    (r'\bler\b|\bler_varios\b|\bmostrar\b|\btocar\b|\bmostrar_tocar\b|\besperar\b', 'COMANDO'),  # Comandos
     (r'[a-zA-Z_]\w*', 'IDENTIFICADOR'),  # Identificadores
     (r':', 'COLON'),
     (r',', 'COMMA'),
