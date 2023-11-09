@@ -20,7 +20,7 @@ class Tree:
         elif currentNode.right == None:
             currentNode.right = newNode
         else:
-            self.add(currentNode, newNode)
+            self.add(currentNode.left, newNode)
 
     def __repr__(self):
         return self.print_tree(self.root)
@@ -28,22 +28,13 @@ class Tree:
     def print_tree(self, node):
         if node != None:
             print(" " + str(node))
-            if node.left != None and node.right != None:
-                print("/" + " " + "\\")
-                print(self.print_tree(node.left) + self.print_tree(node.right))
-            elif node.left != None:
+            if node.left != None:
                 print("/" + " ")
-                print(self.print_tree(node.left))
+                self.print_tree(node.left)
             elif node.right != None:
                 print("\\")
-                print(self.print_tree(node.right))
+                self.print_tree(node.right)
         return ""
-        # if node is not None:
-        #     output = "  " * level + str(node) + "\n"
-        #     output += self.printTree(node.left, level + 1)
-        #     output += self.printTree(node.right, level + 1)
-        #     return output
-        # return ""
 
 
 class Node:
