@@ -44,7 +44,7 @@ drop_handler = function(ev) {
   const draggedItem = document.getElementById(draggedItemId);
 
   if (draggedItem) {
-    draggedItem.classList.add('dragged-div');
+    draggedItem.classList.add('comandoTapete');
     draggedItem.style.left = ev.clientX - canvasLeft - offsetX + 'px';
     draggedItem.style.top = ev.clientY - canvasTop - offsetY + 'px';
     canvas.appendChild(draggedItem);
