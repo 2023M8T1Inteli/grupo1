@@ -7,20 +7,22 @@
     <link rel="stylesheet" href="../css/coding.css" />
   </head>
   <body>
-    <div id="header"></div>
+    <div id="header">
+      <div id="deleting-area" class="droppable-area">APAGAR</div>
+    </div>
     <div id="middle">
       <div id="objects"></div>
       <div id="cenario"></div>
       <div id="tapete"></div>
       <div class="code-block conditionals">
         SE
-        <div class="droppable-area dropzone">+</div>
+        <div id="drop2" class="droppable-area dropzone">+</div>
         ENTÃO
         <div class="droppable-area">+</div>
       </div>
     </div>
     <div id="footer">
-      <div class="code-word conditionals" draggable="true">
+      <div id="se" class="code-word conditionals" draggable="true">
         SE ... ENTÃO ...
       </div>
       <div class="code-word conditionals" draggable="true">SENÃO ...</div>
@@ -32,13 +34,6 @@
     </div>
 
     <div id="editor-teste" class="dropzone"></div>
-
-    <div>
-      <p>SE</p>
-      <div class="dropzone conditional conditions"></div>
-      <p>ENTÃO</p>
-      <div id="dropzone actions"></div>
-    </div>
 
     <script type="module" src="../scripts/coding.js"></script>
   </body>

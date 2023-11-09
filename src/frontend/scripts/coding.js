@@ -1,91 +1,71 @@
-import { Conditional } from './Conditional.js'
+let draggingElement = null
 
-var editor = document.getElementById('editor-teste')
-
-var code = []
-var conditionals = []
-
-code.push(conditionals)
-
-var codeWords = document.getElementsByClassName('code-word')
-
-// if
-
-// var conditionalIf = document.getElementById('conditional-if')
-
-// conditionalIf.addEventListener('click', function () {
-//   var newConditional = new Conditional()
-
-//   conditionals.push(newConditional)
-
-//   console.log(code)
-
-//   editor.innerHTML +=
-//     '<div>SE ( </div> <div> XXXXX </div> <div> ) ENTÃO (</div> <div> XXXX </div> )'
-// })
-
-//
+// draggables
 
 const draggables = document.getElementsByClassName('code-word')
-const dropzones = document.getElementsByClassName('dropzone')
 
-// Prevent the default behavior of dragstart to enable custom dragging
+for (var draggable of draggables) {
+  draggable.addEventListener('dragstart', dragStart)
+}
 
-// for (var draggable of draggables) {
-//   draggable.addEventListener('dragstart', e => {
-//     let selected = e.target.cloneNode(true)
-//     console.log('draggable: ' + draggable)
-//     console.log('e: ' + e)
+// editor
 
-//     for (var dropzone of dropzones) {
-//       console.log(selected.id)
+var dropzone = document.getElementById('editor-teste')
 
-//       dropzone.addEventListener('dragover', e => {
-//         e.preventDefault()
-//       })
+dropzone.addEventListener('dragover', dragOver)
 
-//       console.log(selected.id)
+dropzone.addEventListener('drop', dropEditor)
 
-//       //if (selected.id == )
+// dropzone if
 
-//       dropzone.addEventListener('drop', e => {
-//         dropzone.appendChild(selected)
-//         selected = null
-//       })
-//     }
-//   })
-// }
+var dropzone2 = document.getElementById('drop2')
 
-document.addEventListener('DOMContentLoaded', function () {
-  const draggables = document.getElementsByClassName('code-word')
-  const dropzones = document.getElementsByClassName('dropzone')
+dropzone2.addEventListener('dragover', dragOver)
 
-  draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', dragStart)
-  })
+dropzone2.addEventListener('drop', dropEditor)
 
-  dropzones.forEach(dropzone => {
-    dropzone.addEventListener('dragover', dragOver)
-    dropzone.addEventListener('drop', drop)
-  })
+// deleting zone
 
-  function dragStart(event) {
-    event.dataTransfer.setData('text/plain', event.target.id)
+var deletingZone = document.getElementById('deleting-area')
+
+deletingZone.addEventListener('dragover', dragOver)
+
+deletingZone.addEventListener('drop', dropDelete)
+
+// drag functions
+
+function dragStart(e) {
+  draggingElement = e.target.cloneNode(true)
+
+  e.dataTransfer.setData('text/plain', draggingElement.id)
+}
+
+function dragStartCode(e) {
+  draggingElement = e.target
+}
+
+// drag over func
+
+function dragOver(e) {
+  e.preventDefault()
+}
+
+// drop func
+
+function dropEditor(e) {
+  e.target.appendChild(draggingElement)
+
+  draggingElement.classList.add('code-element')
+
+  draggingElement.addEventListener('dragstart', dragStartCode)
+
+  draggingElement = null
+}
+
+function dropDelete(e) {
+  if (draggingElement && draggingElement.classList.contains('code-element')) {
+    draggingElement.parentNode.removeChild(draggingElement)
   }
 
-  function dragOver(event) {
-    event.preventDefault()
-  }
-
-  function drop(event) {
-    event.preventDefault()
-    const draggedElementId = event.dataTransfer.getData('text/plain')
-    const draggedElement = document.getElementById(draggedElementId)
-
-    // Check if the dropzone allows the drop (optional)
-    if (event.target.classList.contains('dropzone')) {
-      // Append the dragged element to the dropzone
-      event.target.appendChild(draggedElement)
-    }
-  }
-})
+  draggingElement = null
+}
