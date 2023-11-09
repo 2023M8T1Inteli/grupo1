@@ -1,3 +1,6 @@
+const ifCodeBlock =
+  '<div class="code-block conditionals" draggable="true">SE<div class="droppable-area dropzone">+</div>ENTÃO<div class="droppable-area">+</div></div>'
+
 let draggingElement = null
 
 // draggables
@@ -16,14 +19,6 @@ dropzone.addEventListener('dragover', dragOver)
 
 dropzone.addEventListener('drop', dropEditor)
 
-// dropzone if
-
-var dropzone2 = document.getElementById('drop2')
-
-dropzone2.addEventListener('dragover', dragOver)
-
-dropzone2.addEventListener('drop', dropEditor)
-
 // deleting zone
 
 var deletingZone = document.getElementById('deleting-area')
@@ -35,24 +30,59 @@ deletingZone.addEventListener('drop', dropDelete)
 // drag functions
 
 function dragStart(e) {
+  // função para elementos que estão fora do editor
   draggingElement = e.target.cloneNode(true)
-
-  e.dataTransfer.setData('text/plain', draggingElement.id)
 }
 
 function dragStartCode(e) {
+  // função para elementos que estão dentro do editor
   draggingElement = e.target
 }
 
 // drag over func
 
 function dragOver(e) {
+  // função para quando o objeto estiver sendo arrastado em cima de uma droppable area
   e.preventDefault()
 }
 
 // drop func
 
 function dropEditor(e) {
+  // função para dropar elementos no editor
+
+  if (draggingElement.id == 'se') {
+    // caso o elemento dropado seja um statement
+    var newElement = document.createElement('div')
+
+    newElement.innerHTML = ifCodeBlock
+
+    draggingElement = newElement
+
+    for (let i = 0; i < draggingElement.children.length; i++) {
+      let child = draggingElement.children[i]
+      if (child.classList.contains('droppable-area')) {
+        child.addEventListener('dragover', dragOver)
+        child.addEventListener('drop', dropCodeBlock)
+      }
+    }
+  }
+
+  e.target.appendChild(draggingElement)
+
+  console.log('dragging el class list: ' + draggingElement.classList)
+
+  draggingElement.classList.add('code-element')
+
+  console.log('dragging el class list: ' + draggingElement.classList)
+
+  draggingElement.addEventListener('dragstart', dragStartCode)
+
+  draggingElement = null
+}
+
+function dropCodeBlock(e) {
+  // função para dropar elementos em blocos de código (if, else, while)
   e.target.appendChild(draggingElement)
 
   draggingElement.classList.add('code-element')
@@ -63,7 +93,17 @@ function dropEditor(e) {
 }
 
 function dropDelete(e) {
-  if (draggingElement && draggingElement.classList.contains('code-element')) {
+  // função para dropar elementos na área de delete
+  console.log('dragging el: ' + draggingElement)
+
+  if (draggingElement) console.log('dragging el true')
+
+  console.log('dragging el class list: ' + draggingElement.classList)
+
+  if (
+    draggingElement.classList.contains('code-element') ||
+    draggingElement.classList.contains('code-block')
+  ) {
     draggingElement.parentNode.removeChild(draggingElement)
   }
 
