@@ -72,7 +72,7 @@
 
 #tab button:hover {
     background-color: #5b5b5b;
-  }
+}
 
 #tab button:active {
     background-color: #828282;
@@ -106,10 +106,17 @@
     width: 120vh;
 }
 
-#arrowDown {
-    top: 5vh; /* Posiciona a seta para baixo abaixo da seta para cima */
+.comandoTapete {
+    cursor: pointer;
+    width: 10vh;
+    height: 5vh;
+    position: absolute;
+    background-color: #8d8a8a;
+    text-align: center;
+    border-radius: 10px; /* Bordas arredondadas */
+    background-image: linear-gradient(to right, #8d8a8a, #9d9a9a); /* Efeito de gradiente */
 }
-  
+
 
 .tabcontent{
     background-color: #f1f1f1;
@@ -127,16 +134,129 @@
     display: none;
 }
 
-#tapete {
-    height: 67vh;
-    width: 25vh;
-    background-color: #555;
+#tapete-lateral {
+    height: auto;
+    width: 20%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 15px; /* Bordas arredondadas */
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6); /* Efeito de gradiente */
+}
+
+#tapete-cores {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
     padding: 10px;
-    padding-top: 0px;
+}
+
+.tapete-cor {
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilos para quando uma cor é selecionada */
+.tapete-cor.selecionado {
+    border: 2px solid #000000;
+}
+
+#dropdown-container {
+    margin-top: 20px;
+}
+  
+label {
+    display: block;
+    font-weight: bold;
+}
+  
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+#editor {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f1f1f1;
+    height: 60vh;
+    width: 120vh;
+}
+
+#titulo-atividade {
+    width: 80%;
+    min-height: 80px;
+    padding: 20px;
+    background-color: #fff;
+    resize: none;
+    box-sizing: border-box;
+    margin-left: 10%;
+    text-align: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+#editor-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    position: relative;
+}
+
+.editor-bloco {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+#bloco-imagem {
+    position: absolute;
+    left: 20%;
+    top: 40%;
+}
+
+#bloco-cor {
+    position: absolute;
+    left: 60%;
+    top: 40%;
+}
+
+#titulo-atividade {
+    margin-top: 40px;
+    margin-left: 60px;
+}
+
+/* Adicionando transições suaves */
+.tabbutton, .comandoTapete, #titulo-atividade, .editor-bloco, .tapete-cor {
+    transition: all 0.3s ease; /* Transição suave para mudanças de estado */
+}
+
+#tab button:hover, #tab button:active, .tabbutton:hover, .tabbutton.active {
+    transition: background-color 0.3s ease; /* Transição suave para mudanças de cor de fundo */
+}
+
+#tapete-lateral, #fundo-cenario {
+    transition: background-image 0.3s ease; /* Transição suave para mudanças de gradiente */
 }
 
 #tapete-tab {
-    text-align: center;
+    margin-left: 65px; /* Ajusta a margem esquerda para mover o título para o lado */
+}
     color: rgb(255, 255, 255);
 }
 
