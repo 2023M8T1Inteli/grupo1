@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/codigo.css">
+    <link rel="stylesheet" href="../css/codigo.css" />
     <script src="../scripts/codigo.js"></script>
     <title>Editor</title>
   </head>
@@ -14,18 +14,64 @@
       <div id="cenario">
         <div id="fundo-cenario">
           <div id="tab">
-            <button id="botaoCanvas" class="tabbutton" onclick="trocarTab(event, 'canvas')">Cenário</button>
-            <button id="botaoEditor" class="tabbutton" onclick="trocarTab(event, 'editor')">Editor</button>
+            <button
+              id="botaoCanvas"
+              class="tabbutton"
+              onclick="trocarTab(event, 'canvas')"
+            >
+              Cenário
+            </button>
+            <button
+              id="botaoEditor"
+              class="tabbutton"
+              onclick="trocarTab(event, 'editor')"
+            >
+              Editor
+            </button>
           </div>
-          <div id="canvas" class="tabcontent" ondrop="drop_handler(event)" ondragover="dragover_handler(event)"></div>
+          <div
+            id="canvas"
+            class="tabcontent"
+            ondrop="drop_handler(event)"
+            ondragover="dragover_handler(event)"
+          ></div>
           <div id="editor" class="tabcontent"></div>
         </div>
       </div>
       <div id="tapete">
         <h3 id="tapete-tab">Tapete</h3>
-        <div id="arrowUp" class="comandoTapete" draggable="true" ondragstart="onDragStart(event)">Seta Pra Cima</div>
+        <div
+          id="arrowUp"
+          class="input-keys code-word"
+          draggable="true"
+          ondragstart="onDragStart(event)"
+        >
+          SETA PARA CIMA
+        </div>
       </div>
     </div>
-    <div id="footer"></div>
+    <div id="footer">
+      <div
+        id="se"
+        class="argumentative code-word conditionals"
+        draggable="true"
+      >
+        SE ... ENTÃO ...
+      </div>
+      <div class="code-word variables" id="quadrante" draggable="true">
+        TECLA PRESS
+      </div>
+      <div class="code-word relationals" draggable="true">É IGUAL A</div>
+      <div
+        id="show-function"
+        class="argumentative code-word functions"
+        draggable="true"
+      >
+        MOSTRAR
+      </div>
+      <div id="deleting-area" class="droppable-area">APAGAR</div>
+    </div>
+
+    <script src="../scripts/coding.js"></script>
   </body>
 </html>
