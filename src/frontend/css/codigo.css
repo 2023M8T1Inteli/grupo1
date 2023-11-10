@@ -106,17 +106,6 @@
     width: 120vh;
 }
 
-/* .comandoTapete {
-    cursor: pointer;
-    width: 10vh;
-    height: 5vh;
-    position: absolute;
-    background-color: #8d8a8a;
-    text-align: center;
-  } */
-
-}
-
 #arrowDown {
     top: 5vh; /* Posiciona a seta para baixo abaixo da seta para cima */
 }
