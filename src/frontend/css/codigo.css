@@ -256,7 +256,6 @@ select {
 
 #tapete-tab {
     margin-left: 65px; /* Ajusta a margem esquerda para mover o título para o lado */
-
     color: rgb(255, 255, 255);
 }
 
@@ -270,7 +269,6 @@ select {
     align-items: center;
     justify-content: center;
     margin: 0 auto; /* Center the box horizontally */
-    width: auto;
     cursor: grab;
     padding: 5px;
   }

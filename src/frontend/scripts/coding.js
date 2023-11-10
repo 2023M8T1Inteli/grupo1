@@ -35,6 +35,8 @@ deletingZone.addEventListener('drop', dropDelete)
 function dragStart(e) {
   // função para elementos que estão fora do editor
   draggingElement = e.target.cloneNode(true)
+  draggingElement.style.width = 'auto'
+  draggingElement.style.height = 'auto'
 }
 
 function dragStartCode(e) {
