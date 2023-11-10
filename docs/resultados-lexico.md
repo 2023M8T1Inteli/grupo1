@@ -17,6 +17,10 @@ Para verificar os resultados do analisador léxico, foram usados 5 arquivos '.tx
 ### Input
 
 ```
+> python lexer.py example1
+```
+
+```
 programa :
 inicio
     programas = verdade
@@ -71,6 +75,9 @@ fim.
 
 ### Input
 
+```
+> python lexer.py example2
+```
 
 ```
 se abc <> xyz entao
@@ -80,7 +87,6 @@ inicio
 fim
 ```
 ### Output
-
 
 ```
 (SE se 1)
@@ -107,6 +113,9 @@ fim
 
 ### Input
 
+```
+> python lexer.py example3
+```
 
 ```
 teste = 1+2 -3 *
@@ -134,6 +143,9 @@ teste = 1+2 -3 *
 
 ### Input
 
+```
+> python lexer.py example4
+```
 
 ```
 inicio
@@ -157,6 +169,9 @@ fim
 
 ### Input
 
+```
+> python lexer.py example5
+```
 
 ```
 a = 1
