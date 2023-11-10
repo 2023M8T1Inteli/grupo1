@@ -143,6 +143,8 @@
                 <div id="bloco-cor" class="editor-bloco">COR</div>
             </div>
           </div>
+
+          <div id="editor" class="tabcontent"></div>
           
         </div>
       </div>
@@ -150,12 +152,12 @@
         <!-- Tapete (Cores) -->
           <h3 id="tapete-tab">TAPETE</h3>
           <div id="tapete-cores" class="tapete-container">
-            <div class="tapete-cor" data-cor="green" style="background-color: green;" onclick="adicionarCorAoCenario('green')"></div>
-            <div class="tapete-cor" data-cor="blue" style="background-color: blue;" onclick="adicionarCorAoCenario('blue')"></div>
-            <div class="tapete-cor" data-cor="yellow" style="background-color: yellow;" onclick="adicionarCorAoCenario('yellow')"></div>
-            <div class="tapete-cor" data-cor="purple" style="background-color: purple;" onclick="adicionarCorAoCenario('purple')"></div>
-            <div class="tapete-cor" data-cor="black" style="background-color: black;" onclick="adicionarCorAoCenario('black')"></div>
-            <div class="tapete-cor" data-cor="red" style="background-color: red;" onclick="adicionarCorAoCenario('red')"></div>
+            <div class="tapete-cor code-word" data-cor="green" style="background-color: green;" onclick="adicionarCorAoCenario('green')" draggable="true"></div>
+            <div class="tapete-cor code-word" data-cor="blue" style="background-color: blue;" onclick="adicionarCorAoCenario('blue')" draggable="true"></div>
+            <div class="tapete-cor code-word" data-cor="yellow" style="background-color: yellow;" onclick="adicionarCorAoCenario('yellow')" draggable="true"></div>
+            <div class="tapete-cor code-word" data-cor="purple" style="background-color: purple;" onclick="adicionarCorAoCenario('purple')" draggable="true"></div>
+            <div class="tapete-cor code-word" data-cor="black" style="background-color: black;" onclick="adicionarCorAoCenario('black')" draggable="true"></div>
+            <div class="tapete-cor code-word" data-cor="red" style="background-color: red;" onclick="adicionarCorAoCenario('red')" draggable="true"></div>
           </div>
           
         </div>
@@ -167,27 +169,11 @@
             ondrop="drop_handler(event)"
             ondragover="dragover_handler(event)"
           ></div>
-          <div id="editor" class="tabcontent"></div>
+          
         </div>
       </div>
       <div id="tapete">
         <h3 id="tapete-tab">Tapete</h3>
-        <div
-          id="arrowUp"
-          class="input-keys code-word"
-          draggable="true"
-          ondragstart="onDragStart(event)"
-        >
-          SETA PARA CIMA
-        </div>
-        <div
-          id="arrowDown"
-          class="input-keys code-word"
-          draggable="true"
-          ondragstart="onDragStart(event)"
-        >
-          SETA PARA BAIXO
-        </div>
       </div>
     </div>
     <div id="footer">
