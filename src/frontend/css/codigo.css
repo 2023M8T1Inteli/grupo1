@@ -71,11 +71,11 @@
 }
 
 #tab button:hover {
-    background-color: #5b5b5b;
+    background-color: #000000;
 }
 
 #tab button:active {
-    background-color: #828282;
+    background-color: #000000;
 }
 
 .tabcontent.active-tab {
@@ -87,7 +87,7 @@
 }
 
 .tabbutton.active {
-    background-color: #828282;
+    background-color: #000000;
 }
 
 #fundo-cenario {
@@ -256,7 +256,7 @@ select {
 
 #tapete-tab {
     margin-left: 65px; /* Ajusta a margem esquerda para mover o título para o lado */
-    color: rgb(255, 255, 255);
+    color: #000000;
 }
 
 /* code words */
@@ -275,6 +275,7 @@ select {
 
   .conditionals {
     background-color: orange;
+    color: #000000;
   }
   
   .relationals {
@@ -286,11 +287,12 @@ select {
   }
 
   .functions {
-    background-color: rgb(255, 0, 0);
+    background-color: #AD0000;
   }
   
   .variables {
     background-color: rgb(0, 187, 255);
+    color: #000000;
   }
   
   /* code blocks with droppable area */
