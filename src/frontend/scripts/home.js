@@ -1,3 +1,3 @@
 function redirectAtividades(){
-    document.location.replace('./pages/login.html');
+    document.location.replace('./atividades.html');
 }
