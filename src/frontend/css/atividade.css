@@ -83,22 +83,3 @@ body {
 #start-button:hover {
     background: darkgreen;
 }
-
-        /* ...estilos anteriores... */
-
-#start-button {
-     width: 100%;
-     padding: 10px;
-     background: green;
-     color: white;
-     border: none;
-     cursor: pointer;
-     margin-top: 20px;
-        }
-
-#start-button:hover {
-        background: darkgreen;
-        }
-
- 
-
