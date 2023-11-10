@@ -8,7 +8,20 @@
     <title>Editor</title>
   </head>
   <body onload="clicarCenario()">
-    <div id="header"></div>
+    <div id="header">
+      <div id="sair">
+        <div class="imgcontainer">
+          <img src="../img/voltar.png" alt="Avatar" class="avatar">
+        </div>
+        <h2>Sair</h2>
+      </div>
+      <div id="salvar">
+        <div class="imgcontainer">
+          <img src="../img/save.png" alt="Avatar" class="avatar">
+        </div>
+        <h2>Salvar</h2>
+      </div>
+    </div>
     <div id="middle">
       <div id="objects"></div>
       <div id="cenario">
@@ -23,7 +36,10 @@
       </div>
       <div id="tapete">
         <h3 id="tapete-tab">Tapete</h3>
-        <div id="arrowUp" class="comandoTapete" draggable="true" ondragstart="onDragStart(event)">Seta Pra Cima</div>
+        <div id="corpoTapete">
+          <div id="arrowUp" class="comandoTapete" draggable="true" ondragstart="onDragStart(event)">Seta Pra Cima</div>
+          <div id="arrowDown" class="comandoTapete" draggable="true" ondragstart="onDragStart(event)">Seta Pra Baixo</div>
+        </div>
       </div>
     </div>
     <div id="footer"></div>
