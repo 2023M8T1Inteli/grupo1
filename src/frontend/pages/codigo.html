@@ -10,21 +10,132 @@
   <body onload="clicarCenario()">
     <div id="header"></div>
     <div id="middle">
-      <div id="objects"></div>
+      <div id="objects">
+
+        <!-- Dropdown Alimentação -->
+        <div id="dropdown-container1">
+          <select id="dropdownAlimentacao" onchange="adicionarImagem(this.value)">
+            <option value="alimentacao">Alimentação</option>
+            <option value="maca">Maçã</option>
+            <option value="banana">Banana</option>
+          </select>
+        </div>
+
+        <!-- Dropdown Religião -->
+        <div id="dropdown-container2">
+          <select id="dropdownReligiao" onchange="adicionarImagem(this.value)">
+            <option value="">Religião</option>
+            <option value="cristianismo">Cristianismo</option>
+            <option value="judaismo">Judaísmo</option>
+          </select>
+        </div>
+
+        <!-- Dropdown Esporte -->
+        <div id="dropdown-container3">
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="esporte">Esporte</option>
+            <option value="futebol">Futebol</option>
+            <option value="volei">Vôlei</option>
+          </select>
+        </div>
+        
+        <!-- Dropdown Animal -->
+        <div id="dropdown-container4">
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="animal">Animal</option>
+            <option value="peixe">Peixe</option>
+            <option value="rato">Rato</option>
+          </select>
+        </div>
+
+        <!-- Dropdown Planta -->
+        <div id="dropdown-container5">
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="planta">Planta</option>
+            <option value="arvore">Árvore</option>
+            <option value="flor">Flor</option>
+          </select>
+        </div>
+
+        <!-- Dropdown Transporte -->
+        <div id="dropdown-container6">
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="transporte">Transporte</option>
+            <option value="bicicleta">Bicicleta</option>
+            <option value="carro">Carro</option>
+          </select>
+        </div>
+
+        <!-- Dropdown Evento -->
+        <div id="dropdown-container7">
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="evento">Evento</option>
+            <option value="natal">Natal</option>
+            <option value="pascoa">Páscoa</option>
+          </select>
+        </div>
+
+        <!-- Dropdown Cor -->
+        <div id="dropdown-container8">
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="cores">Cores</option>
+            <option value="verde">Verde</option>
+            <option value="roxo">Roxo</option>
+          </select>
+        </div>
+
+        <!-- Dropdown Profissão -->
+        <div id="dropdown-container9">
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="profissao">Profissão</option>
+            <option value="medico">Médico</option>
+            <option value="professor">Professor</option>
+          </select>
+        </div>
+
+        <!-- Dropdown Música -->
+        <div id="dropdown-container10">
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="musica">Música</option>
+            <option value="guitarra">Guitarra</option>
+            <option value="violino">Violino</option>
+          </select>
+        </div>
+      </div>
       <div id="cenario">
         <div id="fundo-cenario">
           <div id="tab">
             <button id="botaoCanvas" class="tabbutton" onclick="trocarTab(event, 'canvas')">Cenário</button>
             <button id="botaoEditor" class="tabbutton" onclick="trocarTab(event, 'editor')">Editor</button>
           </div>
-          <div id="canvas" class="tabcontent" ondrop="drop_handler(event)" ondragover="dragover_handler(event)"></div>
-          <div id="editor" class="tabcontent"></div>
+
+          <!-- Cenário -->
+          <div id="canvas" class="tabcontent" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+            <!-- Conteúdo movido da aba Editor -->
+            <textarea id="titulo-atividade" placeholder="TÍTULO DA ATIVIDADE"></textarea>
+            <div id="editor-content">
+                <div id="bloco-imagem" class="editor-bloco">IMAGEM</div>
+                <div id="bloco-cor" class="editor-bloco">COR</div>
+            </div>
+          </div>
+          
         </div>
       </div>
-      <div id="tapete">
-        <h3 id="tapete-tab">Tapete</h3>
-        <div id="arrowUp" class="comandoTapete" draggable="true" ondragstart="onDragStart(event)">Seta Pra Cima</div>
+      <div id="tapete" class="tapete-lateral">
+        <!-- Tapete (Cores) -->
+          <h3 id="tapete-tab">TAPETE</h3>
+          <div id="tapete-cores" class="tapete-container">
+            <div class="tapete-cor" data-cor="green" style="background-color: green;" onclick="adicionarCorAoCenario('green')"></div>
+            <div class="tapete-cor" data-cor="blue" style="background-color: blue;" onclick="adicionarCorAoCenario('blue')"></div>
+            <div class="tapete-cor" data-cor="yellow" style="background-color: yellow;" onclick="adicionarCorAoCenario('yellow')"></div>
+            <div class="tapete-cor" data-cor="purple" style="background-color: purple;" onclick="adicionarCorAoCenario('purple')"></div>
+            <div class="tapete-cor" data-cor="black" style="background-color: black;" onclick="adicionarCorAoCenario('black')"></div>
+            <div class="tapete-cor" data-cor="red" style="background-color: red;" onclick="adicionarCorAoCenario('red')"></div>
+          </div>
+          
+        </div>
       </div>
+      
     </div>
     <div id="footer"></div>
   </body>
