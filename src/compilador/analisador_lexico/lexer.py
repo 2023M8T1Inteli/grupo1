@@ -1,4 +1,5 @@
 import re
+import sys
 from syntactic import syntatic
 from token_class import Token
 from token_patterns import token_patterns
@@ -66,7 +67,13 @@ def lexer(codigo_fonte, token_patterns):
 
 if __name__ == '__main__':
     # Lendo o código-fonte do arquivo "codigo.txt" e realizando a análise léxica
-    codigo_fonte = ler_codigo("codigo.txt")
+
+    valor = "codigo.txt"
+
+    if len(sys.argv) > 1:
+        valor = "./examples/" + sys.argv[1] + ".txt"
+
+    codigo_fonte = ler_codigo(valor)
     tokens = lexer(codigo_fonte, token_patterns)
     for token in tokens:
         print(token)
