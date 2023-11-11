@@ -29,6 +29,12 @@
     flex-direction: row;
 }
 
+/* Estilos para a opção 'Gerar Código' */
+#gerar-codigo {
+    display: flex;
+    flex-direction: row;
+}
+
 /* Estilos para a imagem do avatar */
 .imgcontainer {
     width: 7vh;
