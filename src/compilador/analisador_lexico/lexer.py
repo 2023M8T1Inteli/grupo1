@@ -1,74 +1,66 @@
 import re
-from syntactic import syntatic
-from token_class import Token
-from token_patterns import token_patterns
+from Token import Token
 
-def ler_codigo(arq):
-    # Função que faz a leitura do código fonte do arquivo
-    codigo = ""
-    with open(arq, "r", encoding="utf-8") as f:
-        codigo = f.read()
-    return codigo
 
-def lexer(codigo_fonte, token_patterns):
-    tokens = []
-    posicao = 0
-    linha = 1
-    linhaComentario = 0
-    comentario = False
+class Lexer:
+    def lexer(source_code, token_patterns):
+        tokens = []
+        position = 0
+        line = 1
+        comment_line = 0
+        in_comment = False
 
-    while posicao < len(codigo_fonte):
-        match = None
+        while position < len(source_code):
+            match = None
 
-        for pattern, tipo in token_patterns:
-            regex = re.compile(pattern, re.DOTALL)
-            match = regex.match(codigo_fonte, posicao)
+            for pattern, type_ in token_patterns:
+                regex = re.compile(pattern, re.DOTALL)
+                match = regex.match(source_code, position)
 
-            if match:
-                valor = match.group(0)
+                if match:
+                    value = match.group(0)
 
-                if valor == '/':
-                    posicao = match.end()
-                    # Verificando se existe algum comentário continuado no código
-                    comentario = any(p.startswith('/') for p, _ in token_patterns)
-                
-                if tipo == 'COMENTARIO':
-                    for x in range(len(valor)):
-                        if valor[x] == '\n':
-                            linhaComentario += 1
+                    if value == "/":
+                        position = match.end()
+                        # Verificando se existe algum comentário continuado no código
+                        in_comment = any(p.startswith("/") for p, _ in token_patterns)
 
-                # Ignorando espaços em branco e comentários
-                if not valor.isspace() and tipo != 'COMENTARIO' and not comentario:
-                    if tipo == "STRING":
-                        # Fazendo a separação de aspas duplas em uma string
-                        tokens.append(Token("DQUOTE", valor[0], linha + linhaComentario))
-                        tokens.append(Token(tipo, valor[1:-1], linha + linhaComentario))
-                        tokens.append(Token("DQUOTE", valor[-1], linha + linhaComentario))
-                    else:
-                        tokens.append(Token(tipo, valor, linha + linhaComentario))
+                    if type_ == "COMENTARIO":
+                        for x in range(len(value)):
+                            if value[x] == "\n":
+                                comment_line += 1
 
-                posicao = match.end()
-                break
+                    # Ignorando espaços em branco e comentários
+                    if not value.isspace() and type_ != "COMENTARIO" and not in_comment:
+                        if type_ == "STRING":
+                            # Fazendo a separação de aspas duplas em uma string
+                            tokens.append(
+                                Token("DQUOTE", value[0], line + comment_line)
+                            )
+                            tokens.append(
+                                Token(type_, value[1:-1], line + comment_line)
+                            )
+                            tokens.append(
+                                Token("DQUOTE", value[-1], line + comment_line)
+                            )
+                        else:
+                            tokens.append(Token(type_, value, line + comment_line))
 
-        if not match:
-            if codigo_fonte[posicao] == '\n':
-                # Atualizando o número da linha ao encontrar uma quebra de linha
-                linha += 1
-                comentario = False
-            elif not codigo_fonte[posicao].isspace():
-                raise ValueError(f"Erro léxico: Caractere inesperado em '{codigo_fonte[posicao]}' na linha {linha} e na posição {posicao}")
+                    position = match.end()
+                    break
 
-            posicao += 1
+            if not match:
+                if source_code[position] == "\n":
+                    # Atualizando o número da linha ao encontrar uma quebra de linha
+                    line += 1
+                    in_comment = False
+                elif not source_code[position].isspace():
+                    raise ValueError(
+                        f"Erro léxico: Caractere inesperado em '{source_code[position]}' na linha {line} e na posição {position}"
+                    )
 
-    tokens.append(Token("EOF", "EOF", linha + linhaComentario + 1))
+                position += 1
 
-    return tokens
+        tokens.append(Token("EOF", "EOF", line + comment_line + 1))
 
-if __name__ == '__main__':
-    # Lendo o código-fonte do arquivo "codigo.txt" e realizando a análise léxica
-    codigo_fonte = ler_codigo("codigo.txt")
-    tokens = lexer(codigo_fonte, token_patterns)
-    for token in tokens:
-        print(token)
-    syntax = syntatic(tokens)
-    syntax.analyze()
+        return tokens

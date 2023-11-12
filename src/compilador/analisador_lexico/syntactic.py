@@ -1,10 +1,9 @@
-class syntatic:
-
+class Syntatic:
     def __init__(self, tokenList):
         self.tokenList = tokenList
         self.tokenCurrent = None
         self.position = -1
-        self.nextToken()
+        self.next_token()
         pass
 
     def analyze(self):
@@ -14,14 +13,18 @@ class syntatic:
         pass
 
     def compare(self, type, value=None):
-        if (self.tokenCurrent.tipo == type and ((value is None) or (self.tokenCurrent.valor == value))):
-            self.nextToken()
+        if self.tokenCurrent.tipo == type and (
+            (value is None) or (self.tokenCurrent.valor == value)
+        ):
+            self.next_token()
         else:
-            raise ValueError("ERRO: Sintaxe Inválida - Token '{self.tokenCurrent.tipo}: {self.tokenCurrent.valor}' encontrado ao invés de {type} na linha {self.tokenCurrent.linha}.")
+            raise ValueError(
+                "ERRO: Sintaxe Inválida - Token '{self.tokenCurrent.tipo}: {self.tokenCurrent.valor}' encontrado ao invés de {type} na linha {self.tokenCurrent.linha}."
+            )
         pass
 
-    def nextToken(self):
-        if (self.position < len(self.tokenList) - 1):
+    def next_token(self):
+        if self.position < len(self.tokenList) - 1:
             self.position += 1
             self.tokenCurrent = self.tokenList[self.position]
         pass
@@ -43,17 +46,17 @@ class syntatic:
         pass
 
     def statement_list(self):
-        if (self.tokenCurrent.tipo != "RBLOCK"):
+        if self.tokenCurrent.tipo != "RBLOCK":
             self.statement()
             self.statement_list()
         pass
 
     def statement(self):
-        if (self.tokenCurrent.tipo == "IDENTIFICADOR"):
+        if self.tokenCurrent.tipo == "IDENTIFICADOR":
             self.assign_statement()
-        elif (self.tokenCurrent.tipo == "SE"):
+        elif self.tokenCurrent.tipo == "SE":
             self.if_statement()
-        elif (self.tokenCurrent.tipo == "ENQUANTO"):
+        elif self.tokenCurrent.tipo == "ENQUANTO":
             self.while_statement()
         else:
             self.command_statement()
@@ -62,7 +65,9 @@ class syntatic:
     def assign_statement(self):
         self.compare("IDENTIFICADOR")
         self.compare("ASSIGN")
-        if (self.tokenCurrent.tipo == "COMANDO" and (self.tokenCurrent.valor == "ler" or self.tokenCurrent.valor == "ler_varios")):
+        if self.tokenCurrent.tipo == "COMANDO" and (
+            self.tokenCurrent.valor == "ler" or self.tokenCurrent.valor == "ler_varios"
+        ):
             self.input_statement()
         else:
             self.expression()
@@ -73,7 +78,7 @@ class syntatic:
         self.expression()
         self.compare("ENTAO")
         self.block()
-        if (self.tokenCurrent.tipo == "SENAO"):
+        if self.tokenCurrent.tipo == "SENAO":
             self.compare("SENAO")
             self.block()
         pass
@@ -86,17 +91,19 @@ class syntatic:
         pass
 
     def command_statement(self):
-        if (self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "mostrar"):
+        if self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "mostrar":
             self.compare("COMANDO", "mostrar")
             self.compare("LPAR")
             self.sum_expression()
             self.compare("RPAR")
-        elif (self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "tocar"):
+        elif self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "tocar":
             self.compare("COMANDO", "tocar")
             self.compare("LPAR")
             self.sum_expression()
             self.compare("RPAR")
-        elif (self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "esperar"):
+        elif (
+            self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "esperar"
+        ):
             self.compare("COMANDO", "esperar")
             self.compare("LPAR")
             self.sum_expression()
@@ -111,7 +118,7 @@ class syntatic:
         pass
 
     def input_statement(self):
-        if (self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "ler"): 
+        if self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "ler":
             self.compare("COMANDO", "ler")
             self.compare("LPAR")
             self.compare("RPAR")
@@ -128,7 +135,7 @@ class syntatic:
 
     def expression(self):
         self.sum_expression()
-        if (self.tokenCurrent.tipo == "OPREL"):
+        if self.tokenCurrent.tipo == "OPREL":
             self.relop()
             self.sum_expression()
         pass
@@ -143,7 +150,7 @@ class syntatic:
         pass
 
     def sum_expression2(self):
-        if (self.tokenCurrent.tipo == "OPSUM"):
+        if self.tokenCurrent.tipo == "OPSUM":
             self.compare("OPSUM")
             self.mult_term()
             self.sum_expression2
@@ -155,7 +162,7 @@ class syntatic:
         pass
 
     def mult_term2(self):
-        if (self.tokenCurrent.tipo == "OPMUL"):
+        if self.tokenCurrent.tipo == "OPMUL":
             self.compare("OPMUL")
             self.power_term()
             self.mult_term2()
@@ -163,25 +170,25 @@ class syntatic:
 
     def power_term(self):
         self.factor()
-        if (self.tokenCurrent.tipo == "OPPOW"):
+        if self.tokenCurrent.tipo == "OPPOW":
             self.compare("OPPOW")
             self.power_term()
         pass
 
     def factor(self):
-        if (self.tokenCurrent.tipo == "IDENTIFICADOR"):
+        if self.tokenCurrent.tipo == "IDENTIFICADOR":
             self.compare("IDENTIFICADOR")
-        elif (self.tokenCurrent.tipo == "NUMERO"):
+        elif self.tokenCurrent.tipo == "NUMERO":
             self.compare("NUMERO")
-        elif (self.tokenCurrent.tipo == "BOOLEAN"):
+        elif self.tokenCurrent.tipo == "BOOLEAN":
             self.boolean()
-        elif (self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.value == "+"):
+        elif self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.value == "+":
             self.compare("OPSUM", "+")
             self.factor()
-        elif (self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.value == "-"):
+        elif self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.value == "-":
             self.compare("OPSUM", "-")
             self.factor()
-        elif (self.tokenCurrent.tipo == "NAO"):
+        elif self.tokenCurrent.tipo == "NAO":
             self.compare("NAO")
             self.factor()
         else:
@@ -191,7 +198,7 @@ class syntatic:
         pass
 
     def boolean(self):
-        if (self.tokenCurrent.tipo == "BOOLEAN" and self.tokenCurrent.value == "verdade"):
+        if self.tokenCurrent.tipo == "BOOLEAN" and self.tokenCurrent.value == "verdade":
             self.compare("BOOLEAN", "verdade")
         else:
             self.compare("BOOLEAN", "falso")

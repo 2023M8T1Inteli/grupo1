@@ -1,9 +1,12 @@
+from Token import Token
+
+
 class Tree:
     def __init__(self):
         self.root = None
         self.depth = 0
 
-    def addNode(self, node):
+    def add_node(self, node):
         if self.root == None:
             self.root = node
             self.depth += 1
@@ -17,50 +20,28 @@ class Tree:
         elif currentNode.right == None:
             currentNode.right = newNode
         else:
-            self.add(currentNode, newNode)
+            self.add(currentNode.left, newNode)
 
     def __repr__(self):
-        return self.printTree(self.root)
+        return self.print_tree(self.root)
 
-    def printTree(self, node):
+    def print_tree(self, node):
         if node != None:
             print(" " + str(node))
-            if node.left != None and node.right != None:
-                print("/" + " " + "\\")
-                print(self.printTree(node.left) + " " + self.printTree(node.right))
-            elif node.left != None:
+            if node.left != None:
                 print("/" + " ")
-                print(self.printTree(node.left))
+                self.print_tree(node.left)
             elif node.right != None:
                 print("\\")
-                print(self.printTree(node.right))
+                self.print_tree(node.right)
         return ""
-        # if node is not None:
-        #     output = "  " * level + str(node) + "\n"
-        #     output += self.printTree(node.left, level + 1)
-        #     output += self.printTree(node.right, level + 1)
-        #     return output
-        # return ""
 
 
 class Node:
-    def __init__(self, value) -> None:
-        self.value = value
+    def __init__(self, Token) -> None:
+        self.value = Token.tipo
         self.left = None
         self.right = None
 
     def __repr__(self) -> str:
         return self.value
-
-
-tree = Tree()
-
-node1 = Node("A")
-node2 = Node("B")
-node3 = Node("C")
-
-tree.addNode(node1)
-tree.addNode(node2)
-tree.addNode(node3)
-
-print(tree)
