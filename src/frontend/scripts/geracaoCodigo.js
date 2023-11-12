@@ -4,11 +4,9 @@ const editor = document.getElementById('editor')
 
 const generator = document.getElementById('gerador')
 
-generator.addEventListener('click', gerarCodigo)
+generator.addEventListener('click', generateCode)
 
-function gerarCodigo(e) {
-  const titulo = document.getElementById('titulo-atividade')
-
+function generateCode() {
   let codeText = 'programa "atividade": '
 
   codeText += 'inicio '
