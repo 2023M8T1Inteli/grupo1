@@ -3,7 +3,7 @@ export class Conditional {
     let block = 'se '
 
     for (let i = 1; i < codeblock.childNodes.length; i += 2) {
-      if (i == 3) block += ' entao\ninicio\n'
+      if (i == 3) block += ' entao inicio '
 
       let section = codeblock.childNodes[i]
 
@@ -17,7 +17,7 @@ export class Conditional {
         else block += element.id + ' '
       }
 
-      if (i == 3) block += '\nfim '
+      if (i == 3) block += ' fim '
     }
 
     this.block = block
