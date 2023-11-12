@@ -29,6 +29,12 @@
     flex-direction: row;
 }
 
+/* Estilos para a opção 'Gerar Código' */
+#gerar-codigo {
+    display: flex;
+    flex-direction: row;
+}
+
 /* Estilos para a imagem do avatar */
 .imgcontainer {
     width: 7vh;
@@ -309,6 +315,10 @@ select {
 .variables {
     background-color: rgb(0, 187, 255);
     color: #000000;
+}
+
+.input-functions {
+    background-color: rgb(144, 0, 255);
 }
 
 /* Blocos de código com área de soltar */
