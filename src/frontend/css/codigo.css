@@ -317,6 +317,10 @@ select {
     color: #000000;
 }
 
+.input-functions {
+    background-color: rgb(144, 0, 255);
+}
+
 /* Blocos de código com área de soltar */
 .code-block {
     border-radius: 5px;

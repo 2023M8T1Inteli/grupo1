@@ -1,5 +1,5 @@
 const ifCodeBlock =
-  '<div class="code-block conditionals" draggable="true">SE<div class="droppable-area dropzone">+</div>ENTÃO<div class="droppable-area">+</div></div>'
+  '<div id="if-statement" class="code-block conditionals" draggable="true">SE<div id="condition" class="droppable-area dropzone">+</div>ENTÃO<div id="body" class="droppable-area">+</div></div>'
 
 const showFuncCodeBlock =
   '<div class="code-block functions" draggable="true">MOSTRAR<div class="droppable-area dropzone">+</div></div>'
@@ -60,11 +60,11 @@ function dropEditor(e) {
     // caso o elemento dropado seja um statement
     var newElement = document.createElement('div')
 
-    if (draggingElement.id == 'se') newElement.innerHTML = ifCodeBlock
+    if (draggingElement.id == 'if-statement') newElement.innerHTML = ifCodeBlock
     else if (draggingElement.id == 'show-function')
       newElement.innerHTML = showFuncCodeBlock
 
-    draggingElement = newElement
+    draggingElement = newElement.firstChild
 
     for (let i = 0; i < draggingElement.children.length; i++) {
       let child = draggingElement.children[i]

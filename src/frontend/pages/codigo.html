@@ -37,7 +37,7 @@
         <div class="imgcontainer">
           <img src="../img/script.png" alt="Avatar" class="avatar" />
         </div>
-        <button id="gerador" onabort="">Gerar Código</button>
+        <button id="gerador">Gerar Código</button>
       </div>
     </div>
 
@@ -251,18 +251,29 @@
     <div id="footer">
       <!-- Palavras-chave e área de exclusão -->
       <div
-        id="se"
+        id="if-statement"
         class="argumentative code-word conditionals"
         draggable="true"
       >
         SE ... ENTÃO ...
       </div>
-      <div class="code-word variables" id="tecla-press" draggable="true">
+      <div class="code-word input-functions" id="ler()" draggable="true">
         TECLA PRESS
       </div>
-      <div class="code-word relationals" draggable="true">É IGUAL A</div>
+      <div id="==" class="code-word relationals" draggable="true">IGUAL A</div>
+      <div id=">" class="code-word relationals" draggable="true">MAIOR QUE</div>
+      <div id=">=" class="code-word relationals" draggable="true">
+        MAIOR OU IGUAL A
+      </div>
+      <div id="<" class="code-word relationals" draggable="true">MENOR QUE</div>
+      <div id="<=" class="code-word relationals" draggable="true">
+        MENOR OU IGUAL A
+      </div>
+      <div id="<>" class="code-word relationals" draggable="true">
+        DIFERENTE DE
+      </div>
       <div
-        id="show-function"
+        id="mostrar(1)"
         class="argumentative code-word functions"
         draggable="true"
       >
@@ -273,6 +284,6 @@
 
     <!-- Script JavaScript para funcionalidades de codificação -->
     <script src="../scripts/coding.js"></script>
-    <script src="../scripts/geracaoCodigo.js"></script>
+    <script type="module" src="../scripts/geracaoCodigo.js"></script>
   </body>
 </html>

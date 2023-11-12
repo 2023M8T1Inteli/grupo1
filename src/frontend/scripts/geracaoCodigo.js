@@ -1,3 +1,5 @@
+import { Conditional } from './Conditional.js'
+
 const editor = document.getElementById('editor')
 
 const generator = document.getElementById('gerador')
@@ -8,18 +10,14 @@ function gerarCodigo(e) {
   let codeElements = editor.childNodes
 
   for (let i = 0; i < codeElements.length; i++) {
-    if (codeElements[i].classList.length == 1) {
-      let subElements = codeElements[i].childNodes
+    console.log('elemento ' + i + ' : ' + codeElements[i].id)
 
-      for (let j = 0; j < subElements.length; j++) {
-        element = subElements[j]
+    if (codeElements[i].id == 'if-statement') {
+      console.log('entrou if')
 
-        console.log('element ' + j + ': ' + element.classList)
-      }
+      let block = new Conditional(codeElements[i])
     }
   }
 }
 
-function generateConditional() {
-  document.get
-}
+function generateConditional(block) {}
