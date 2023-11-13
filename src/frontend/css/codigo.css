@@ -8,6 +8,7 @@
     height: 10%;
     align-items: center;
     text-align: center;
+    margin-bottom: 2vh;
 }
 
 /* Estilos para a opção 'Sair' */
@@ -27,12 +28,28 @@
 #salvar {
     display: flex;
     flex-direction: row;
+    margin: 0 6vh 0 2vh;
+}
+
+#altoContraste{
+    display: flex;
+    flex-direction: row;
 }
 
 /* Estilos para a opção 'Gerar Código' */
 #gerar-codigo {
     display: flex;
     flex-direction: row;
+    margin: 0 6vh 0 0;
+}
+
+#botaoAltoContraste {
+    background-color: lightgray;
+    border-width: 1px;
+}
+
+.descritorCor{
+    display: none;
 }
 
 /* Estilos para a imagem do avatar */
@@ -55,6 +72,7 @@ img.avatar {
     background-color: #fff;
     width: 100%;
     height: 100%;
+    margin-bottom: 2vh;
 }
 
 /* Estilos para o rodapé */
@@ -293,11 +311,6 @@ select {
     margin: 0 auto; /* Center the box horizontally */
     cursor: grab;
     padding: 5px;
-}
-
-.conditionals {
-    background-color: orange;
-    color: #000000;
 }
 
 .relationals {

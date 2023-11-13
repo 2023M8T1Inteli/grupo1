@@ -1,3 +1,26 @@
+var descreverCores = false
+
+function altoContraste() {
+  let descritoresList = document.getElementsByClassName("descritorCor");
+  if(document.getElementById("botaoAltoContraste").style.backgroundColor != 'lightgreen'){
+    document.getElementById("botaoAltoContraste").style.backgroundColor = 'lightgreen'
+    // document.getElementById('bloco-cor').innerHTML = document.getElementById('bloco-cor').style.backgroundColor
+    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores (Ligado)'
+    for (var i=0;i<descritoresList.length;i+=1){
+      descritoresList[i].style.display = 'block';
+    }
+    descreverCores = true
+  } else {
+    document.getElementById("botaoAltoContraste").style.backgroundColor = 'lightgray'
+    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores'
+    document.getElementById('bloco-cor').innerHTML = ''
+    for (var i=0;i<descritoresList.length;i+=1){
+      descritoresList[i].style.display = 'none';
+    }
+    descreverCores = false
+  }
+}
+
 function trocarTab(evt, tab) {
   const tabcontents = document.getElementsByClassName("tabcontent");
   for (const content of tabcontents) {
@@ -112,8 +135,20 @@ function adicionarImagemAoCenario(src) {
 function adicionarCorAoCenario(cor) {
   var corBloco = document.getElementById('bloco-cor');
   if (corBloco) {
-    corBloco.style.backgroundColor = cor;
-    corBloco.innerHTML = ''; // Limpar o texto padrão
+    if(cor == 'red'){
+      corBloco.style.backgroundColor = '#ad0000';
+    } else {
+      corBloco.style.backgroundColor = cor;
+    }
+    if (descreverCores){
+      if(cor == 'yellow'){
+        document.getElementById("bloco-cor").style.color = 'black';
+      } else {
+        document.getElementById("bloco-cor").style.color = 'white'
+      }
+      document.getElementById('bloco-cor').innerHTML = cor;
+    }
+
   }
 }
 
