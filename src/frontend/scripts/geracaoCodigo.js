@@ -27,4 +27,25 @@ function generateCode() {
   codeText += ' fim.'
 
   console.log(codeText)
+
+  sendCode('http://127.0.0.1:5000/', codeText)
+}
+
+function sendCode(backendURL, code) {
+  const blob = new Blob([code], { type: 'text/plain' })
+
+  const formData = new FormData()
+  formData.append('file', blob, 'code.txt')
+
+  fetch(backendURL + '/upload', {
+    method: 'POST',
+    body: formData
+  })
+    .then(response => {
+      console.log('Arquivo enviado com sucesso.')
+    })
+    .catch(error => {
+      // Lida com erros
+      console.error('Ocorreu um erro ao enviar o arquivo:', error)
+    })
 }
