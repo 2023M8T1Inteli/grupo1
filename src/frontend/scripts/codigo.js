@@ -1,16 +1,17 @@
 var descreverCores = false
 
+// Função que mostra a descrição das cores
 function altoContraste() {
   let descritoresList = document.getElementsByClassName("descritorCor");
+  // Ligar a descrição das cores
   if(document.getElementById("botaoAltoContraste").style.backgroundColor != 'lightgreen'){
     document.getElementById("botaoAltoContraste").style.backgroundColor = 'lightgreen'
-    // document.getElementById('bloco-cor').innerHTML = document.getElementById('bloco-cor').style.backgroundColor
     document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores (Ligado)'
     for (var i=0;i<descritoresList.length;i+=1){
       descritoresList[i].style.display = 'block';
     }
     descreverCores = true
-  } else {
+  } else { // Desliga a descrição das cores
     document.getElementById("botaoAltoContraste").style.backgroundColor = 'lightgray'
     document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores'
     document.getElementById('bloco-cor').innerHTML = ''
@@ -21,6 +22,7 @@ function altoContraste() {
   }
 }
 
+// Função para trocar a tab editor e cenário
 function trocarTab(evt, tab) {
   const tabcontents = document.getElementsByClassName("tabcontent");
   for (const content of tabcontents) {
