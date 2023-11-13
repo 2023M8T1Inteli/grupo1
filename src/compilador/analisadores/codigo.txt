@@ -1,5 +1,4 @@
 programa "teste2":
-programa "teste2":
 inicio
 _variavel1 = ler()
     /* Nesta primeira versão recomendamos que vocês
