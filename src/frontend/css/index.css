@@ -1,0 +1,75 @@
+/* Estilo para o corpo da página */
+body {
+  padding-top: 8vh; /* Espaçamento superior equivalente a 8% da altura da viewport */
+  align-items: center; /* Alinhar itens no centro */
+  text-align: center; /* Centralizar o texto */
+  font-family: Arial, Helvetica, sans-serif; /* Especificar a família de fontes */
+}
+
+/* Estilo para o container principal do corpo da página */
+#body {
+  width: 50%; /* Largura do container principal */
+  margin: 0 auto; /* Centralizar o container horizontalmente */
+}
+
+/* Estilo para o formulário */
+form {
+  border: 3px solid #f1f1f1; /* Borda do formulário */
+}
+
+/* Estilo para campos de entrada de texto e senha */
+input[type=text], input[type=password] {
+  width: 50%; /* Largura dos campos de entrada */
+  padding: 12px 20px; /* Espaçamento interno */
+  margin: 8px 0; /* Margem externa */
+  display: inline-block; /* Exibir em linha */
+  border: 1px solid #ccc; /* Borda do campo de entrada */
+  box-sizing: border-box; /* Modelagem da caixa */
+}
+
+/* Estilo para o botão de login */
+button {
+  background-color: #023B27; /* Cor de fundo */
+  color: white; /* Cor do texto */
+  padding: 14px 20px; /* Espaçamento interno */
+  margin: 8px 0; /* Margem externa */
+  border: none; /* Sem borda */
+  cursor: pointer; /* Cursor do mouse */
+  width: 25%; /* Largura do botão */
+  border-radius: 5vh; /* Arredondamento da borda */
+}
+
+/* Estilo para o botão de login quando hover */
+button:hover {
+  opacity: 0.8; /* Opacidade ao passar o mouse */
+}
+
+/* Estilo para o botão de cancelar */
+.cancelbtn {
+  width: auto; /* Largura automática */
+  padding: 10px 18px; /* Espaçamento interno */
+  background-color: #f44336; /* Cor de fundo */
+}
+
+/* Estilo para o container da imagem do avatar */
+.imgcontainer {
+  text-align: center; /* Centralizar o texto */
+  margin: 24px 0 12px 0; /* Margem externa */
+}
+
+/* Estilo para a imagem do avatar */
+img.avatar {
+  width: 40%; /* Largura da imagem */
+  border-radius: 50%; /* Borda circular */
+}
+
+/* Estilo para o container geral */
+.container {
+  padding: 16px; /* Espaçamento interno */
+}
+
+/* Estilo para o link "Esqueceu a senha?" */
+span.psw {
+  float: right; /* Alinhar à direita */
+  padding-top: 16px; /* Espaçamento superior */
+}
