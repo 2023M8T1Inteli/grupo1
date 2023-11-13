@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadados da página -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Link para o arquivo de estilo CSS -->
+    <link rel="stylesheet" href="../css/codigo.css" />
+
+    <!-- Link para o arquivo de script JavaScript -->
+    <script src="../scripts/codigo.js"></script>
+
+    <!-- Título da página -->
+    <title>Editor</title>
+  </head>
+
+  <body onload="clicarCenario()">
+    <!-- Cabeçalho da página -->
+    <div id="header">
+      <!-- Botão "Sair" -->
+      <div id="sair">
+        <div class="imgcontainer">
+          <img src="../img/voltar.png" alt="Avatar" class="avatar" />
+        </div>
+        <h2>Sair</h2>
+      </div>
+      <!-- Botão "Salvar" -->
+      <div id="salvar">
+        <div class="imgcontainer">
+          <img src="../img/save.png" alt="Avatar" class="avatar" />
+        </div>
+        <h2>Salvar</h2>
+      </div>
+      <!-- Botão "Gerar Código" -->
+      <div id="gerar-codigo">
+        <div class="imgcontainer">
+          <img src="../img/script.png" alt="Avatar" class="avatar" />
+        </div>
+        <button id="gerador">Gerar Código</button>
+      </div>
+      <div id="altoContraste">
+        <div class="imgcontainer">
+          <img src="../img/contrast.png" alt="Avatar" class="avatar" />
+        </div>
+        <button id="botaoAltoContraste" onclick="altoContraste()"> Descritivo Cores </button>
+      </div>
+    </div>
+
+    <!-- Corpo da página -->
+    <div id="middle">
+      <!-- Dropdowns para categorias de objetos -->
+      <div id="objects">
+        <!-- Dropdown Alimentação -->
+        <div id="dropdown-container1">
+          <!-- Opções para Alimentação -->
+          <select
+            id="dropdownAlimentacao"
+            onchange="adicionarImagem(this.value)"
+          >
+            <option value="alimentacao">Alimentação</option>
+            <option value="maca">Maçã</option>
+            <option value="banana">Banana</option>
+          </select>
+        </div>
+        <!-- Dropdown Religião -->
+        <div id="dropdown-container2">
+          <!-- Opções para Religião -->
+          <select id="dropdownReligiao" onchange="adicionarImagem(this.value)">
+            <option value="">Religião</option>
+            <option value="cristianismo">Cristianismo</option>
+            <option value="judaismo">Judaísmo</option>
+          </select>
+        </div>
+        <!-- Dropdown Esporte -->
+        <div id="dropdown-container3">
+          <!-- Opções para Esporte -->
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="esporte">Esporte</option>
+            <option value="futebol">Futebol</option>
+            <option value="volei">Vôlei</option>
+          </select>
+        </div>
+        <!-- Dropdown Animal -->
+        <div id="dropdown-container4">
+          <!-- Opções para Animal -->
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="animal">Animal</option>
+            <option value="peixe">Peixe</option>
+            <option value="rato">Rato</option>
+          </select>
+        </div>
+        <!-- Dropdown Planta -->
+        <div id="dropdown-container5">
+          <!-- Opções para Planta -->
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="planta">Planta</option>
+            <option value="arvore">Árvore</option>
+            <option value="flor">Flor</option>
+          </select>
+        </div>
+        <!-- Dropdown Transporte -->
+        <div id="dropdown-container6">
+          <!-- Opções para Transporte -->
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="transporte">Transporte</option>
+            <option value="bicicleta">Bicicleta</option>
+            <option value="carro">Carro</option>
+          </select>
+        </div>
+        <!-- Dropdown Evento -->
+        <div id="dropdown-container7">
+          <!-- Opções para Evento -->
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="evento">Evento</option>
+            <option value="natal">Natal</option>
+            <option value="pascoa">Páscoa</option>
+          </select>
+        </div>
+        <!-- Dropdown Cor -->
+        <div id="dropdown-container8">
+          <!-- Opções para Cor -->
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="cores">Cores</option>
+            <option value="verde">Verde</option>
+            <option value="roxo">Roxo</option>
+          </select>
+        </div>
+        <!-- Dropdown Profissão -->
+        <div id="dropdown-container9">
+          <!-- Opções para Profissão -->
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="profissao">Profissão</option>
+            <option value="medico">Médico</option>
+            <option value="professor">Professor</option>
+          </select>
+        </div>
+        <!-- Dropdown Música -->
+        <div id="dropdown-container10">
+          <!-- Opções para Música -->
+          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
+            <option value="musica">Música</option>
+            <option value="guitarra">Guitarra</option>
+            <option value="violino">Violino</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Cenário e Editor -->
+      <div id="cenario">
+        <div id="fundo-cenario">
+          <div id="tab">
+            <!-- Botões para alternar entre Cenário e Editor -->
+            <button
+              id="botaoCanvas"
+              class="tabbutton"
+              onclick="trocarTab(event, 'canvas')"
+            >
+              Cenário
+            </button>
+            <button
+              id="botaoEditor"
+              class="tabbutton"
+              onclick="trocarTab(event, 'editor')"
+            >
+              Editor
+            </button>
+          </div>
+
+          <!-- Cenário -->
+          <div
+            id="canvas"
+            class="tabcontent"
+            ondrop="drop_handler(event)"
+            ondragover="dragover_handler(event)"
+          >
+            <!-- Conteúdo do cenário -->
+            <textarea
+              id="titulo-atividade"
+              placeholder="TÍTULO DA ATIVIDADE"
+            ></textarea>
+            <div id="editor-content">
+              <div id="bloco-imagem" class="editor-bloco">IMAGEM</div>
+              <div id="bloco-cor" class="editor-bloco">COR</div>
+            </div>
+          </div>
+
+          <!-- Editor -->
+          <div id="editor" class="tabcontent"></div>
+        </div>
+      </div>
+
+      <!-- Tapete lateral com cores -->
+      <div id="tapete" class="tapete-lateral">
+        <h3 id="tapete-tab">TAPETE</h3>
+        <div id="tapete-cores" class="tapete-container">
+          <!-- Cores no tapete -->
+          <div>
+            <div
+              class="tapete-cor code-word"
+              data-cor="green"
+              style="background-color: green"
+              onclick="adicionarCorAoCenario('green')"
+              draggable="true"
+            >
+              1
+            </div>
+            <h3 class="descritorCor">1: verde</h3>
+          </div>
+          <div>
+            <div
+              class="tapete-cor code-word"
+              data-cor="blue"
+              style="background-color: blue"
+              onclick="adicionarCorAoCenario('blue')"
+              draggable="true"
+            >
+              2
+            </div>
+            <h3 class="descritorCor">2: azul</h3>
+          </div>
+          <div>
+            <div
+              class="tapete-cor code-word"
+              data-cor="yellow"
+              style="background-color: yellow; color: #000000"
+              onclick="adicionarCorAoCenario('yellow')"
+              draggable="true"
+            >
+              3
+            </div>
+            <h3 class="descritorCor">3: amarelo</h3>
+          </div>
+          <div>
+            <div
+              class="tapete-cor code-word"
+              data-cor="purple"
+              style="background-color: purple"
+              onclick="adicionarCorAoCenario('purple')"
+              draggable="true"
+            >
+              4
+            </div>
+            <h3 class="descritorCor">4: roxo</h3>
+          </div>
+          <div>
+            <div
+              class="tapete-cor code-word"
+              data-cor="black"
+              style="background-color: black"
+              onclick="adicionarCorAoCenario('black')"
+              draggable="true"
+            >
+              5
+            </div>
+            <h3 class="descritorCor">5: preto</h3>
+          </div>
+          <div>
+            <div
+              class="tapete-cor code-word"
+              data-cor="red"
+              style="background-color: #ad0000"
+              onclick="adicionarCorAoCenario('red')"
+              draggable="true"
+            >
+              6
+            </div>
+            <h3 class="descritorCor">6: vermelho</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rodapé da página -->
+    <div id="footer">
+      <!-- Palavras-chave e área de exclusão -->
+      <div
+        id="if-statement"
+        class="argumentative code-word conditionals"
+        draggable="true"
+        style="background-color: rgb(196, 127, 0);"
+      >
+        SE ... ENTÃO ...
+      </div>
+      <div class="code-word input-functions" id="ler()" draggable="true">
+        TECLA PRESS
+      </div>
+      <div id="==" class="code-word relationals" draggable="true">IGUAL A</div>
+      <div id=">" class="code-word relationals" draggable="true">MAIOR QUE</div>
+      <div id=">=" class="code-word relationals" draggable="true">
+        MAIOR OU IGUAL A
+      </div>
+      <div id="<" class="code-word relationals" draggable="true">MENOR QUE</div>
+      <div id="<=" class="code-word relationals" draggable="true">
+        MENOR OU IGUAL A
+      </div>
+      <div id="<>" class="code-word relationals" draggable="true">
+        DIFERENTE DE
+      </div>
+      <div
+        id="mostrar(1)"
+        class="argumentative code-word functions"
+        draggable="true"
+      >
+        MOSTRAR
+      </div>
+      <div id="deleting-area" class="droppable-area">APAGAR</div>
+    </div>
+
+    <!-- Script JavaScript para funcionalidades de codificação -->
+    <script src="../scripts/coding.js"></script>
+    <script type="module" src="../scripts/geracaoCodigo.js"></script>
+  </body>
+</html>
