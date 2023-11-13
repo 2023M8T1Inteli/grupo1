@@ -30,7 +30,7 @@ class Syntatic:
         pass
 
     def program(self):
-        print("program")
+        #print("program")
         self.compare("PROGRAMA")
         self.compare("DQUOTE")
         self.compare("STRING")
@@ -41,21 +41,21 @@ class Syntatic:
         pass
 
     def block(self):
-        print("block")
+        #print("block")
         self.compare("LBLOCK")
         self.statement_list()
         self.compare("RBLOCK")
         pass
 
     def statement_list(self):
-        print("statement_list")
+        #print("statement_list")
         if self.tokenCurrent.tipo != "RBLOCK":
             self.statement()
             self.statement_list()
         pass
 
     def statement(self):
-        print("statement")
+        #print("statement")
         if self.tokenCurrent.tipo == "IDENTIFICADOR":
             self.assign_statement()
         elif self.tokenCurrent.tipo == "SE":
@@ -67,7 +67,7 @@ class Syntatic:
         pass
 
     def assign_statement(self):
-        print("assign_statement")
+        #print("assign_statement")
         self.compare("IDENTIFICADOR")
         self.compare("ASSIGN")
         if self.tokenCurrent.tipo == "COMANDO" and (
@@ -79,7 +79,7 @@ class Syntatic:
         pass
 
     def if_statement(self):
-        print("if_statement")
+        #print("if_statement")
         self.compare("SE")
         self.expression()
         self.compare("ENTAO")
@@ -90,7 +90,7 @@ class Syntatic:
         pass
 
     def while_statement(self):
-        print("while_statement")
+        #print("while_statement")
         self.compare("ENQUANTO")
         self.expression()
         self.compare("FACA")
@@ -98,7 +98,7 @@ class Syntatic:
         pass
 
     def command_statement(self):
-        print("command_statement")
+        #print("command_statement")
         if self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "mostrar":
             self.compare("COMANDO", "mostrar")
             self.compare("LPAR")
@@ -126,7 +126,7 @@ class Syntatic:
         pass
 
     def input_statement(self):
-        print("input_statement")
+        #print("input_statement")
         if self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "ler":
             self.compare("COMANDO", "ler")
             self.compare("LPAR")
@@ -143,7 +143,7 @@ class Syntatic:
         pass
 
     def expression(self):
-        print("expression")
+        #print("expression")
         self.sum_expression()
         if self.tokenCurrent.tipo == "OPREL":
             self.relop()
@@ -151,18 +151,18 @@ class Syntatic:
         pass
 
     def relop(self):
-        print("relop")
+        #print("relop")
         self.compare("OPREL")
         pass
 
     def sum_expression(self):
-        print("sum_expression")
+        #print("sum_expression")
         self.mult_term()
         self.sum_expression2()
         pass
 
     def sum_expression2(self):
-        print("sum_expression2")
+        #print("sum_expression2")
         if self.tokenCurrent.tipo == "OPSUM":
             self.compare("OPSUM")
             self.mult_term()
@@ -170,13 +170,13 @@ class Syntatic:
         pass
 
     def mult_term(self):
-        print("mult_term")
+        #print("mult_term")
         self.power_term()
         self.mult_term2()
         pass
 
     def mult_term2(self):
-        print("mult_term2")
+        #print("mult_term2")
         if self.tokenCurrent.tipo == "OPMUL":
             self.compare("OPMUL")
             self.power_term()
@@ -184,7 +184,7 @@ class Syntatic:
         pass
 
     def power_term(self):
-        print("power_term")
+        #print("power_term")
         self.factor()
         if self.tokenCurrent.tipo == "OPPOW":
             self.compare("OPPOW")
@@ -192,7 +192,7 @@ class Syntatic:
         pass
 
     def factor(self):
-        print("factor")
+        #print("factor")
         if self.tokenCurrent.tipo == "IDENTIFICADOR":
             self.compare("IDENTIFICADOR")
         elif self.tokenCurrent.tipo == "NUMERO":
