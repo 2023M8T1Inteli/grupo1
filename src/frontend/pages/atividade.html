@@ -1,29 +1,48 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tela do Jogo</title>
-<link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/atividade.css">
+    <script src="../scripts/atividade.js"></script>
+    <title>Editor</title>
 </head>
-<body>
-<div class="container">
-  <div id="titulo-atividade">TÍTULO DA ATIVIDADE</div>
-  <div id="imagem-atividade">
-    <!-- Substitua 'url_da_sua_imagem' pelo link da sua imagem -->
-    <img src="url_da_sua_imagem" alt="Imagem da Atividade">
-  </div>
-  <button id="botao-start">START</button>
-  <h3 id="tapete-tab">TAPETE</h3>
-  <div id="tapete-cores" class="tapete-container">
-    <div class="tapete-cor" style="background-color: green;"></div>
-    <div class="tapete-cor" style="background-color: blue;"></div>
-    <div class="tapete-cor" style="background-color: yellow;"></div>
-    <div class="tapete-cor" style="background-color: purple;"></div>
-    <div class="tapete-cor" style="background-color: black;"></div>
-    <div class="tapete-cor" style="background-color: red;"></div>
-  </div>
-</div>
-<script src="scripts.js"></script>
+<body onload="clicarCenario()">
+    <div id="header"></div>
+    <div id="middle">
+        <div id="objects"></div>
+        
+        <div id="fundo-cenario">
+            <div id="tab">
+                <button id="botaoCanvas" class="tabbutton" onclick="trocarTab(event, 'canvas')"></button>
+                <button id="botaoEditor" class="tabbutton" onclick="trocarTab(event, 'editor')"></button>
+            </div>
+
+            <!-- Cenário -->
+            <div id="canvas" class="tabcontent" ondrop="drop_handler(event)" ondragover="dragover_handler(event)">
+              <h1 id="titulo-atividade">Qual a cor da maçã?</h1> 
+                <div id="editor-content">
+                    <div id="bloco-imagem" class="editor-bloco">
+                        <img src="https://static.arasaac.org/pictograms/2462/2462_300.png" alt="Imagem Atividade" />
+                    </div>
+                </div>
+            </div>
+        </div>
+      
+        <div id="tapete" class="tapete-lateral">
+            <!-- Tapete (Cores) -->
+            <h3 id="tapete-tab">TAPETE</h3>
+            <div id="tapete-cores" class="tapete-container">
+                <div class="tapete-cor" data-cor="green" style="background-color: green;" onclick="adicionarCorAoCenario('green')"></div>
+                <div class="tapete-cor" data-cor="blue" style="background-color: blue;" onclick="adicionarCorAoCenario('blue')"></div>
+                <div class="tapete-cor" data-cor="yellow" style="background-color: yellow;" onclick="adicionarCorAoCenario('yellow')"></div>
+                <div class="tapete-cor" data-cor="purple" style="background-color: purple;" onclick="adicionarCorAoCenario('purple')"></div>
+                <div class="tapete-cor" data-cor="black" style="background-color: black;" onclick="adicionarCorAoCenario('black')"></div>
+                <div class="tapete-cor" data-cor="red" style="background-color: red;" onclick="adicionarCorAoCenario('red')"></div>
+            </div>
+            <button id="start-button">Start</button>
+        </div>
+    </div>
+    <div id="footer"></div>
 </body>
 </html>
