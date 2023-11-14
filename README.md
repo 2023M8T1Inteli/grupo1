@@ -20,13 +20,14 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 # Integrantes:
 
-* Estudante 1
-* Estudante 2
-* Estudante 3
-* Estudante 4
-* Estudante 5
-* Estudante 6
-* Estudante 7
+* [Allan Casado](https://www.linkedin.com/in/allan-casado-6339a9177/)
+* [Gabriel Caetano Nhoncanse](https://www.linkedin.com/in/gabrielnhoncanse/)
+* [Iago Tavares](https://www.linkedin.com/in/iago-tavares-b10244149/)
+* [Jonas Viana Sales](https://www.linkedin.com/in/jonas-viana-sales/)
+* [Luiz Carlos da Silva Júnior](https://www.linkedin.com/in/luizcarlospsj20/)
+* [Mateus Soares de Almeida](https://www.linkedin.com/in/mateussda/)
+* [Mateus Rafael Miranda da Silva](https://www.linkedin.com/in/mateus-rmiranda/)
+* [Pedro Romão](https://www.linkedin.com/in/pedro-romão-734b4920a/)
 
 # Descrição
 

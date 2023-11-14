@@ -1,0 +1,357 @@
+/* Estilos para o cabeçalho */
+#header {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    background-color: #fff;
+    width: 100%;
+    height: 10%;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 2vh;
+}
+
+/* Estilos para a opção 'Sair' */
+#sair {
+    margin: 0 6vh 0 2vh;
+    display: flex;
+    flex-direction: row;
+}
+
+/* Estilos para o corpo do tapete */
+#corpoTapete {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para a opção 'Salvar' */
+#salvar {
+    display: flex;
+    flex-direction: row;
+    margin: 0 6vh 0 2vh;
+}
+
+#altoContraste{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Estilos para a opção 'Gerar Código' */
+#gerar-codigo {
+    display: flex;
+    flex-direction: row;
+    margin: 0 6vh 0 0;
+}
+
+#botaoAltoContraste {
+    background-color: lightgray;
+    border-width: 1px;
+}
+
+.descritorCor{
+    display: none;
+}
+
+/* Estilos para a imagem do avatar */
+.imgcontainer {
+    width: 7vh;
+    margin: 0 1vh 0 0;
+    text-align: center;
+}
+
+img.avatar {
+    width: 7vh;
+    border-radius: 10%;
+}
+
+/* Estilos para a seção do meio */
+#middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: #fff;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 2vh;
+}
+
+/* Estilos para o rodapé */
+#footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #fff;
+    width: 100%;
+    height: 10%;
+}
+
+/* Estilos para as abas */
+#tab {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 10%;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+}
+
+.tabbutton {
+    border: none;
+    background-color: inherit;
+    color: inherit;
+}
+
+#tab button:hover {
+    background-color: #000000;
+}
+
+#tab button:active {
+    background-color: #000000;
+}
+
+.tabcontent.active-tab {
+    display: block;
+}
+
+.tabcontent:not(.active-tab) {
+    display: none;
+}
+
+.tabbutton.active {
+    background-color: #000000;
+}
+
+/* Estilos para o fundo do cenário */
+#fundo-cenario {
+    height: 67vh;
+    width: 120vh;
+    background-color: #555;
+    padding: 10px;
+    padding-top: 0px;
+}
+
+/* Estilos para o canvas */
+#canvas {
+    position: absolute;
+    cursor: pointer;
+    display: none;
+    height: 60vh;
+    width: 120vh;
+}
+
+/* Estilos para os comandos do tapete */
+.comandoTapete {
+    cursor: pointer;
+    width: 10vh;
+    height: 5vh;
+    position: absolute;
+    background-color: #8d8a8a;
+    text-align: center;
+    border-radius: 10px; /* Bordas arredondadas */
+    background-image: linear-gradient(to right, #8d8a8a, #9d9a9a); /* Efeito de gradiente */
+}
+
+/* Estilos para as abas de conteúdo */
+.tabcontent {
+    background-color: #f1f1f1;
+}
+
+.tabcontent.active-tab {
+    display: flex;
+    flex-direction: column; /* Altera a direção da flex para coluna */
+}
+
+/* Estilos para o editor */
+#editor {
+    height: 60vh;
+    width: 120vh;
+    text-align: left;
+    display: none;
+}
+
+/* Estilos para o tapete lateral */
+#tapete-lateral {
+    height: auto;
+    width: 20%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 15px; /* Bordas arredondadas */
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6); /* Efeito de gradiente */
+}
+
+/* Estilos para as cores do tapete */
+#tapete-cores {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 10px;
+}
+
+.tapete-cor {
+    height: 80px;
+    width: 80px;
+    cursor: pointer;
+    border: 2px solid #ffffff;
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+/* Estilos para a cor selecionada no tapete */
+.tapete-cor.selecionado {
+    border: 2px solid #000000;
+}
+
+/* Estilos para o dropdown container */
+#dropdown-container {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 16px;
+}
+
+/* Estilos para o editor de código */
+#editor {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #f1f1f1;
+    height: 60vh;
+    width: 120vh;
+}
+
+#titulo-atividade {
+    width: 80%;
+    min-height: 80px;
+    padding: 20px;
+    background-color: #fff;
+    resize: none;
+    box-sizing: border-box;
+    margin-left: 10%;
+    text-align: center;
+    align-items: center;
+    border-radius: 15px;
+}
+
+#editor-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 80%;
+    position: relative;
+}
+
+/* Estilos para os blocos do editor */
+.editor-bloco {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 15px;
+}
+
+#bloco-imagem {
+    position: absolute;
+    left: 20%;
+    top: 40%;
+}
+
+#bloco-cor {
+    position: absolute;
+    left: 60%;
+    top: 40%;
+}
+
+#titulo-atividade {
+    margin-top: 40px;
+    margin-left: 60px;
+}
+
+/* Adicionando transições suaves */
+.tabbutton, .comandoTapete, #titulo-atividade, .editor-bloco, .tapete-cor {
+    transition: all 0.3s ease; /* Transição suave para mudanças de estado */
+}
+
+#tab button:hover, #tab button:active, .tabbutton:hover, .tabbutton.active {
+    transition: background-color 0.3s ease; /* Transição suave para mudanças de cor de fundo */
+}
+
+#tapete-lateral, #fundo-cenario {
+    transition: background-image 0.3s ease; /* Transição suave para mudanças de gradiente */
+}
+
+#tapete-tab {
+    margin-left: 65px; /* Ajusta a margem esquerda para mover o título para o lado */
+    color: #000000;
+}
+
+/* Palavras-chave do código com estilo */
+.code-word {
+    color: #fff;
+    border: 2px solid black;
+    border-radius: 5px;
+    display: inline-block; /* Use flexbox to make the box adjust to text size */
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto; /* Center the box horizontally */
+    cursor: grab;
+    padding: 5px;
+}
+
+.relationals {
+    background-color: green;
+}
+
+.input-keys {
+    background-color: gray;
+}
+
+.functions {
+    background-color: #AD0000;
+}
+
+.variables {
+    background-color: rgb(0, 187, 255);
+    color: #000000;
+}
+
+.input-functions {
+    background-color: rgb(144, 0, 255);
+}
+
+/* Blocos de código com área de soltar */
+.code-block {
+    border-radius: 5px;
+    color: #fff;
+    border: 2px solid black;
+    display: inline-block; 
+    padding: 8px;
+}
+
+.droppable-area {
+    display: inline-block;
+    border: 2px solid black;
+    padding: 5px;
+}
+
+/* Editor de código */
+#editor-teste {
+    width: 1000px;
+    height: 1000px;
+    border: 2px black solid;
+}

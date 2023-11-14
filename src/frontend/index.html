@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tag para configuração da escala da página em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Link para o arquivo CSS que será aplicado à página -->
+    <link rel="stylesheet" href="./css/index.css">
+
+    <!-- Script JavaScript referenciado para a página -->
+    <script src="./scripts/index.js"></script>
+
+    <!-- Título da página exibido na barra de título do navegador -->
+    <title>Login</title>
+</head>
+<body>
+
+    <!-- Container principal do corpo da página -->
+    <div id="body">
+
+        <!-- Formulário de login -->
+        <form action="/action_page.php" method="post">
+
+            <!-- Container para a imagem do avatar do usuário -->
+            <div class="imgcontainer">
+                <!-- Imagem do avatar do usuário -->
+                <img src="./img/avatar-do-usuario.png" alt="Avatar" class="avatar">
+            </div>
+
+            <!-- Container para os campos do formulário -->
+            <div class="container">
+
+                <!-- Rótulo e campo de entrada para o nome de usuário -->
+                <label for="uname"><b>Username</b></label><br>
+                <input type="text" placeholder="Enter Username" name="uname" required><br>
+
+                <!-- Rótulo e campo de entrada para a senha -->
+                <label for="psw"><b>Password</b></label><br>
+                <input type="password" placeholder="Enter Password" name="psw" required><br>
+
+                <!-- Botão de envio do formulário com chamada de função JavaScript -->
+                <button type="submit" onclick="trocarPagina()">Login</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>

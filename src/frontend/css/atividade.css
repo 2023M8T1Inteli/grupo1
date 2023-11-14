@@ -1,0 +1,85 @@
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#middle {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+}
+
+#fundo-cenario {
+    width: 60%;
+    background: #f0f0f0;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#canvas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#titulo-atividade {
+    width: 80%;
+    margin: 10px 0;
+    text-align: center;
+}
+
+#bloco-imagem {
+    width: 80%;
+    padding: 10px;
+    background: #ccc;
+    margin: 10px 0;
+}
+
+#bloco-imagem img {
+    width: 100%;
+    height: auto;
+}
+
+#tapete {
+    width: 20%;
+    padding: 20px;
+    background: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#tapete-tab {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#tapete-cores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tapete-cor {
+    width: 48%;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+#start-button {
+    width: 100%;
+    padding: 10px;
+    background: green;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#start-button:hover {
+    background: darkgreen;
+}
