@@ -53,7 +53,7 @@
       <!-- Dropdowns para categorias de objetos -->
       <div id="objects">
         <!-- Dropdown Alimentação -->
-        <div id="dropdown-container1">
+        <div id="dropdown-container1" data-tooltip="Imagens que vão no game.">
           <!-- Opções para Alimentação -->
           <select
             id="dropdownAlimentacao"
@@ -153,9 +153,10 @@
           <div id="tab">
             <!-- Botões para alternar entre Cenário e Editor -->
             <button
-              id="botaoCanvas"
+              id="botaoCanvas" data-tooltip="Clique para definir o que aparece pro usuário."
               class="tabbutton"
               onclick="trocarTab(event, 'canvas')"
+              data-tooltip="Editor de código, onde você monta a lógica."
             >
               Cenário
             </button>
@@ -163,6 +164,7 @@
               id="botaoEditor"
               class="tabbutton"
               onclick="trocarTab(event, 'editor')"
+              data-tooltip="Editor de código, onde você monta a lógica."
             >
               Editor
             </button>
@@ -179,6 +181,7 @@
             <textarea
               id="titulo-atividade"
               placeholder="TÍTULO DA ATIVIDADE"
+              data-tooltip="Simulação do tapete sensorial." class="tapete-lateral"
             ></textarea>
             <div id="editor-content">
               <div id="bloco-imagem" class="editor-bloco">IMAGEM</div>
@@ -192,7 +195,7 @@
       </div>
 
       <!-- Tapete lateral com cores -->
-      <div id="tapete" class="tapete-lateral">
+      <div id="tapete" data-tooltip="Simulação do tapete sensorial." class="tapete-lateral">
         <h3 id="tapete-tab">TAPETE</h3>
         <div id="tapete-cores" class="tapete-container">
           <!-- Cores no tapete -->
@@ -279,7 +282,7 @@
     </div>
 
     <!-- Rodapé da página -->
-    <div id="footer">
+    <div id="footer" data-tooltip="Blocos de código para o editor.">
       <!-- Palavras-chave e área de exclusão -->
       <div
         id="if-statement"

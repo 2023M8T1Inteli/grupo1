@@ -194,4 +194,17 @@ document.querySelectorAll('.tapete-cor').forEach(function(corDiv) {
 });
 
 
+document.querySelectorAll('[data-tooltip]').forEach(element => {
+  let timeoutId;
 
+  element.addEventListener('mouseover', () => {
+      timeoutId = setTimeout(() => {
+          element.removeAttribute('data-tooltip'); // Remove o atributo para esconder o tooltip
+      }, 3000); // 3000 milissegundos = 3 segundos
+  });
+
+  element.addEventListener('mouseout', () => {
+      clearTimeout(timeoutId); // Cancela o timeout se o mouse sair antes de 3 segundos
+      element.setAttribute('data-tooltip', element.dataset.originalTooltip); // Restaura o tooltip
+  });
+});
