@@ -44,7 +44,9 @@
         <div class="imgcontainer">
           <img src="../img/contrast.png" alt="Avatar" class="avatar" />
         </div>
-        <button id="botaoAltoContraste" onclick="altoContraste()"> Descritivo Cores </button>
+        <button id="botaoAltoContraste" onclick="altoContraste()">
+          Descritivo Cores
+        </button>
       </div>
     </div>
 
@@ -153,7 +155,8 @@
           <div id="tab">
             <!-- Botões para alternar entre Cenário e Editor -->
             <button
-              id="botaoCanvas" data-tooltip="Clique para definir o que aparece pro usuário."
+              id="botaoCanvas"
+              data-tooltip="Clique para definir o que aparece pro usuário."
               class="tabbutton"
               onclick="trocarTab(event, 'canvas')"
               data-tooltip="Editor de código, onde você monta a lógica."
@@ -181,7 +184,8 @@
             <textarea
               id="titulo-atividade"
               placeholder="TÍTULO DA ATIVIDADE"
-              data-tooltip="Simulação do tapete sensorial." class="tapete-lateral"
+              data-tooltip="Simulação do tapete sensorial."
+              class="tapete-lateral"
             ></textarea>
             <div id="editor-content">
               <div id="bloco-imagem" class="editor-bloco">IMAGEM</div>
@@ -195,7 +199,11 @@
       </div>
 
       <!-- Tapete lateral com cores -->
-      <div id="tapete" data-tooltip="Simulação do tapete sensorial." class="tapete-lateral">
+      <div
+        id="tapete"
+        data-tooltip="Simulação do tapete sensorial."
+        class="tapete-lateral"
+      >
         <h3 id="tapete-tab">TAPETE</h3>
         <div id="tapete-cores" class="tapete-container">
           <!-- Cores no tapete -->
@@ -284,37 +292,72 @@
     <!-- Rodapé da página -->
     <div id="footer" data-tooltip="Blocos de código para o editor.">
       <!-- Palavras-chave e área de exclusão -->
-      <div
-        id="if-statement"
-        class="argumentative code-word conditionals"
-        draggable="true"
-        style="background-color: rgb(196, 127, 0);"
-      >
-        SE ... ENTÃO ...
+      <div id="conditionals" class="code-blocks">
+        <div class="code-block-type">CONDICIONAIS</div>
+        <div class="code-block-list">
+          <div
+            id="if-statement"
+            class="argumentative code-word conditionals"
+            draggable="true"
+            style="background-color: rgb(196, 127, 0)"
+          >
+            SE ... ENTÃO ... SENÃO ...
+          </div>
+        </div>
       </div>
-      <div class="code-word input-functions" id="ler()" draggable="true">
-        TECLA PRESS
+
+      <div id="relationals" class="code-blocks">
+        <div class="code-block-type">RELACIONAIS</div>
+        <div class="code-block-list">
+          <div id="==" class="code-word relationals" draggable="true">
+            IGUAL A
+          </div>
+          <div id=">" class="code-word relationals" draggable="true">
+            MAIOR QUE
+          </div>
+          <div id=">=" class="code-word relationals" draggable="true">
+            MAIOR OU IGUAL A
+          </div>
+          <div id="<" class="code-word relationals" draggable="true">
+            MENOR QUE
+          </div>
+          <div id="<=" class="code-word relationals" draggable="true">
+            MENOR OU IGUAL A
+          </div>
+          <div id="<>" class="code-word relationals" draggable="true">
+            DIFERENTE DE
+          </div>
+        </div>
       </div>
-      <div id="==" class="code-word relationals" draggable="true">IGUAL A</div>
-      <div id=">" class="code-word relationals" draggable="true">MAIOR QUE</div>
-      <div id=">=" class="code-word relationals" draggable="true">
-        MAIOR OU IGUAL A
+
+      <div id="inputs" class="code-blocks">
+        <div class="code-block-type">ENTRADAS</div>
+        <div class="code-block-list">
+          <div class="code-word input-functions" id="ler()" draggable="true">
+            TECLA PRESS
+          </div>
+        </div>
       </div>
-      <div id="<" class="code-word relationals" draggable="true">MENOR QUE</div>
-      <div id="<=" class="code-word relationals" draggable="true">
-        MENOR OU IGUAL A
+
+      <div id="other-functions" class="code-blocks">
+        <div class="code-block-type">FUNÇÕES</div>
+        <div class="code-block-list">
+          <div
+            id="mostrar(1)"
+            class="argumentative code-word functions"
+            draggable="true"
+          >
+            MOSTRAR
+          </div>
+        </div>
       </div>
-      <div id="<>" class="code-word relationals" draggable="true">
-        DIFERENTE DE
+
+      <div id="trash" class="code-blocks">
+        <div class="code-block-type">APAGAR</div>
+        <div class="code-block-list">
+          <div id="deleting-area" class="droppable-area">APAGAR</div>
+        </div>
       </div>
-      <div
-        id="mostrar(1)"
-        class="argumentative code-word functions"
-        draggable="true"
-      >
-        MOSTRAR
-      </div>
-      <div id="deleting-area" class="droppable-area">APAGAR</div>
     </div>
 
     <!-- Script JavaScript para funcionalidades de codificação -->
