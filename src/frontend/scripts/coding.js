@@ -1,5 +1,5 @@
 const ifCodeBlock =
-  '<div id="if-statement" class="code-block conditionals" draggable="true">SE<div id="condition" class="droppable-area dropzone">+</div>ENTÃO<div id="body" class="droppable-area">+</div></div>'
+  '<div id="if-statement" class="code-block conditionals" draggable="true" style="background-color: rgb(196, 127, 0);">SE<div id="condition" class="droppable-area dropzone">+</div>ENTÃO<div id="body" class="droppable-area">+</div></div>'
 
 const showFuncCodeBlock =
   '<div class="code-block functions" draggable="true">MOSTRAR<div class="droppable-area dropzone">+</div></div>'

@@ -1,6 +1,6 @@
 from flask import Flask, request
 
-from Compiler import compile, read_code
+from Compiler import Compiler
 
 app = Flask(__name__)
 
@@ -12,9 +12,9 @@ def upload_file():
     if uploaded_file.filename != '':
         uploaded_file.save(uploaded_file.filename) # salva o arquivo de código gerado
 
-        source_code = read_code('code.txt') # leitura do arquivo
+        source_code = Compiler.read_code('code.txt') # leitura do arquivo
 
-        compile(source_code) # compila o código gerado, passando pelos analisadores léxico e sintárico
+        Compiler.compile(source_code) # compila o código gerado, passando pelos analisadores léxico e sintárico
 
 
 
