@@ -21,7 +21,4 @@ if __name__ == '__main__':
     for token in tokens:
         print(token)
 
-    syntax = Syntatic(tokens)
-    syntax.analyze()
-
 
