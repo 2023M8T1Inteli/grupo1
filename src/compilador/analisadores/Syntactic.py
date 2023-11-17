@@ -1,3 +1,5 @@
+from Tree import NonLeafNode, LeafNode
+
 class Syntatic:
     def __init__(self, tokenList):
         self.tokenList = tokenList
@@ -5,13 +7,7 @@ class Syntatic:
         self.position = -1
         self.next_token()
         pass
-
-    def analyze(self):
-        self.program()
-        self.compare("EOF")
-        print("Funcionou!")
-        pass
-
+    
     def compare(self, type, value=None):
         if self.tokenCurrent.tipo == type and (
             (value is None) or (self.tokenCurrent.valor == value)
@@ -19,7 +15,7 @@ class Syntatic:
             self.next_token()
         else:
             raise ValueError(
-                "ERRO: Sintaxe Inválida - Token '{self.tokenCurrent.tipo}: {self.tokenCurrent.valor}' encontrado ao invés de {type} na linha {self.tokenCurrent.linha}."
+                f"ERRO: Sintaxe Inválida - Token '{self.tokenCurrent.tipo}: {self.tokenCurrent.valor}' encontrado ao invés de {type} na linha {self.tokenCurrent.linha}."
             )
         pass
 
@@ -29,6 +25,12 @@ class Syntatic:
             self.tokenCurrent = self.tokenList[self.position]
         pass
 
+    def analyze(self):
+        a = self.program()
+        self.compare("EOF")
+        print("Funcionou!")
+        return a
+
     def program(self):
         #print("program")
         self.compare("PROGRAMA")
@@ -36,23 +38,25 @@ class Syntatic:
         self.compare("STRING")
         self.compare("DQUOTE")
         self.compare("COLON")
-        self.block()
+        B = self.block()
         self.compare("DOT")
-        pass
+        return NonLeafNode("program", block = B) #AAA
 
     def block(self):
         #print("block")
         self.compare("LBLOCK")
-        self.statement_list()
+        L = self.statement_list()
         self.compare("RBLOCK")
-        pass
+        return NonLeafNode("block", statement_list = L) #AAA
 
     def statement_list(self):
         #print("statement_list")
+        node = NonLeafNode(None)
         if self.tokenCurrent.tipo != "RBLOCK":
-            self.statement()
-            self.statement_list()
-        pass
+            A = self.statement()
+            B = self.statement_list()
+            node = NonLeafNode("statement_list", statementNode=A, next = B)
+        return node
 
     def statement(self):
         #print("statement")
@@ -68,15 +72,21 @@ class Syntatic:
 
     def assign_statement(self):
         #print("assign_statement")
-        self.compare("IDENTIFICADOR")
+
+        leftToken = self.compare("IDENTIFICADOR")
+        leftLeaf = LeafNode("assign_statement", leftToken.valor, leftToken.linha)
+
         self.compare("ASSIGN")
+        node = NonLeafNode(None)
         if self.tokenCurrent.tipo == "COMANDO" and (
             self.tokenCurrent.valor == "ler" or self.tokenCurrent.valor == "ler_varios"
         ):
-            self.input_statement()
+            I = self.input_statement()
+            node = NonLeafNode("assign_statement", _input = I)
         else:
-            self.expression()
-        pass
+            E = self.expression()
+            node = NonLeafNode("assign_statement", expression = E)
+        return NonLeafNode("assign_statement", leftNode = leftLeaf, rightNode = node)
 
     def if_statement(self):
         #print("if_statement")
