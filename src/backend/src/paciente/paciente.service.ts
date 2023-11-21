@@ -1,6 +1,4 @@
 import { Injectable } from '@nestjs/common';
-import { CreatePacienteDto } from './dto/create-paciente.dto';
-import { UpdatePacienteDto } from './dto/update-paciente.dto';
 import { PrismaService } from '../prisma.service';
 import { Prisma } from '@prisma/client';
 import { Paciente } from './entities/paciente.entity';
@@ -27,11 +25,20 @@ export class PacienteService {
     return this.prisma.paciente.findMany();
   }
 
-  update(id: number, updatePacienteDto: UpdatePacienteDto) {
-    return `This action updates a #${id} paciente`;
+  async update(params: {
+    id: number;
+    data: Prisma.PacienteUpdateInput;
+  }): Promise<Paciente> {
+    const { id, data } = params;
+    return this.prisma.paciente.update({
+      data,
+      where: { id },
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} paciente`;
+  async remove(id: number): Promise<Paciente> {
+    return this.prisma.paciente.delete({
+      where: { id },
+    });
   }
 }
