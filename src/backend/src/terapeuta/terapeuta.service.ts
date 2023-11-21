@@ -1,26 +1,43 @@
 import { Injectable } from '@nestjs/common';
-import { CreateTerapeutaDto } from './dto/create-terapeuta.dto';
-import { UpdateTerapeutaDto } from './dto/update-terapeuta.dto';
+import { PrismaService } from 'src/prisma.service';
+import { Prisma, Terapeuta } from '@prisma/client';
 
 @Injectable()
 export class TerapeutaService {
-  create(createTerapeutaDto: CreateTerapeutaDto) {
-    return 'This action adds a new terapeuta';
+  constructor(private prisma: PrismaService) {}
+
+  async createTerapeuta(data: Prisma.TerapeutaCreateInput): Promise<Terapeuta> {
+    return this.prisma.terapeuta.create({
+      data,
+    });
   }
 
-  findAll() {
-    return `This action returns all terapeuta`;
+  async findOne(
+    terapeutaWhereUniqueInput: Prisma.TerapeutaWhereUniqueInput,
+  ): Promise<Terapeuta | null> {
+    return this.prisma.terapeuta.findUnique({
+      where: terapeutaWhereUniqueInput,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} terapeuta`;
+  async findAll(): Promise<Terapeuta[]> {
+    return this.prisma.terapeuta.findMany();
   }
 
-  update(id: number, updateTerapeutaDto: UpdateTerapeutaDto) {
-    return `This action updates a #${id} terapeuta`;
+  async update(params: {
+    id: number;
+    data: Prisma.TerapeutaUpdateInput;
+  }): Promise<Terapeuta> {
+    const { id, data } = params;
+    return this.prisma.terapeuta.update({
+      data,
+      where: { id },
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} terapeuta`;
+  async remove(id: number): Promise<Terapeuta> {
+    return this.prisma.terapeuta.delete({
+      where: { id },
+    });
   }
 }
