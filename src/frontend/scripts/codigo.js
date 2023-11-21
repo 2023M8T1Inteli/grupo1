@@ -128,8 +128,6 @@ function adicionarImagemAoCenario(src) {
   var imagem = document.getElementById('bloco-imagem');
   if (imagem) {
     imagem.style.backgroundImage = 'url(' + src + ')';
-    imagem.style.backgroundSize = 'cover';
-    imagem.style.backgroundPosition = 'center';
     imagem.innerHTML = ''; // Limpar o texto padrão
   }
 }
@@ -208,3 +206,77 @@ document.querySelectorAll('[data-tooltip]').forEach(element => {
       element.setAttribute('data-tooltip', element.dataset.originalTooltip); // Restaura o tooltip
   });
 });
+
+
+function previewImages() {
+    var container = document.getElementById('container');
+    var infoBox = document.querySelector('.info-box');
+    var filesInput = document.getElementById('files');
+    
+    container.innerHTML = ''; // Limpa o conteúdo anterior
+    
+    var files = filesInput.files;
+    
+    if (files.length === 0) {
+      infoBox.textContent = 'Empty';
+      return;
+    }
+
+    infoBox.textContent = files.length + ' image(s) selected';
+
+    for (var i = 0; i < files.length; i++) {
+      var file = files[i];
+      var reader = new FileReader();
+
+      reader.onload = function (e) {
+        var img = document.createElement('img');
+        img.src = e.target.result;
+        img.draggable = true;
+        img.addEventListener('dragstart', function(event) {
+          event.dataTransfer.setData('text/plain', 'dragging'); // Define dados de arrastar
+        });
+        container.appendChild(img);
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
+
+  function allowDrop(event) {
+    event.preventDefault();
+  }
+
+  function dropImage(event) {
+    event.preventDefault();
+    var data = event.dataTransfer.getData('text/plain');
+    if (data === 'dragging') {
+      var img = document.createElement('img');
+      img.src = event.dataTransfer.getData('URL');
+      img.draggable = true;
+      img.addEventListener('dragstart', function(event) {
+        event.dataTransfer.setData('text/plain', 'dragging');
+      });
+      event.target.appendChild(img);
+    }
+  }
+
+  function allowDrop(event) {
+    event.preventDefault();
+  }
+  
+  function dropImagem(event) {
+    event.preventDefault();
+  
+    // Obtém o arquivo do input de arquivo
+    var inputFiles = document.getElementById('files');
+    var file = inputFiles.files[0];
+  
+    if (file) {
+      // Lê o conteúdo do arquivo como URL e adiciona ao cenário
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        adicionarImagemAoCenario(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  }

@@ -14,6 +14,7 @@ for (var draggable of draggables) {
   draggable.addEventListener('dragstart', dragStart)
 }
 
+
 // editor
 
 var dropzone = document.getElementById('editor')
