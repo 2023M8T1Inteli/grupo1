@@ -317,6 +317,10 @@ select {
     background-color: green;
 }
 
+.logicals {
+    background-color: rgb(2, 0, 128);
+}
+
 .input-keys {
     background-color: gray;
 }
