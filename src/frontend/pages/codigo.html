@@ -53,98 +53,48 @@
       <!-- Dropdowns para categorias de objetos -->
       <div id="objects">
         <!-- Dropdown Alimentação -->
-        <div id="dropdown-container1" data-tooltip="Imagens que vão no game.">
           <!-- Opções para Alimentação -->
-          <select
-            id="dropdownAlimentacao"
-            onchange="adicionarImagem(this.value)"
-          >
+          <select id="dropdownUniversal" onchange="adicionarImagem(this.value)">
+
             <option value="alimentacao">Alimentação</option>
             <option value="maca">Maçã</option>
             <option value="banana">Banana</option>
-          </select>
-        </div>
-        <!-- Dropdown Religião -->
-        <div id="dropdown-container2">
-          <!-- Opções para Religião -->
-          <select id="dropdownReligiao" onchange="adicionarImagem(this.value)">
-            <option value="">Religião</option>
             <option value="cristianismo">Cristianismo</option>
             <option value="judaismo">Judaísmo</option>
-          </select>
-        </div>
-        <!-- Dropdown Esporte -->
-        <div id="dropdown-container3">
-          <!-- Opções para Esporte -->
-          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
-            <option value="esporte">Esporte</option>
             <option value="futebol">Futebol</option>
             <option value="volei">Vôlei</option>
-          </select>
-        </div>
-        <!-- Dropdown Animal -->
-        <div id="dropdown-container4">
-          <!-- Opções para Animal -->
-          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
-            <option value="animal">Animal</option>
             <option value="peixe">Peixe</option>
             <option value="rato">Rato</option>
-          </select>
-        </div>
-        <!-- Dropdown Planta -->
-        <div id="dropdown-container5">
-          <!-- Opções para Planta -->
-          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
-            <option value="planta">Planta</option>
             <option value="arvore">Árvore</option>
             <option value="flor">Flor</option>
-          </select>
-        </div>
-        <!-- Dropdown Transporte -->
-        <div id="dropdown-container6">
-          <!-- Opções para Transporte -->
-          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
-            <option value="transporte">Transporte</option>
             <option value="bicicleta">Bicicleta</option>
             <option value="carro">Carro</option>
-          </select>
-        </div>
-        <!-- Dropdown Evento -->
-        <div id="dropdown-container7">
-          <!-- Opções para Evento -->
-          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
-            <option value="evento">Evento</option>
             <option value="natal">Natal</option>
             <option value="pascoa">Páscoa</option>
-          </select>
-        </div>
-        <!-- Dropdown Cor -->
-        <div id="dropdown-container8">
-          <!-- Opções para Cor -->
-          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
-            <option value="cores">Cores</option>
             <option value="verde">Verde</option>
             <option value="roxo">Roxo</option>
-          </select>
-        </div>
-        <!-- Dropdown Profissão -->
-        <div id="dropdown-container9">
-          <!-- Opções para Profissão -->
-          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
-            <option value="profissao">Profissão</option>
             <option value="medico">Médico</option>
             <option value="professor">Professor</option>
-          </select>
-        </div>
-        <!-- Dropdown Música -->
-        <div id="dropdown-container10">
-          <!-- Opções para Música -->
-          <select id="dropdownEsporte" onchange="adicionarImagem(this.value)">
-            <option value="musica">Música</option>
             <option value="guitarra">Guitarra</option>
             <option value="violino">Violino</option>
           </select>
-        </div>
+
+          <div id="dropdown-container1" data-tooltip="Imagens que vão no game.">
+            <div id="file-upload">
+              <div class="upload">
+                  <a>
+                      <span><i style = "font-family:courier,arial,helvetica;" class="fa fa-camera"></i>Carregar fotos</span>
+                      <div class="files"><input type="file" id="files" name="files[]" multiple="" onchange="previewImages()"></div>
+                  </a>
+              </div>
+              <div class="box">
+                  <div style = "font-family:courier,arial,helvetica;" draggable = "true" class="info-box">Vazio</div>
+                  <div id="container"></div>
+                </div>
+            </div>
+        
+          </div>
+
       </div>
 
       <!-- Cenário e Editor -->
