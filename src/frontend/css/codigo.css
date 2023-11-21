@@ -267,10 +267,13 @@ select {
 
 #bloco-imagem {
     position: absolute;
-    left: 420px;
+    left: 325px;
     top: 150px;
     border: 2px dashed #ccc;
     background-size: contain; 
+    width: 45%;
+    height: 350px;
+
 }
 
 /* #bloco-cor {

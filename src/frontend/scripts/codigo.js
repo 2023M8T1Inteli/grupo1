@@ -224,6 +224,9 @@ function previewImages() {
 
     infoBox.textContent = files.length + ' image(s) selected';
 
+    // Nome que deve ser enviado para o backend
+    var sendName = files.length + '.png'
+
     for (var i = 0; i < files.length; i++) {
       var file = files[i];
       var reader = new FileReader();
