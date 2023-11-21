@@ -1,8 +1,5 @@
-const ifCodeBlock =
-  '<div id="if-statement" class="code-block conditionals" draggable="true" style="background-color: rgb(196, 127, 0);">SE<div id="condition" class="droppable-area dropzone">+</div>ENTÃO<div id="body" class="droppable-area">+</div></div>'
-
 const showFuncCodeBlock =
-  '<div class="code-block functions" draggable="true">MOSTRAR<div class="droppable-area dropzone">+</div></div>'
+  '<div id="mostrar()" class="code-block functions" draggable="true">MOSTRAR<div class="droppable-area dropzone">+</div></div>'
 
 let draggingElement = null
 
@@ -60,28 +57,27 @@ function dropEditor(e) {
     // caso o elemento dropado seja um statement
     var newElement = document.createElement('div')
 
-    if (draggingElement.id == 'if-statement') newElement.innerHTML = ifCodeBlock
-    else if (draggingElement.id == 'show-function')
-      newElement.innerHTML = showFuncCodeBlock
+    newElement.innerHTML = createControlFlowBlock(draggingElement.id)
+
+    console.log(newElement.innerHTML)
 
     draggingElement = newElement.firstChild
 
-    for (let i = 0; i < draggingElement.children.length; i++) {
-      let child = draggingElement.children[i]
-      if (child.classList.contains('droppable-area')) {
-        child.addEventListener('dragover', dragOver)
-        child.addEventListener('drop', dropCodeBlock)
+    if (draggingElement.children.length > 0) {
+      for (let i = 0; i < draggingElement.children.length; i++) {
+        let child = draggingElement.children[i]
+        if (child.classList.contains('droppable-area')) {
+          console.log('drop area')
+          child.addEventListener('dragover', dragOver)
+          child.addEventListener('drop', dropCodeBlock)
+        }
       }
     }
   }
 
   e.target.appendChild(draggingElement)
 
-  console.log('dragging el class list: ' + draggingElement.classList)
-
   draggingElement.classList.add('code-element')
-
-  console.log('dragging el class list: ' + draggingElement.classList)
 
   draggingElement.addEventListener('dragstart', dragStartCode)
 
@@ -101,11 +97,6 @@ function dropCodeBlock(e) {
 
 function dropDelete(e) {
   // função para dropar elementos na área de delete
-  console.log('dragging el: ' + draggingElement)
-
-  if (draggingElement) console.log('dragging el true')
-
-  console.log('dragging el class list: ' + draggingElement.classList)
 
   if (
     draggingElement.classList.contains('code-element') ||
@@ -115,4 +106,33 @@ function dropDelete(e) {
   }
 
   draggingElement = null
+}
+
+function createControlFlowBlock(type) {
+  // função que faz a formatação de estruturas de fluxo de controle no editor
+  var id, classtype, conditionWord, bodyWord
+
+  // checagem de qual estrutua de controle se trata
+  if (type == 'if-statement') {
+    id = 'if-block'
+    classtype = 'conditionals'
+    conditionWord = 'SE'
+    bodyWord = ['ENTÃO', 'SENÃO']
+  } else if (type == 'while-loop') {
+    id = 'while-block'
+    classtype = 'loops'
+    conditionWord = 'ENQUANTO'
+    bodyWord = ['FAÇA']
+  }
+
+  // montagem do bloco html correspondente
+  var block = `<div id="${id}" class="code-block ${classtype}" draggable="true" style="background-color: rgb(196, 127, 0);">${conditionWord}<div id="condition" class="droppable-area dropzone">+</div>`
+
+  for (let i = 0; i < bodyWord.length; i++) {
+    block += `${bodyWord[i]}<div id="body-${i}" class="droppable-area">+</div>`
+  }
+
+  block += '</div>'
+
+  return block
 }

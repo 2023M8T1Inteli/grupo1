@@ -292,16 +292,24 @@
     <!-- Rodapé da página -->
     <div id="footer" data-tooltip="Blocos de código para o editor.">
       <!-- Palavras-chave e área de exclusão -->
-      <div id="conditionals" class="code-blocks">
-        <div class="code-block-type">CONDICIONAIS</div>
+      <div id="control-flow-structures" class="code-blocks">
+        <div class="code-block-type">ESTRUTURAS DE FLUXO</div>
         <div class="code-block-list">
           <div
             id="if-statement"
-            class="argumentative code-word conditionals"
+            class="argumentative code-word code-block conditionals"
             draggable="true"
             style="background-color: rgb(196, 127, 0)"
           >
             SE ... ENTÃO ... SENÃO ...
+          </div>
+          <div
+            id="while-loop"
+            class="argumentative code-word loops"
+            draggable="true"
+            style="background-color: rgb(196, 127, 0)"
+          >
+            ENQUANTO ... FAÇA ...
           </div>
         </div>
       </div>
@@ -331,7 +339,7 @@
       </div>
 
       <div id="inputs" class="code-blocks">
-        <div class="code-block-type">ENTRADAS</div>
+        <div class="code-block-type">LEITURA</div>
         <div class="code-block-list">
           <div class="code-word input-functions" id="ler()" draggable="true">
             TECLA PRESS
@@ -343,11 +351,32 @@
         <div class="code-block-type">FUNÇÕES</div>
         <div class="code-block-list">
           <div
-            id="mostrar(1)"
+            id="show-function"
             class="argumentative code-word functions"
             draggable="true"
           >
-            MOSTRAR
+            MOSTRAR ...
+          </div>
+          <div
+            id="play-function"
+            class="argumentative code-word functions"
+            draggable="true"
+          >
+            TOCAR ...
+          </div>
+          <div
+            id="show-play-function"
+            class="argumentative code-word functions"
+            draggable="true"
+          >
+            MOSTRAR ... E TOCAR ...
+          </div>
+          <div
+            id="wait-function"
+            class="argumentative code-word functions"
+            draggable="true"
+          >
+            ESPERAR ... MS
           </div>
         </div>
       </div>
