@@ -547,3 +547,9 @@ select {
   max-width: 300px; 
   cursor:grab;
 }
+
+#container > img {
+    max-width: 100%;
+    height: auto;
+    max-height: 300px; /* Define a altura máxima da imagem, ajuste conforme necessário */
+  }
