@@ -2,6 +2,7 @@ from Lexer import Lexer
 from Syntactic import Syntatic
 from Tree import NonLeafNode, LeafNode
 from token_patterns import token_patterns
+from pprint import pprint
 
 
 class Compiler:
@@ -19,7 +20,8 @@ class Compiler:
 
         # Cria uma instância do analisador sintático e faz a análise com base nos tokens
         syntax = Syntatic(tokens)
-        syntax.analyze()
+        tree = syntax.analyze()
+        pprint(tree)
 
 
     if __name__ == "__main__":

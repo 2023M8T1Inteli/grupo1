@@ -26,117 +26,92 @@ class Syntatic:
         pass
 
     def analyze(self):
-        a = self.program()
-        self.compare("EOF")
-        print("Funcionou!")
-        return a
+        return self.program()
 
     def program(self):
-        #print("program")
         self.compare("PROGRAMA")
+        program_name = self.tokenCurrent.valor
         self.compare("DQUOTE")
         self.compare("STRING")
         self.compare("DQUOTE")
         self.compare("COLON")
-        B = self.block()
+        block_node = self.block()
         self.compare("DOT")
-        return NonLeafNode("program", block = B) #AAA
+
+        return NonLeafNode("Programa", nome=program_name, bloco=block_node)
 
     def block(self):
-        #print("block")
         self.compare("LBLOCK")
-        L = self.statement_list()
+        statement_list_node = self.statement_list()
         self.compare("RBLOCK")
-        return NonLeafNode("block", statement_list = L) #AAA
+        return statement_list_node
 
     def statement_list(self):
-        #print("statement_list")
-        node = NonLeafNode(None)
-        if self.tokenCurrent.tipo != "RBLOCK":
-            A = self.statement()
-            B = self.statement_list()
-            node = NonLeafNode("statement_list", statementNode=A, next = B)
-        return node
+        statements = []
+        while self.tokenCurrent.tipo != "RBLOCK":
+            statement_node = self.statement()
+            statements.append(statement_node)
+        return NonLeafNode("ListaDeInstrucoes", instrucoes=statements)
 
     def statement(self):
-        #print("statement")
         if self.tokenCurrent.tipo == "IDENTIFICADOR":
-            self.assign_statement()
+            return self.assign_statement()
         elif self.tokenCurrent.tipo == "SE":
-            self.if_statement()
+            return self.if_statement()
         elif self.tokenCurrent.tipo == "ENQUANTO":
-            self.while_statement()
+            return self.while_statement()
         else:
-            self.command_statement()
-        pass
+            return self.command_statement()
 
     def assign_statement(self):
-        #print("assign_statement")
-
-        leftToken = self.compare("IDENTIFICADOR")
-        leftLeaf = LeafNode("assign_statement", leftToken.valor, leftToken.linha)
-
+        identifier = self.tokenCurrent.valor
+        self.compare("IDENTIFICADOR")
         self.compare("ASSIGN")
-        node = NonLeafNode(None)
         if self.tokenCurrent.tipo == "COMANDO" and (
             self.tokenCurrent.valor == "ler" or self.tokenCurrent.valor == "ler_varios"
         ):
-            I = self.input_statement()
-            node = NonLeafNode("assign_statement", _input = I)
+            return self.input_statement(identifier)
         else:
-            E = self.expression()
-            node = NonLeafNode("assign_statement", expression = E)
-        return NonLeafNode("assign_statement", leftNode = leftLeaf, rightNode = node)
+            expression_node = self.expression()
+            return NonLeafNode("Atribuicao", identificador=identifier, expressao=expression_node)
 
     def if_statement(self):
-        #print("if_statement")
         self.compare("SE")
-        self.expression()
+        condition_node = self.expression()
         self.compare("ENTAO")
-        self.block()
+        if_block_node = self.block()
+        else_block_node = None
         if self.tokenCurrent.tipo == "SENAO":
             self.compare("SENAO")
-            self.block()
-        pass
+            else_block_node = self.block()
+
+        return NonLeafNode("Se", condicao=condition_node, bloco_entao=if_block_node, bloco_senao=else_block_node)
 
     def while_statement(self):
-        #print("while_statement")
         self.compare("ENQUANTO")
-        self.expression()
+        condition_node = self.expression()
         self.compare("FACA")
-        self.block()
-        pass
+        loop_block_node = self.block()
+
+        return NonLeafNode("Enquanto", condicao=condition_node, bloco=loop_block_node)
 
     def command_statement(self):
-        #print("command_statement")
-        if self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "mostrar":
-            self.compare("COMANDO", "mostrar")
+        command = self.tokenCurrent.valor
+        self.compare("COMANDO")
+        if command == "mostrar" or command == "tocar" or command == "esperar":
             self.compare("LPAR")
-            self.sum_expression()
+            expression_node = self.sum_expression()
             self.compare("RPAR")
-        elif self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "tocar":
-            self.compare("COMANDO", "tocar")
-            self.compare("LPAR")
-            self.sum_expression()
-            self.compare("RPAR")
-        elif (
-            self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "esperar"
-        ):
-            self.compare("COMANDO", "esperar")
-            self.compare("LPAR")
-            self.sum_expression()
-            self.compare("RPAR")
+            return NonLeafNode("ComandoSimples", comando=command, expressao=expression_node)
         else:
-            self.compare("COMANDO", "mostrar_tocar")
             self.compare("LPAR")
-            self.sum_expression()
+            expression1_node = self.sum_expression()
             self.compare("COMMA")
-            self.sum_expression()
+            expression2_node = self.sum_expression()
             self.compare("RPAR")
-        pass
+            return NonLeafNode("ComandoComposto", comando=command, expressao1=expression1_node, expressao2=expression2_node)
 
-    def input_statement(self):
-        #print("input_statement")
+    def input_statement(self, identifier):
         if self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "ler":
             self.compare("COMANDO", "ler")
             self.compare("LPAR")
@@ -144,89 +119,99 @@ class Syntatic:
         else:
             self.compare("COMANDO", "ler_varios")
             self.compare("LPAR")
-            self.sum_expression()
+            expression1_node = self.sum_expression()
             self.compare("COMMA")
-            self.sum_expression()
+            expression2_node = self.sum_expression()
             self.compare("COMMA")
-            self.sum_expression()
+            expression3_node = self.sum_expression()
             self.compare("RPAR")
-        pass
+
+            return NonLeafNode("LeituraVarios", identificador=identifier, expressao1=expression1_node, expressao2=expression2_node, expressao3=expression3_node)
 
     def expression(self):
-        #print("expression")
-        self.sum_expression()
+        expression1_node = self.sum_expression()
         if self.tokenCurrent.tipo == "OPREL":
+            operator = self.tokenCurrent.valor
             self.relop()
-            self.sum_expression()
-        pass
-
-    def relop(self):
-        #print("relop")
-        self.compare("OPREL")
-        pass
+            expression2_node = self.sum_expression()
+            return NonLeafNode("ExpressaoRelacional", operador=operator, expressao1=expression1_node, expressao2=expression2_node)
+        else:
+            return expression1_node
 
     def sum_expression(self):
-        #print("sum_expression")
-        self.mult_term()
-        self.sum_expression2()
-        pass
+        term1_node = self.mult_term()
+        return self.sum_expression2(term1_node)
 
-    def sum_expression2(self):
-        #print("sum_expression2")
+    def sum_expression2(self, expression_node):
         if self.tokenCurrent.tipo == "OPSUM":
+            operator = self.tokenCurrent.valor
             self.compare("OPSUM")
-            self.mult_term()
-            self.sum_expression2
-        pass
+            term2_node = self.mult_term()
+            return self.sum_expression2(NonLeafNode("ExpressaoAritmetica", operador=operator, termo1=expression_node, termo2=term2_node))
+        else:
+            return expression_node
 
     def mult_term(self):
-        #print("mult_term")
-        self.power_term()
-        self.mult_term2()
-        pass
+        factor1_node = self.power_term()
+        return self.mult_term2(factor1_node)
 
-    def mult_term2(self):
-        #print("mult_term2")
+    def mult_term2(self, term_node):
         if self.tokenCurrent.tipo == "OPMUL":
+            operator = self.tokenCurrent.valor
             self.compare("OPMUL")
-            self.power_term()
-            self.mult_term2()
-        pass
+            factor2_node = self.power_term()
+            return self.mult_term2(NonLeafNode("TermoAritmetico", operador=operator, fator1=term_node, fator2=factor2_node))
+        else:
+            return term_node
 
     def power_term(self):
-        #print("power_term")
-        self.factor()
+        factor_node = self.factor()
         if self.tokenCurrent.tipo == "OPPOW":
+            operator = self.tokenCurrent.valor
             self.compare("OPPOW")
-            self.power_term()
-        pass
+            power_node = self.power_term()
+            return NonLeafNode("Potencia", operador=operator, base=factor_node, expoente=power_node)
+        else:
+            return factor_node
 
     def factor(self):
-        #print("factor")
         if self.tokenCurrent.tipo == "IDENTIFICADOR":
+            identifier_node = LeafNode("IDENTIFICADOR", self.tokenCurrent.valor, self.tokenCurrent.linha)
             self.compare("IDENTIFICADOR")
+            return identifier_node
         elif self.tokenCurrent.tipo == "NUMERO":
+            number_node = LeafNode("NUMERO", self.tokenCurrent.valor, self.tokenCurrent.linha)
             self.compare("NUMERO")
+            return number_node
         elif self.tokenCurrent.tipo == "BOOLEAN":
-            self.boolean()
-        elif self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.value == "+":
+            boolean_node = LeafNode("BOOLEAN", self.tokenCurrent.valor, self.tokenCurrent.linha)
+            self.compare("BOOLEAN")
+            return boolean_node
+        elif self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.valor == "+":
+            operator_node = LeafNode("OPSUM", "+", self.tokenCurrent.linha)
             self.compare("OPSUM", "+")
-            self.factor()
-        elif self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.value == "-":
+            factor_node = self.factor()
+            return NonLeafNode("ExpressaoUnaria", operador=operator_node, fator=factor_node)
+        elif self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.valor == "-":
+            operator_node = LeafNode("OPSUM", "-", self.tokenCurrent.linha)
             self.compare("OPSUM", "-")
-            self.factor()
+            factor_node = self.factor()
+            return NonLeafNode("ExpressaoUnaria", operador=operator_node, fator=factor_node)
         elif self.tokenCurrent.tipo == "NAO":
+            operator_node = LeafNode("NAO", "NAO", self.tokenCurrent.linha)
             self.compare("NAO")
-            self.factor()
+            factor_node = self.factor()
+            return NonLeafNode("ExpressaoLogica", operador=operator_node, fator=factor_node)
         else:
             self.compare("LPAR")
-            self.expression()
+            expression_node = self.expression()
             self.compare("RPAR")
-        pass
+            return expression_node
 
     def boolean(self):
-        if self.tokenCurrent.tipo == "BOOLEAN" and self.tokenCurrent.value == "verdade":
+        boolean_node = LeafNode("BOOLEAN", self.tokenCurrent.valor, self.tokenCurrent.linha)
+        if self.tokenCurrent.tipo == "BOOLEAN" and self.tokenCurrent.valor == "verdade":
             self.compare("BOOLEAN", "verdade")
         else:
             self.compare("BOOLEAN", "falso")
-        pass
+        return boolean_node
