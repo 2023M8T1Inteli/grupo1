@@ -1,7 +1,8 @@
+import { Terapeuta } from '@prisma/client';
+
 export class CreateAtividadeDto {
-  id: number;
   codigo: string;
   cenario: string;
-  terapeuta: string;
+  terapeuta: Terapeuta;
   pacientes?: string[];
 }

@@ -10,6 +10,7 @@ datasource db {
 model Atividade {
   id        Int      @default(autoincrement()) @id
   codigo    String
+  data      String
   cenario   String
   terapeuta Terapeuta @relation(fields: [terapeutaId], references: [id])
   terapeutaId Int

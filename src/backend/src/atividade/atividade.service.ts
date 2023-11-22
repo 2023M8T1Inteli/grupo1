@@ -1,26 +1,43 @@
 import { Injectable } from '@nestjs/common';
-import { CreateAtividadeDto } from './dto/create-atividade.dto';
-import { UpdateAtividadeDto } from './dto/update-atividade.dto';
+import { Atividade, Prisma } from '@prisma/client';
+import { PrismaService } from 'src/prisma.service';
 
 @Injectable()
 export class AtividadeService {
-  create(createAtividadeDto: CreateAtividadeDto) {
-    return 'This action adds a new atividade';
+  constructor(private prisma: PrismaService) {}
+
+  async createatividade(data: Prisma.AtividadeCreateInput): Promise<Atividade> {
+    return this.prisma.atividade.create({
+      data,
+    });
   }
 
-  findAll() {
-    return `This action returns all atividade`;
+  async findOne(
+    atividadeWhereUniqueInput: Prisma.AtividadeWhereUniqueInput,
+  ): Promise<Atividade | null> {
+    return this.prisma.atividade.findUnique({
+      where: atividadeWhereUniqueInput,
+    });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} atividade`;
+  async findAll(): Promise<Atividade[]> {
+    return this.prisma.atividade.findMany();
   }
 
-  update(id: number, updateAtividadeDto: UpdateAtividadeDto) {
-    return `This action updates a #${id} atividade`;
+  async update(params: {
+    id: number;
+    data: Prisma.AtividadeUpdateInput;
+  }): Promise<Atividade> {
+    const { id, data } = params;
+    return this.prisma.atividade.update({
+      data,
+      where: { id },
+    });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} atividade`;
+  async remove(id: number): Promise<Atividade> {
+    return this.prisma.atividade.delete({
+      where: { id },
+    });
   }
 }
