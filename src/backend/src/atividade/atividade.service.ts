@@ -1,16 +1,28 @@
 import { Injectable } from '@nestjs/common';
 import { Atividade, Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
+import { CreateAtividadeDto } from './dto/create-atividade.dto';
 
 @Injectable()
 export class AtividadeService {
   constructor(private prisma: PrismaService) {}
 
-  async createatividade(data: Prisma.AtividadeCreateInput): Promise<Atividade> {
+  async createAtividade(data: CreateAtividadeDto): Promise<Atividade> {
     return this.prisma.atividade.create({
-      data,
+      data: {
+        codigo: data.codigo,
+        cenario: data.cenario,
+        data: data.data,
+        terapeuta: {
+          connect: { id: data.terapeutaId } // Certifique-se de ter o ID correto do terapeuta
+        },
+        pacientes: {
+          create: data.pacientes // Certifique-se de ter os dados corretos dos pacientes
+        }
+      },
     });
   }
+  
 
   async findOne(
     atividadeWhereUniqueInput: Prisma.AtividadeWhereUniqueInput,

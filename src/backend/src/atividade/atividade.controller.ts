@@ -17,8 +17,8 @@ export class AtividadeController {
   constructor(private readonly atividadeService: AtividadeService) {}
 
   @Post()
-  create(@Body() CreateAtividadeDto: Prisma.AtividadeCreateInput) {
-    return this.atividadeService.createatividade(CreateAtividadeDto);
+  create(@Body() createAtividadeDto: CreateAtividadeDto) {
+    return this.atividadeService.createAtividade(createAtividadeDto);
   }
 
   @Get()
