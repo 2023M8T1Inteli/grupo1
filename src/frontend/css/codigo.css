@@ -118,6 +118,7 @@ img.avatar {
     border: none;
     background-color: inherit;
     color: inherit;
+    width: 180px;
 }
 
 #tab button:hover {
@@ -423,7 +424,7 @@ select {
   }
 
   html, body {
-    background: #F1F1F1;
+    background: white;
     font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
 
   }
@@ -439,7 +440,7 @@ select {
     padding: 10px;
   }
   .upload {
-    background: #08c;
+    background: rgb(0, 0, 0);
     border-radius: 5px;
     width: 110px;height: 41px;
     margin: 20px auto;
