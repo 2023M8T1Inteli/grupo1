@@ -1,3 +1,5 @@
+//import { ControlFlowBlock } from './ControlFlowBlock'
+
 const showFuncCodeBlock =
   '<div id="mostrar()" class="code-block functions" draggable="true">MOSTRAR<div class="droppable-area dropzone">+</div></div>'
 
@@ -112,7 +114,7 @@ function createControlFlowBlock(type) {
   // função que faz a formatação de estruturas de fluxo de controle no editor
   var id, classtype, conditionWord, bodyWord
 
-  // checagem de qual estrutua de controle se trata
+  // checa de qual estrutura de controle se trata
   if (type == 'if-statement') {
     id = 'if-block'
     classtype = 'conditionals'
@@ -136,3 +138,5 @@ function createControlFlowBlock(type) {
 
   return block
 }
+
+function codeBlock() {}
