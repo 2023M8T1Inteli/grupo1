@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Atividade</title>
+
+    <!-- Link para o arquivo de estilo CSS -->
+    <link rel="stylesheet" href="../css/jogo.css" />
+  </head>
+  <body>
+    <div id="header">
+      <!-- Botão "Sair" -->
+      <div id="sair">
+        <div class="imgcontainer">
+          <img src="../img/voltar.png" alt="Avatar" class="avatar" />
+        </div>
+        <h2>Sair</h2>
+      </div>
+    </div>
+    <div id="main-container">
+      <div id="cenario">sdmasmdma</div>
+      <div id="tapete-lateral">      <!-- Tapete lateral com cores -->
+        <div
+          id="tapete"
+          data-tooltip="Simulação do tapete sensorial."
+          class="tapete-lateral"
+        >
+          <h3 id="tapete-tab">TAPETE</h3>
+          <div id="tapete-cores" class="tapete-container">
+            <!-- Cores no tapete -->
+            <div>
+              <div
+                class="tapete-cor code-word"
+                data-cor="green"
+                style="background-color: green"
+                onclick="adicionarCorAoCenario('green')"
+                draggable="true"
+              >
+                1
+              </div>
+            </div>
+            <div>
+              <div
+                class="tapete-cor code-word"
+                data-cor="blue"
+                style="background-color: blue"
+                onclick="adicionarCorAoCenario('blue')"
+                draggable="true"
+              >
+                2
+              </div>
+            </div>
+            <div>
+              <div
+                class="tapete-cor code-word"
+                data-cor="yellow"
+                style="background-color: yellow; color: #000000"
+                onclick="adicionarCorAoCenario('yellow')"
+                draggable="true"
+              >
+                3
+              </div>
+            </div>
+            <div>
+              <div
+                class="tapete-cor code-word"
+                data-cor="purple"
+                style="background-color: purple"
+                onclick="adicionarCorAoCenario('purple')"
+                draggable="true"
+              >
+                4
+              </div>
+            </div>
+            <div>
+              <div
+                class="tapete-cor code-word"
+                data-cor="black"
+                style="background-color: black"
+                onclick="adicionarCorAoCenario('black')"
+                draggable="true"
+              >
+                5
+              </div>
+            </div>
+            <div>
+              <div
+                class="tapete-cor code-word"
+                data-cor="red"
+                style="background-color: #ad0000"
+                onclick="adicionarCorAoCenario('red')"
+                draggable="true"
+              >
+                6
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+  </body>
+</html>
