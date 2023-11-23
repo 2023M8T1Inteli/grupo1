@@ -9,17 +9,27 @@
     <link rel="stylesheet" href="../css/jogo.css" />
   </head>
   <body>
+
     <div id="header">
       <!-- Botão "Sair" -->
       <div id="sair">
         <div class="imgcontainer">
           <img src="../img/voltar.png" alt="Avatar" class="avatar" />
         </div>
-        <h2>Sair</h2>
+        <div class="header-button-text">
+          <h2>Sair</h2>
+        </div>
       </div>
     </div>
-    <div id="main-container">
-      <div id="cenario">sdmasmdma</div>
+    <div id="middle">
+      <div id="cenario">
+        <div id="pergunta">
+          Qual a cor do objeto abaixo?
+        </div>
+        <div id="objeto-img">
+          <img src="../img/carro-aacd.png" alt="">
+        </div>
+      </div>
       <div id="tapete-lateral">      <!-- Tapete lateral com cores -->
         <div
           id="tapete"
@@ -98,6 +108,31 @@
           </div>
         </div>
       </div></div>
+    </div>
+
+    <div id="right-answer-modal" class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <h2>Parabéns, você acertou!</h2>
+      </div>
+      <div class="modal-footer">
+        <button>Jogar Novamente</button>
+      </div>
+    </div>
+
+
+    <div id="wrong-answer-modal" class="modal-content">
+      <div class="modal-header">
+        <span class="close">&times;</span>
+      </div>
+      <div class="modal-body">
+        <h2>Bom esforço, você está quase lá!</h2>
+      </div>
+      <div class="modal-footer">
+        <button>Jogar Novamente</button>
+      </div>
     </div>
   </body>
 </html>
