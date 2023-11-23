@@ -74,7 +74,7 @@
 .imgcontainer {
     width: 7vh;
     margin: 0 1vh 0 0;
-    text-align: center;
+    text-align: middle;
 }
 
 img.avatar {
@@ -595,5 +595,4 @@ select {
     height: auto;
     max-height: 300px; /* Define a altura máxima da imagem, ajuste conforme necessário */
   }
-
 
