@@ -16,6 +16,8 @@
     margin: 0 6vh 0 2vh;
     display: flex;
     flex-direction: row;
+    font-size: 20px;
+
 }
 
 /* Estilos para o corpo do tapete */
@@ -29,6 +31,8 @@
     display: flex;
     flex-direction: row;
     margin: 0 6vh 0 2vh;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+    font-size: 20px;
 }
 
 #altoContraste{
@@ -43,9 +47,20 @@
     margin: 0 6vh 0 0;
 }
 
+#gerador{
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+    font-size: 25px;
+    font-weight: bold;
+
+}
+
 #botaoAltoContraste {
     background-color: lightgray;
     border-width: 1px;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+    font-size: 25px;
+    font-weight: bold;
+
 }
 
 .descritorCor{
@@ -383,7 +398,7 @@ select {
 
   html, body {
     background: #F1F1F1;
-    font-family: 'Abel', 'Roboto', sans-serif;
+    font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
 
   }
   * {
@@ -419,7 +434,7 @@ select {
     width: 40px;
     outline-offset: -5px;
   }
-  .upload > a > span .fa {padding: 8px;}
+  .upload > a > span .fa {padding: 2px;}
   .upload > a > span {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -553,3 +568,4 @@ select {
     height: auto;
     max-height: 300px; /* Define a altura máxima da imagem, ajuste conforme necessário */
   }
+
