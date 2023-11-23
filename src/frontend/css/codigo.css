@@ -317,6 +317,10 @@ select {
     background-color: green;
 }
 
+.logicals {
+    background-color: rgb(2, 0, 128);
+}
+
 .input-keys {
     background-color: gray;
 }
@@ -373,5 +377,22 @@ select {
     display: block;
     z-index: 1000;
     /* Posicionamento adicional se necessário */
+}
+
+.code-block-type{
+    text-align: center;
+}
+
+.code-blocks{
+    flex: 1;
+}
+
+.code-block-list{
+    align-items: center;
+    justify-content: center;
+}
+
+.add-arg-div{
+    order: -1;
 }
 
