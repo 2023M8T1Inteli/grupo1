@@ -8,9 +8,9 @@ import {
   Delete,
 } from '@nestjs/common';
 import { AtividadeService } from './atividade.service';
-// import { CreateAtividadeDto } from './dto/create-atividade.dto';
 // import { UpdateAtividadeDto } from './dto/update-atividade.dto';
 import { Prisma } from '@prisma/client';
+import { CreateAtividadeDto } from './dto/create-atividade.dto';
 
 @Controller('atividade')
 export class AtividadeController {

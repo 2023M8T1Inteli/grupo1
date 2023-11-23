@@ -3,5 +3,4 @@ export class CreateAtividadeDto {
   cenario: string;
   data: string
   terapeutaId: number;
-  pacientes?: string[];
 }

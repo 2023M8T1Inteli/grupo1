@@ -1,3 +1,4 @@
+import sys
 from Lexer import Lexer
 from Syntactic import Syntatic
 from Tree import Tree, Node
@@ -30,6 +31,6 @@ class Compiler:
 
     if __name__ == "__main__":
         # Lê o código fonte fornecido
-        source_code = read_code("codigo.txt")
+        source_code = " ".join(sys.argv[1:])
 
         compile(source_code)

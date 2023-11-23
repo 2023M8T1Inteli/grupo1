@@ -1,4 +1,7 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common';
+import { exec } from 'child_process';
+import * as path from 'path';
 import { Atividade, Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 import { CreateAtividadeDto } from './dto/create-atividade.dto';
@@ -7,21 +10,45 @@ import { CreateAtividadeDto } from './dto/create-atividade.dto';
 export class AtividadeService {
   constructor(private prisma: PrismaService) {}
 
-  async createAtividade(data: CreateAtividadeDto): Promise<Atividade> {
+  async createAtividade(data: CreateAtividadeDto) {
+    
+    const { codigo, cenario, data: atividadeData, terapeutaId } = data;
+
+    const caminhoScript = path.resolve(__dirname, '../../compilador/analisadores/Compiler.py');
+    
+    exec(`python ${caminhoScript} ${codigo}`, (error, stdout, stderr) => {
+      if (error) {
+        console.error(`Erro ao chamar o script Python: ${error.message}`);
+        return;
+      }
+      if (stderr) {
+        console.error(`Erro no script Python: ${stderr}`);
+        return;
+      }
+      console.log(`Saída do script Python: ${stdout}`);
+    });
+
     return this.prisma.atividade.create({
       data: {
-        codigo: data.codigo,
-        cenario: data.cenario,
-        data: data.data,
+        codigo,
+        cenario,
+        data: atividadeData,
         terapeuta: {
-          connect: { id: data.terapeutaId } // Certifique-se de ter o ID correto do terapeuta
+          connect: { id: terapeutaId },
         },
-        pacientes: {
-          create: data.pacientes // Certifique-se de ter os dados corretos dos pacientes
-        }
+        // pacientes: {
+        //   where: {
+        //     nome: {
+        //       in: pacientes, // Supondo que os nomes dos pacientes são únicos
+        //     },
+        //   },
+        // },
       },
     });
+
+
   }
+  
   
 
   async findOne(
