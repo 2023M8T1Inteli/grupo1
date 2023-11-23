@@ -267,7 +267,7 @@ select {
 
 #bloco-imagem {
     position: absolute;
-    left: 20%;
+    left: 43%;
     top: 40%;
 }
 
@@ -383,7 +383,7 @@ select {
 
   html, body {
     background: #F1F1F1;
-    /* font-family: 'Abel', 'Roboto', sans-serif; */
+    font-family: 'Abel', 'Roboto', sans-serif;
 
   }
   * {
