@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacientes Cadastrados</title>
+    <link rel="stylesheet" href="../css/listaPacientes.css">
+</head>
+<body>
+    <div class="top-bar">
+        <button id="voltar" type="button">Voltar</button>
+        <button id="home" type="button">Home</button>
+        <button id="novoPaciente" type="button">Novo Paciente</button>
+    </div>
+    <div class="pacientes-container">
+        <h2>Pacientes Cadastrados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Idade</th>
+                    <th>Dificuldade</th>
+                    <th>Grau</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- As linhas da tabela serão inseridas aqui pelo JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Modal para Detalhes do Paciente -->
+    <div id="modalDetalhes" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Detalhes do Paciente</h3>
+            <table id="tabelaDetalhes">
+                <thead>
+                    <tr>
+                        <th>Atividade Realizada</th>
+                        <th>Data da Sessão</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Detalhes serão inseridos aqui -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="../scripts/listaPacientes.js"></script>
+</body>
+</html>

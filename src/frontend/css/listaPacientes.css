@@ -1,0 +1,124 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    padding: 20px;
+    margin: 0;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: center; /* Centraliza os itens na horizontal */
+    align-items: center; /* Centraliza os itens na vertical */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite que os itens passem para a próxima linha se necessário */
+    margin-right: 97px;
+}
+
+button {
+    width: 345px; /* Tamanho fixo para todos os botões */
+    padding: 10px;
+    border: none;
+    background-color: #0073e6;
+    color: white;
+    border-radius: 0px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 0; /* Remove a margem para colar os botões */
+}
+
+button:hover {
+    background-color: #00539C; /* Cor de destaque quando passa o mouse */
+    /* Para um efeito mais visível, você pode alterar outras propriedades como a sombra */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adiciona sombra para destaque */
+}
+
+
+
+button:hover {
+    background-color: #00539C;
+}
+
+#voltar {
+    background-color: #0073e6 ;
+    color: white;
+    margin-left: 100px ;
+}
+
+#voltar:hover {
+    background-color: #00539C;
+}
+
+.pacientes-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: auto;
+    max-width: 1000px;
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #333;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+table tr:hover {
+    background-color: #0073e6c5; /* Cor de fundo ao passar o mouse */
+}
+
+/* Estilo para o Modal */
+.modal {
+    display: none; /* Oculto inicialmente */
+    position: fixed; /* Fica na frente de tudo */
+    z-index: 1; /* Sobreposição acima do conteúdo da página */
+    left: 0;
+    top: 0;
+    width: 100%; /* Largura total */
+    height: 100%; /* Altura total */
+    overflow: auto; /* Ativa a rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo com opacidade */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* Centraliza */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura do conteúdo do modal */
+}
+
+/* Botão de fechar */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
