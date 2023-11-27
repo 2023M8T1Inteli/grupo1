@@ -46,14 +46,15 @@ function trocarTab(evt, tab) {
   }
 }
 
+// Função para trocar a tab editor e cenário
 function clicarCenario() {
   document.getElementById("botaoCanvas").click();
 }
 
 let offsetX, offsetY;
 
+// Função que aplica uma imagem existente ao cenário 
 function adicionarImagem(opcao) {
-
   var imagens = {
     alimentacao: 'x.jpg',
     maca: 'https://static.arasaac.org/pictograms/2462/2462_300.png',
@@ -130,8 +131,7 @@ dragover_handler = function(ev) {
   ev.dataTransfer.dropEffect = "move";
 };
 
-/* O restante do JavaScript permanece o mesmo */
-
+// Função que faz a imagem do upload ir para o campo no cenário
 function adicionarImagemAoCenario(src) {
   var imagem = document.getElementById('bloco-imagem');
   if (imagem) {
@@ -142,6 +142,7 @@ function adicionarImagemAoCenario(src) {
   }
 }
 
+// Função que possibilita o arrasto de cores ao cenário 
 function adicionarCorAoCenario(cor) {
   var corBloco = document.getElementById('bloco-cor');
   if (corBloco) {
@@ -217,6 +218,8 @@ document.querySelectorAll('[data-tooltip]').forEach(element => {
   });
 });
 
+
+// Comando que faz com que a imagem do upload apareça previamente
 function previewImages() {
   var container = document.getElementById('container');
   var infoBox = document.querySelector('.info-box');
@@ -246,7 +249,6 @@ function previewImages() {
       });
       container.appendChild(img);
     };
-
     reader.readAsDataURL(file);
   }
 }
@@ -269,13 +271,8 @@ function dropImage(event) {
   }
 }
 
-function allowDrop(event) {
-  event.preventDefault();
-}
-
 function dropImagem(event) {
   event.preventDefault();
-
 
   // Obtém o arquivo do input de arquivo
   var inputFiles = document.getElementById('files');
@@ -289,7 +286,6 @@ function dropImagem(event) {
       adicionarImagemAoCenario(e.target.result);
     };
     reader.readAsDataURL(file);
-    
   }
 }
 
@@ -306,6 +302,8 @@ function redirecionarParaOutraPagina() {
   }
 }
 
+
+// Lógica do modal de feedback
 document.addEventListener('DOMContentLoaded', function () {
   const feedbackModal = document.getElementById('feedbackModal');
   const closeButton = document.querySelector('.close');
@@ -319,10 +317,12 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// Função que abre o modal de erro ao tentar acessar o jogo sem fazer os preenchimentos
 function openFeedbackModal() {
   document.getElementById('feedbackModal').style.display = 'block';
 }
 
+// Função que faz com que o modal de erro seja fechado
 function closeFeedbackModal() {
   document.getElementById('feedbackModal').style.display = 'none';
 }
