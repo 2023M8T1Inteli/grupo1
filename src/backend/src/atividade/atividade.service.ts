@@ -1,54 +1,48 @@
 /* eslint-disable prettier/prettier */
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { exec } from 'child_process';
 import * as path from 'path';
 import { Atividade, Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
+import * as util from 'util'; // Certifique-se de importar 'util'
 import { CreateAtividadeDto } from './dto/create-atividade.dto';
+
+const execPromise = util.promisify(exec);
 
 @Injectable()
 export class AtividadeService {
   constructor(private prisma: PrismaService) {}
 
   async createAtividade(data: CreateAtividadeDto) {
-    
-    const { codigo, cenario, data: atividadeData, terapeutaId } = data;
+    try {
+      const { codigo, cenario, data: atividadeData, terapeutaId } = data;
 
-    const caminhoScript = path.resolve(__dirname, '../../compilador/analisadores/Compiler.py');
-    
-    exec(`python ${caminhoScript} ${codigo}`, (error, stdout, stderr) => {
-      if (error) {
-        console.error(`Erro ao chamar o script Python: ${error.message}`);
-        return;
-      }
+      const caminhoScript = path.resolve(__dirname, '../../../compilador/analisadores/Compiler.py');
+      const comandoPython = `python ${caminhoScript} ${codigo}`;
+
+      const { stderr } = await execPromise(comandoPython);
+
       if (stderr) {
-        console.error(`Erro no script Python: ${stderr}`);
-        return;
+        console.error('Erro ao executar o comando:', stderr);
+        throw new Error('Erro ao executar o comando Python');
       }
-      console.log(`Saída do script Python: ${stdout}`);
-    });
 
-    return this.prisma.atividade.create({
-      data: {
-        codigo,
-        cenario,
-        data: atividadeData,
-        terapeuta: {
-          connect: { id: terapeutaId },
+      await this.prisma.atividade.create({
+        data: {
+          codigo,
+          cenario,
+          data: atividadeData,
+          terapeuta: {
+            connect: { id: terapeutaId },
+          },
         },
-        // pacientes: {
-        //   where: {
-        //     nome: {
-        //       in: pacientes, // Supondo que os nomes dos pacientes são únicos
-        //     },
-        //   },
-        // },
-      },
-    });
+      });
 
-
+      return { message: 'Atividade criada com sucesso' };
+    } catch (error) {
+      throw new BadRequestException(error.message || 'Erro ao criar atividade');
+    }
   }
-  
   
 
   async findOne(
