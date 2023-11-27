@@ -215,3 +215,30 @@ class Syntatic:
         else:
             self.compare("BOOLEAN", "falso")
         return boolean_node
+    
+    def process_program(self):
+        self.compare("PROGRAMA")
+        program_name = self.tokenCurrent.valor
+        self.compare("DQUOTE")
+        self.compare("STRING")
+        self.compare("DQUOTE")
+        self.compare("COLON")
+
+        while self.tokenCurrent.tipo == "IDENTIFICADOR_DECL":
+            self.declare_variable()
+
+            block_node = self.block()
+            self.compare("DOT")
+
+            return NonLeafNode("Programa", nome=program_name, bloco=block_node)
+        
+    
+    def declare_variable(self):
+        declaration_type = self.tokenCurrent.valor
+        self.compare("IDENTIFICADOR_DECL")
+        variable_name = self.tokenCurrent.valor
+        self.compare("IDENTIFICADOR")
+        self.compare("ASSIGN")
+
+        self.symbol_table[variable_name] = declaration_type
+        self.compare("COLON")

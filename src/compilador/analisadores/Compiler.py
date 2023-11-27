@@ -21,7 +21,9 @@ class Compiler:
         # Cria uma instância do analisador sintático e faz a análise com base nos tokens
         syntax = Syntatic(tokens)
         tree = syntax.analyze()
-        pprint(tree)
+        print(tree)
+
+        
 
 
     if __name__ == "__main__":

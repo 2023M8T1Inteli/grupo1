@@ -30,4 +30,5 @@ token_patterns = [
     (r"=", "ASSIGN"),
     (r"\(", "LPAR"),  # LPAR
     (r"\)", "RPAR"),  # RPAR
+    (r"\binteiro\b|\bbooleano\b", "IDENTIFICADOR_DECL"),
 ]
