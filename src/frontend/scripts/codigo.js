@@ -1,26 +1,30 @@
-var descreverCores = false
+let descreverCores = false;
 
-// Função que mostra a descrição das cores
 function altoContraste() {
   let descritoresList = document.getElementsByClassName("descritorCor");
-  // Ligar a descrição das cores
-  if(document.getElementById("botaoAltoContraste").style.backgroundColor != 'lightgreen'){
+
+  // Alterna entre ligar e desligar a descrição das cores
+  descreverCores = !descreverCores;
+
+  if (descreverCores) { // Ligar a descrição das cores
     document.getElementById("botaoAltoContraste").style.backgroundColor = 'lightgreen'
-    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores (Ligado)'
-    for (var i=0;i<descritoresList.length;i+=1){
+    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores (Ligado)';
+    for (var i = 0; i < descritoresList.length; i += 1) {
       descritoresList[i].style.display = 'block';
     }
-    descreverCores = true
   } else { // Desliga a descrição das cores
     document.getElementById("botaoAltoContraste").style.backgroundColor = 'lightgray'
-    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores'
-    document.getElementById('bloco-cor').innerHTML = ''
-    for (var i=0;i<descritoresList.length;i+=1){
+    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores';
+    // document.getElementsByClassName('descritorCor').innerHTML = '';
+
+    // Remover a exibição dos descritores de cor
+    for (var i = 0; i < descritoresList.length; i += 1) {
       descritoresList[i].style.display = 'none';
     }
-    descreverCores = false
   }
 }
+
+
 
 // Função para trocar a tab editor e cenário
 function trocarTab(evt, tab) {
@@ -281,3 +285,9 @@ function dropImagem(event) {
     reader.readAsDataURL(file);
   }
 }
+
+function redirecionarParaOutraPagina() {
+  // Substitua 'outra_pagina.html' pelo nome do seu arquivo HTML de destino
+  window.location.href = 'jogo.html';
+}
+
