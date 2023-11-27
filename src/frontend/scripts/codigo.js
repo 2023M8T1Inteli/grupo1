@@ -1,4 +1,5 @@
 let descreverCores = false;
+let active = 0
 
 function altoContraste() {
   let descritoresList = document.getElementsByClassName("descritorCor");
@@ -52,6 +53,7 @@ function clicarCenario() {
 let offsetX, offsetY;
 
 function adicionarImagem(opcao) {
+
   var imagens = {
     alimentacao: 'x.jpg',
     maca: 'https://static.arasaac.org/pictograms/2462/2462_300.png',
@@ -80,6 +82,7 @@ function adicionarImagem(opcao) {
   
   // Se uma opção válida foi selecionada (não vazia), adicione a imagem
   if (opcao && imagens[opcao]) {
+    active = 1;
     var img = document.createElement('img');
     img.src = imagens[opcao];
     img.alt = opcao;
@@ -88,6 +91,7 @@ function adicionarImagem(opcao) {
     
     var container = document.getElementById('canvas'); // Adicionando ao elemento 'canvas'
     container.appendChild(img);
+    
   }
 }
 
@@ -272,9 +276,11 @@ function allowDrop(event) {
 function dropImagem(event) {
   event.preventDefault();
 
+
   // Obtém o arquivo do input de arquivo
   var inputFiles = document.getElementById('files');
   var file = inputFiles.files[0];
+  active += 1;
 
   if (file) {
     // Lê o conteúdo do arquivo como URL e adiciona ao cenário
@@ -283,11 +289,21 @@ function dropImagem(event) {
       adicionarImagemAoCenario(e.target.result);
     };
     reader.readAsDataURL(file);
+    
   }
 }
 
 function redirecionarParaOutraPagina() {
-  window.location.href = 'jogo.html';
+  // Verificar se o campo de imagem está preenchido
+  const blocoImagem = document.getElementById('bloco-imagem');
+  const conteudoImagem = blocoImagem.textContent || blocoImagem.innerText;
+
+  if (ativadoo > 0) {
+    window.location.href = 'jogo.html';
+  } else {
+    // Se o campo de imagem não estiver preenchido, exibir mensagem ou realizar outra ação
+    openFeedbackModal();
+  }
 }
 
 document.addEventListener('DOMContentLoaded', function () {

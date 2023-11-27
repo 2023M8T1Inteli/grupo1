@@ -44,7 +44,7 @@
         <div class="imgcontainer">
           <img src="../img/contrast.png" alt="Avatar" class="avatar" />
         </div>
-        <button id="botaoAltoContraste" onclick="altoContraste();openFeedbackModal()">
+        <button id="botaoAltoContraste" onclick="altoContraste();">
           Descritivo Cores
         </button>
       </div>
@@ -65,7 +65,7 @@
       <div id="objects">
         <!-- Dropdown Alimentação -->
           <!-- Opções para Alimentação -->
-          <select id="dropdownUniversal" onchange="adicionarImagem(this.value)">
+          <select id="dropdownUniversal" onchange="adicionarImagem(this.value,1)">
 
             <option value="alimentacao">Alimentação</option>
             <option value="maca">Maçã</option>
@@ -154,7 +154,7 @@
             <div id="feedbackModal" class="modal">
               <div class="modal-content">
                 <span class="close" onclick="closeFeedbackModal()">&times;</span>
-                <h2>Descritivo de Cores Ativado com Sucesso!</h2>
+                <h2>Insira uma Imagem no Campo </h2>
               </div>
             </div>
   
