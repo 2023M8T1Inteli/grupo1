@@ -287,7 +287,27 @@ function dropImagem(event) {
 }
 
 function redirecionarParaOutraPagina() {
-  // Substitua 'outra_pagina.html' pelo nome do seu arquivo HTML de destino
   window.location.href = 'jogo.html';
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+  const feedbackModal = document.getElementById('feedbackModal');
+  const closeButton = document.querySelector('.close');
+
+  closeButton.addEventListener('click', closeFeedbackModal);
+
+  window.addEventListener('click', function (event) {
+    if (event.target == feedbackModal) {
+      closeFeedbackModal();
+    }
+  });
+});
+
+function openFeedbackModal() {
+  document.getElementById('feedbackModal').style.display = 'block';
+}
+
+function closeFeedbackModal() {
+  document.getElementById('feedbackModal').style.display = 'none';
 }
 

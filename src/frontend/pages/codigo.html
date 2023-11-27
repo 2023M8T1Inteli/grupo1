@@ -44,7 +44,7 @@
         <div class="imgcontainer">
           <img src="../img/contrast.png" alt="Avatar" class="avatar" />
         </div>
-        <button id="botaoAltoContraste" onclick="altoContraste()">
+        <button id="botaoAltoContraste" onclick="altoContraste();openFeedbackModal()">
           Descritivo Cores
         </button>
       </div>
@@ -52,10 +52,11 @@
         <div class="imgcontainer">
           <img src="../img/contrast.png" alt="Avatar" class="avatar" />
         </div>
-        <button id="d" onclick="ocultarDescritoresDeCor()">
+        <button id="modoNoturnoButton" onclick="openFeedbackModal()">
           Modo Noturno
         </button>
       </div>
+
     </div>
 
     <!-- Corpo da página -->
@@ -110,6 +111,7 @@
       <!-- Cenário e Editor -->
       <div id="cenario">
         <div id="fundo-cenario">
+          
           <div id="tab">
             <!-- Botões para alternar entre Cenário e Editor -->
             <button
@@ -148,6 +150,14 @@
             <div id="editor-content">
               <div id="bloco-imagem" ondrop="dropImagem(event)" ondragover="allowDrop(event)" class="editor-bloco">IMAGEM</div>
             </div>
+            
+            <div id="feedbackModal" class="modal">
+              <div class="modal-content">
+                <span class="close" onclick="closeFeedbackModal()">&times;</span>
+                <h2>Descritivo de Cores Ativado com Sucesso!</h2>
+              </div>
+            </div>
+  
           </div>
 
           <!-- Editor -->
