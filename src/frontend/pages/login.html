@@ -1,26 +1,48 @@
 <!DOCTYPE html>
+<!-- Define o tipo de documento como HTML5 -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Garante a responsividade em diferentes dispositivos -->
     <title>Login Screen</title>
+    <!-- Título da página, exibido na aba do navegador -->
     <link rel="stylesheet" href="../css/login.css">
+    <!-- Link para o arquivo CSS externo -->
 </head>
 <body>
     <div class="login-container">
+        <!-- Container para o formulário de login -->
+
         <form id="loginForm">
+            <!-- Formulário de login -->
+
             <h2>Login</h2>
+            <!-- Título do formulário -->
+
             <div class="input-group">
+                <!-- Grupo de entrada para o nome de usuário -->
                 <label for="username">Usuário</label>
+                <!-- Rótulo para o campo de nome de usuário -->
                 <input type="email" id="username" name="username" required>
+                <!-- Campo de entrada para o nome de usuário, do tipo email -->
             </div>
+
             <div class="input-group">
+                <!-- Grupo de entrada para a senha -->
                 <label for="password">Senha</label>
+                <!-- Rótulo para o campo de senha -->
                 <input type="password" id="password" name="password" required>
+                <!-- Campo de entrada para a senha, do tipo password -->
             </div>
+
             <button type="submit">Entrar</button>
+            <!-- Botão para enviar o formulário -->
         </form>
     </div>
+
     <script src="../scripts/login.js"></script>
+    <!-- Link para o script JavaScript externo -->
 </body>
 </html>
