@@ -26,16 +26,16 @@ Esse trabalho aborda o uso da terapia ocupacional com elementos de integração 
 &emsp; Sendo assim, esses estudos enfatizam a importância crescente da terapia ocupacional, integração sensorial e tecnologia assistiva na melhoria da qualidade de vida e inclusão educacional de indivíduos com necessidades especiais, evidenciando a relevância e o potencial de inovação da criação de um ambiente de desenvolvimento integrado que permite que, em alto nível, terapeutas ocupacionais personalizem atividades lúdicas em um tapete sensorial. 
 
 ## Referências
-VASCONCELLOS R.; DEL RÉ, A. Cerebral Palsy: effects of writing on a child’s writing. Alfa, São Paulo, v.61, n.2, p.319-349, 2017
+VASCONCELLOS R.; DEL RÉ, **A. Cerebral Palsy: effects of writing on a child’s writing**. Alfa, São Paulo, v.61, n.2, p.319-349, 2017
 
-AACD. Relatório Integrado (2022). Disponível em: https://aacd.org.br/wp-content/uploads/2023/07/Relatorio-Integrado-AACD-2022.pdf. Acesso em: 06 de novembro de 2023.
+AACD. **Relatório Integrado (2022)**. Disponível em: https://aacd.org.br/wp-content/uploads/2023/07/Relatorio-Integrado-AACD-2022.pdf. Acesso em: 06 de novembro de 2023.
 
-Estados Unidos (1998). The assistive technology Act of 1998. Lei nº 105-394, de 13 de Novembro de 1998. Disponível em: https://www.govinfo.gov/content/pkg/PLAW-105publ394/pdf/PLAW-105publ394.pdf. Acesso em: 13 de novembro de 2023.
+Estados Unidos (1998). **The assistive technology Act of 1998. Lei nº 105-394, de 13 de Novembro de 1998**. Disponível em: https://www.govinfo.gov/content/pkg/PLAW-105publ394/pdf/PLAW-105publ394.pdf. Acesso em: 13 de novembro de 2023.
 
-SOUSA, P. G. F. et al. O uso da tecnologia assistiva por terapeutas ocupacionais no contexto educacional brasileiro: uma revisão da literatura. Cadernos Brasileiros de Terapia Ocupacional, [S.l.], v. 19, n. 2, p. 177-187, 2011. Disponível em: https://www.cadernosdeterapiaocupacional.ufscar.br/index.php/cadernos/article/view/1123. Acesso em: 24 de novembro de 2023.
+SOUSA, P. G. F. et al. **O uso da tecnologia assistiva por terapeutas ocupacionais no contexto educacional brasileiro: uma revisão da literatura**. Cadernos Brasileiros de Terapia Ocupacional, [S.l.], v. 19, n. 2, p. 177-187, 2011. Disponível em: https://www.cadernosdeterapiaocupacional.ufscar.br/index.php/cadernos/article/view/1123. Acesso em: 24 de novembro de 2023.
 
-Vitomska, M. V. "The Effect of Occupational Therapy and Sensory Integration on the Level of Self-Care of Children with Autistic Spectrum Disorders." Art of Medicine, [S.l.], 2023. Disponível em: https://art-of-medicine.ifnmu.edu.ua/index.php/aom/article/view/865. Acesso em: 24 de novembro de 2023.
+Vitomska, M. V. **The Effect of Occupational Therapy and Sensory Integration on the Level of Self-Care of Children with Autistic Spectrum Disorders.** Art of Medicine, [S.l.], 2023. Disponível em: https://art-of-medicine.ifnmu.edu.ua/index.php/aom/article/view/865. Acesso em: 24 de novembro de 2023.
 
-SOLTYK, I.; BAZYLCHUK, O. Terapia Ocupacional com Uso de Integração Sensorial. Jornal Científico da Universidade Nacional de Educação de M. P. Dragomanov. Série 15, [S.l.], v. 24, n. 10, p. 1254-1262, 2019. Disponível em: https://spppc.com.ua/index.php/journal/article/view/1254. Acesso em: 25 de novembro de 2023.
+SOLTYK, I.; BAZYLCHUK, O. **Terapia Ocupacional com Uso de Integração Sensorial. Jornal Científico da Universidade Nacional de Educação de M. P**. Dragomanov. Série 15, [S.l.], v. 24, n. 10, p. 1254-1262, 2019. Disponível em: https://spppc.com.ua/index.php/journal/article/view/1254. Acesso em: 25 de novembro de 2023.
 
-Garcia, E. N.; Vieira, A. M. D. P. "Desafios Contemporâneos: O Uso da Tecnologia Assistiva como Instrumento Facilitador da Aprendizagem." Linguagens, Educação e Sociedade, Teresina, Ano 23, n. 40, set./dez. 2018. Revista do Programa de Pós-Graduação em Educação da UFPI. ISSN 2526-8449 (Eletrônico), 1518-0743 (Impresso). Disponível em: https://revistas.ufpi.br/index.php/lingedusoc/article/download/7654/pdf_1. Acesso em: 26 de novembro de 2023.
+Garcia, E. N.; Vieira, A. M. D. P. **Desafios Contemporâneos: O Uso da Tecnologia Assistiva como Instrumento Facilitador da Aprendizagem.** Linguagens, Educação e Sociedade, Teresina, Ano 23, n. 40, set./dez. 2018. Revista do Programa de Pós-Graduação em Educação da UFPI. ISSN 2526-8449 (Eletrônico), 1518-0743 (Impresso). Disponível em: https://revistas.ufpi.br/index.php/lingedusoc/article/download/7654/pdf_1. Acesso em: 26 de novembro de 2023.
