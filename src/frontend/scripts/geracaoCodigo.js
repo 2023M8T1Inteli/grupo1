@@ -1,4 +1,4 @@
-import { Conditional } from './Conditional.js'
+import { FunctionBlock } from './FunctionBlock.js'
 import { ControlFlowBlock } from './ControlFlowBlock.js'
 
 const editor = document.getElementById('editor') // editor de código
@@ -6,30 +6,6 @@ const editor = document.getElementById('editor') // editor de código
 const generator = document.getElementById('gerador') // botão para gerar código
 
 generator.addEventListener('click', generateCode) // função de gerar código adicionada ao botão
-
-function generateCode1() {
-  // início do programa
-  let codeText = 'programa "atividade": '
-
-  codeText += 'inicio '
-
-  let codeElements = editor.childNodes // cda elemento do código é um elemento filho (dentro do editor)
-
-  // passa por cada elemento e adiciona seu conteúdo a string que salva o código
-  for (let i = 0; i < codeElements.length; i++) {
-    if (codeElements[i].id == 'if-statement') {
-      // verifica se o elemento é um bloco condicional
-      let block = new Conditional(codeElements[i])
-      codeText += block.getBlock() + ' '
-    } else {
-      codeText += codeElements[i].id + ' ' // o id do elemento guarda seu símbolo correspondente na linguagem QAL
-    }
-  }
-
-  codeText += ' fim.' // adicioona o fim do programa
-
-  sendCode('http://127.0.0.1:5000/', codeText) // envio do arquivo para o servidor
-}
 
 function sendCode(backendURL, code) {
   // cria um arquivo .txt com o argumento 'code' como conteúdo
@@ -61,12 +37,16 @@ function generateCode() {
 
   // passa por cada elemento e adiciona seu conteúdo a string que salva o código
   for (let i = 0; i < codeElements.length; i++) {
-    if (codeElements[i].classList.contains('code-block')) {
+    let currentElement = codeElements[i]
+    if (currentElement.classList.contains('code-block')) {
       // verifica se o elemento é um bloco condicional
-      let block = new ControlFlowBlock(codeElements[i])
+      let block = new ControlFlowBlock(currentElement)
+      codeText += block.getBlock() + ' '
+    } else if (currentElement.classList.contains('function-block')) {
+      let block = new FunctionBlock(currentElement)
       codeText += block.getBlock() + ' '
     } else {
-      codeText += codeElements[i].id + ' ' // o id do elemento guarda seu símbolo correspondente na linguagem QAL
+      codeText += currentElement.id + ' ' // o id do elemento guarda seu símbolo correspondente na linguagem QAL
     }
   }
 

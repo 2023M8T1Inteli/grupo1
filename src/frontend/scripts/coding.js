@@ -59,9 +59,10 @@ function dropEditor(e) {
     // caso o elemento dropado seja um statement
     var newElement = document.createElement('div')
 
-    newElement.innerHTML = createControlFlowBlock(draggingElement.id)
-
-    console.log(newElement.innerHTML)
+    if (draggingElement.classList.contains('code-block'))
+      newElement.innerHTML = createControlFlowBlock(draggingElement.id)
+    else if (draggingElement.classList.contains('functions'))
+      newElement.innerHTML = createFunctionBlock(draggingElement.id)
 
     draggingElement = newElement.firstChild
 
@@ -88,7 +89,19 @@ function dropEditor(e) {
 
 function dropCodeBlock(e) {
   // função para dropar elementos em blocos de código (if, else, while)
-  e.target.appendChild(draggingElement)
+  if (draggingElement.classList.contains('functions')) {
+    var newElement = document.createElement('div')
+    newElement.innerHTML = createFunctionBlock(draggingElement.id)
+    draggingElement = newElement.firstChild
+  }
+
+  if (
+    e.target.classList.contains('add-code-word') ||
+    e.target.classList.contains('add-code-argument') ||
+    e.target.classList.contains('code-word')
+  )
+    e.target.parentNode.appendChild(draggingElement)
+  else e.target.appendChild(draggingElement)
 
   draggingElement.classList.add('code-element')
 
@@ -127,11 +140,34 @@ function createControlFlowBlock(type) {
     bodyWord = ['FAÇA']
   }
 
+  var addCodeWords = '<div class="add-code-word">+</div>'
+
   // montagem do bloco html correspondente
-  var block = `<div id="${id}" class="code-block ${classtype}" draggable="true" style="background-color: rgb(196, 127, 0);">${conditionWord}<div id="condition" class="droppable-area dropzone">+</div>`
+  var block = `<div id="${id}" class="code-block ${classtype}" draggable="true" style="background-color: rgb(196, 127, 0);">${conditionWord}<div id="condition" class="droppable-area dropzone">${addCodeWords}</div>`
 
   for (let i = 0; i < bodyWord.length; i++) {
-    block += `${bodyWord[i]}<div id="body-${i}" class="droppable-area">+</div>`
+    block += `${bodyWord[i]}<div id="body-${i}" class="droppable-area">${addCodeWords}</div>`
+  }
+
+  block += '</div>'
+
+  return block
+}
+
+function createFunctionBlock(functionId) {
+  var functionWord
+  if (functionId == 'show-function') functionWord = ['MOSTRAR']
+  else if (functionId == 'play-function') functionWord = ['TOCAR']
+  else if (functionId == 'show-play-function')
+    functionWord = ['MOSTRAR', 'TOCAR']
+  else functionWord = ['ESPERAR']
+
+  var addCodeArg = '<div class="add-code-argument">+</div>'
+
+  var block = `<div id="${functionId}-code" class="function-block code-block" draggable="true" style="background-color: #AD0000;">`
+
+  for (let i = 0; i < functionWord.length; i++) {
+    block += `${functionWord[i]}<div id="body-${i}" class="droppable-area">${addCodeArg}</div>`
   }
 
   block += '</div>'
