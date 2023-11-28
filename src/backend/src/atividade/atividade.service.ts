@@ -6,6 +6,7 @@ import { Atividade, Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma.service';
 import * as util from 'util'; // Certifique-se de importar 'util'
 import { CreateAtividadeDto } from './dto/create-atividade.dto';
+import * as fs from 'fs';
 
 const execPromise = util.promisify(exec);
 
@@ -18,7 +19,15 @@ export class AtividadeService {
       const { codigo, cenario, data: atividadeData, terapeutaId } = data;
 
       const caminhoScript = path.resolve(__dirname, '../../../compilador/analisadores/Compiler.py');
-      const comandoPython = `python ${caminhoScript} ${codigo}`;
+      const caminhoArquivo = path.resolve(__dirname, '../../../compilador/analisadores/codigo.txt');
+
+      // Apaga o conteúdo do arquivo
+      fs.writeFileSync(caminhoArquivo, '');
+
+      // Escreve a nova string no arquivo
+      fs.writeFileSync(caminhoArquivo, codigo);
+
+      const comandoPython = `python ${caminhoScript} ${caminhoArquivo}`;
 
       const { stderr } = await execPromise(comandoPython);
 
