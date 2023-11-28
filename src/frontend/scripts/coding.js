@@ -1,8 +1,3 @@
-//import { ControlFlowBlock } from './ControlFlowBlock'
-
-const showFuncCodeBlock =
-  '<div id="mostrar()" class="code-block functions" draggable="true">MOSTRAR<div class="droppable-area dropzone">+</div></div>'
-
 let draggingElement = null
 
 // draggables
@@ -56,12 +51,14 @@ function dropEditor(e) {
   // função para dropar elementos no editor
 
   if (draggingElement.classList.contains('argumentative')) {
-    // caso o elemento dropado seja um statement
+    // caso o elemento dropado seja uma estrutura de controle ou um função
     var newElement = document.createElement('div')
 
     if (draggingElement.classList.contains('code-block'))
+      // cria a estrutura html correspondente à estrutura de controle
       newElement.innerHTML = createControlFlowBlock(draggingElement.id)
     else if (draggingElement.classList.contains('functions'))
+      // cria a estrutura html correspondente à função
       newElement.innerHTML = createFunctionBlock(draggingElement.id)
 
     draggingElement = newElement.firstChild
@@ -70,13 +67,15 @@ function dropEditor(e) {
       for (let i = 0; i < draggingElement.children.length; i++) {
         let child = draggingElement.children[i]
         if (child.classList.contains('droppable-area')) {
-          console.log('drop area')
           child.addEventListener('dragover', dragOver)
           child.addEventListener('drop', dropCodeBlock)
         }
       }
     }
   }
+
+  if (draggingElement.classList.contains('tapete-cor'))
+    draggingElement.id = draggingElement.innerText
 
   e.target.appendChild(draggingElement)
 
@@ -90,6 +89,7 @@ function dropEditor(e) {
 function dropCodeBlock(e) {
   // função para dropar elementos em blocos de código (if, else, while)
   if (draggingElement.classList.contains('functions')) {
+    // caso o elemento seja uma função (mostrar, tocar, etc), esse bloco faz a formatação necessária
     var newElement = document.createElement('div')
     newElement.innerHTML = createFunctionBlock(draggingElement.id)
     draggingElement = newElement.firstChild
@@ -101,7 +101,11 @@ function dropCodeBlock(e) {
     e.target.classList.contains('code-word')
   )
     e.target.parentNode.appendChild(draggingElement)
+  // caso o usuário tente dropar um elemento em um espaço que não seja uma dropzone, o elemento é dropado no node pai
   else e.target.appendChild(draggingElement)
+
+  if (draggingElement.classList.contains('tapete-cor'))
+    draggingElement.id = draggingElement.innerText
 
   draggingElement.classList.add('code-element')
 
@@ -143,10 +147,10 @@ function createControlFlowBlock(type) {
   var addCodeWords = '<div class="add-code-word">+</div>'
 
   // montagem do bloco html correspondente
-  var block = `<div id="${id}" class="code-block ${classtype}" draggable="true" style="background-color: rgb(196, 127, 0);">${conditionWord}<div id="condition" class="droppable-area dropzone">${addCodeWords}</div>`
+  var block = `<div id="${id}" class="code-block ${classtype}" draggable="true" style="background-color: rgb(196, 127, 0);"> ${conditionWord} <div id="condition" class="droppable-area dropzone">${addCodeWords}</div>`
 
   for (let i = 0; i < bodyWord.length; i++) {
-    block += `${bodyWord[i]}<div id="body-${i}" class="droppable-area">${addCodeWords}</div>`
+    block += ` ${bodyWord[i]} <div id="body-${i}" class="droppable-area">${addCodeWords}</div>`
   }
 
   block += '</div>'
@@ -155,24 +159,30 @@ function createControlFlowBlock(type) {
 }
 
 function createFunctionBlock(functionId) {
+  // função que faz a formatação de funções de saída de dados no editor
+
   var functionWord
+
+  // verifica qual a função em questão
   if (functionId == 'show-function') functionWord = ['MOSTRAR']
   else if (functionId == 'play-function') functionWord = ['TOCAR']
   else if (functionId == 'show-play-function')
     functionWord = ['MOSTRAR', 'TOCAR']
   else functionWord = ['ESPERAR']
 
+  // bloco html que recebe o argumento das funções (representado pelo símbolo "+")
   var addCodeArg = '<div class="add-code-argument">+</div>'
 
+  // monta o bloco html correspondente
   var block = `<div id="${functionId}-code" class="function-block code-block" draggable="true" style="background-color: #AD0000;">`
 
   for (let i = 0; i < functionWord.length; i++) {
-    block += `${functionWord[i]}<div id="body-${i}" class="droppable-area">${addCodeArg}</div>`
+    block += ` ${functionWord[i]} <div id="body-${i}" class="droppable-area">${addCodeArg}</div>`
   }
+
+  if (functionWord[0] == 'ESPERAR') block += ' MS '
 
   block += '</div>'
 
   return block
 }
-
-function codeBlock() {}

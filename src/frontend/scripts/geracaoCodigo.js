@@ -31,19 +31,20 @@ function generateCode() {
   // início do programa
   let codeText = 'programa "atividade": '
 
-  codeText += 'inicio '
+  codeText += ' inicio '
 
-  let codeElements = editor.childNodes // cda elemento do código é um elemento filho (dentro do editor)
+  let codeElements = editor.childNodes // cada elemento do código é um elemento filho (dentro do editor)
 
   // passa por cada elemento e adiciona seu conteúdo a string que salva o código
   for (let i = 0; i < codeElements.length; i++) {
     let currentElement = codeElements[i]
-    if (currentElement.classList.contains('code-block')) {
+    if (currentElement.classList.contains('function-block')) {
+      console.log('entrou function block')
+      let block = new FunctionBlock(currentElement)
+      codeText += block.getBlock() + ' '
+    } else if (currentElement.classList.contains('code-block')) {
       // verifica se o elemento é um bloco condicional
       let block = new ControlFlowBlock(currentElement)
-      codeText += block.getBlock() + ' '
-    } else if (currentElement.classList.contains('function-block')) {
-      let block = new FunctionBlock(currentElement)
       codeText += block.getBlock() + ' '
     } else {
       codeText += currentElement.id + ' ' // o id do elemento guarda seu símbolo correspondente na linguagem QAL
