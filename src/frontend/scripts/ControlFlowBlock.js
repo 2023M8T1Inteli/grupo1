@@ -1,3 +1,5 @@
+import { FunctionBlock } from './FunctionBlock.js'
+
 export class ControlFlowBlock {
   constructor(block) {
     if (block.id == 'if-block') {
@@ -13,11 +15,9 @@ export class ControlFlowBlock {
 
     var conditionDiv = block.querySelector('#condition')
 
-    console.log('conditionDiv: ' + conditionDiv.innerHTML)
-
     for (let i = 0; i < conditionDiv.childNodes.length; i++) {
-      let codeWord = conditionDiv.childNodes[i].id
-      this.code += ' ' + codeWord + ' '
+      let codeWord = conditionDiv.childNodes[i]
+      this.code += ' ' + codeWord.id + ' '
     }
 
     for (let i = 0; i < this.blockWords.length; i++) {
@@ -28,7 +28,12 @@ export class ControlFlowBlock {
 
         for (let j = 1; j < bodyDiv.childNodes.length; j++) {
           let bodyChild = bodyDiv.childNodes[j]
-          this.code += bodyChild.id
+          if (bodyChild.classList.contains('function-block')) {
+            let element = new FunctionBlock(bodyChild)
+            this.code += element.getBlock()
+          } else {
+            this.code += bodyChild.id
+          }
         }
 
         this.code += ' fim '

@@ -17,14 +17,8 @@ export class FunctionBlock {
 
     this.funcCode += '('
 
-    console.log('block: ' + block)
-    console.log('block: ' + block.innerHTML)
-    console.log('block child: ' + block.childNodes.length)
-
     for (let i = 0; i < this.argsQty; i++) {
-      let bodyDiv = block.querySelector(`body-${i}`)
-
-      console.log('body div ' + i + ': ' + bodyDiv)
+      let bodyDiv = block.querySelector(`#body-${i}`)
 
       if (i > 0) this.funcCode += ', '
 
