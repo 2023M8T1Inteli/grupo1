@@ -1,5 +1,8 @@
+// Adiciona um ouvinte de evento que é acionado quando o conteúdo do DOM está carregado
 document.addEventListener('DOMContentLoaded', function() {
+    // Array de objetos representando pacientes
     var pacientes = [
+        // Cada objeto contém detalhes de um paciente
         { nome: 'Elena Fernandes', idade: '10', dificuldade: 'Dificuldade A', grau: '2', email: ' elenafernandes@gmail.com', telefone: '(11) 92566-6331' },
         { nome: 'Isabela Pereira', idade: '12', dificuldade: 'Dificuldade B', grau: '3', email: 'isabelapereira@gmail.com', telefone: '(11) 94621-5213' },
         { nome: 'João Neves', idade: '9', dificuldade: 'Dificuldade C', grau: '4', email: 'joãoneves@gmail.com', telefone: '(11) 99344-7780' },
@@ -7,11 +10,14 @@ document.addEventListener('DOMContentLoaded', function() {
         { nome: 'Felipe Castro', idade: '11', dificuldade: 'Dificuldade E', grau: '1', email: 'felipecastro@gmail.com', telefone: '(11) 94621-5215' }
     ];
 
+    // Seleciona o corpo da tabela no DOM
     var tabela = document.querySelector('table tbody');
     
+    // Itera sobre cada paciente e insere uma linha na tabela para cada um
     pacientes.forEach(function(paciente) {
-        var linha = tabela.insertRow();
-        linha.addEventListener('click', function() { mostrarDetalhes(paciente); });
+        var linha = tabela.insertRow(); // Insere uma nova linha na tabela
+        linha.addEventListener('click', function() { mostrarDetalhes(paciente); }); // Adiciona um ouvinte de evento para mostrar detalhes ao clicar
+        // Insere cada detalhe do paciente como uma célula na linha da tabela
         linha.insertCell(0).textContent = paciente.nome;
         linha.insertCell(1).textContent = paciente.idade;
         linha.insertCell(2).textContent = paciente.dificuldade;
@@ -21,61 +27,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Função para mostrar detalhes no modal
+// Função para mostrar detalhes de um paciente em um modal
 function mostrarDetalhes(paciente) {
-    var modal = document.getElementById('modalDetalhes');
+    var modal = document.getElementById('modalDetalhes'); // Seleciona o modal no DOM
     var tabelaDetalhes = document.getElementById('tabelaDetalhes').querySelector('tbody');
 
-    // Limpa a tabela de detalhes
-    tabelaDetalhes.innerHTML = '';
+    tabelaDetalhes.innerHTML = ''; // Limpa a tabela de detalhes no modal
 
-    // Adiciona detalhes fictícios para o exemplo
-    // ...código para adicionar detalhes...
+    // Array de detalhes fictícios para exemplificar
     var detalhes = [
         { atividade: "Exemplo de Atividade 1", data: "2023-01-01" },
         { atividade: "Exemplo de Atividade 2", data: "2023-02-01" }
     ];
 
+    // Insere cada detalhe na tabela de detalhes
     detalhes.forEach(function(det) {
         var linhaDetalhes = tabelaDetalhes.insertRow();
         linhaDetalhes.insertCell(0).textContent = det.atividade;
         linhaDetalhes.insertCell(1).textContent = det.data;
     });
 
-    // Exibe o modal
-    modal.style.display = 'block';
+    modal.style.display = 'block'; // Exibe o modal
 }
 
-// Fechar o modal
-var span = document.getElementsByClassName("close")[0];
+// Configuração para fechar o modal
+var span = document.getElementsByClassName("close")[0]; // Seleciona o botão de fechar
 span.onclick = function() {
     var modal = document.getElementById('modalDetalhes');
-    modal.style.display = 'none';
+    modal.style.display = 'none'; // Fecha o modal ao clicar no botão de fechar
 }
 
-// Fechar o modal ao clicar fora dele
+// Configuração para fechar o modal ao clicar fora dele
 window.onclick = function(event) {
     var modal = document.getElementById('modalDetalhes');
     if (event.target == modal) {
-        modal.style.display = 'none';
+        modal.style.display = 'none'; // Fecha o modal ao clicar fora dele
     }
 }
 
+// Adiciona ouvintes de eventos aos botões para navegação
 document.getElementById('novoPaciente').addEventListener('click', function() {
-    // Adicionar a lógica para ir para a tela de cadastro de novo paciente
-});
-
-
-document.getElementById('novoPaciente').addEventListener('click', function() {
-    window.location.href = 'cadastroPaciente.html'; // Substitua pelo caminho correto
+    window.location.href = 'cadastroPaciente.html'; // Redireciona para a página de cadastro de novo paciente
 });
 
 document.getElementById('home').addEventListener('click', function() {
-    window.location.href = 'home.html'; // Substitua 'index.html' pelo caminho correto para a sua página inicial
+    window.location.href = 'home.html'; // Redireciona para a página inicial
 });
 
 document.getElementById('voltar').addEventListener('click', function() {
-    window.history.back(); // Isso fará o navegador voltar para a página anterior
-    // Ou use window.location.href para direcionar a uma página específica
+    window.history.back(); // Volta para a página anterior no histórico de navegação
 });
-

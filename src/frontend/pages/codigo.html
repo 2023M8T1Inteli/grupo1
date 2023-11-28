@@ -44,6 +44,7 @@
         <div class="imgcontainer">
           <img src="../img/contrast.png" alt="Avatar" class="avatar" />
         </div>
+
         <button
           id="botaoAltoContraste"
           onclick="altoContraste();openFeedbackModal()"
@@ -66,6 +67,7 @@
       <!-- Dropdowns para categorias de objetos -->
       <div id="objects">
         <!-- Dropdown Alimentação -->
+
         <!-- Opções para Alimentação -->
         <select id="dropdownUniversal" onchange="adicionarImagem(this.value)">
           <option value="alimentacao">Alimentação</option>
@@ -182,6 +184,7 @@
                   >&times;</span
                 >
                 <h2>Descritivo de Cores Ativado com Sucesso!</h2>
+
               </div>
             </div>
           </div>
@@ -307,7 +310,9 @@
         </div>
       </div>
 
+      <!-- Comandos lógicos para criar os jogos para o paciente -->
       <div id="relationals" class="code-blocks">
+        <!-- Comandos relacionais -->
         <div class="code-block-type">RELACIONAIS</div>
         <div class="code-block-list">
           <div id="==" class="code-word relationals" draggable="true">
@@ -332,6 +337,7 @@
       </div>
 
       <div id="logicals" class="code-blocks">
+        <!-- Comandos lógicos -->
         <div class="code-block-type">LÓGICOS</div>
         <div class="code-block-list">
           <div id="e" class="code-word logicals" draggable="true">E</div>
@@ -341,6 +347,7 @@
       </div>
 
       <div id="inputs" class="code-blocks">
+        <!-- Comando de leitura -->
         <div class="code-block-type">LEITURA</div>
         <div class="code-block-list">
           <div class="code-word input-functions" id="ler()" draggable="true">
@@ -350,6 +357,7 @@
       </div>
 
       <div id="other-functions" class="code-blocks">
+        <!-- Funções de retorno -->
         <div class="code-block-type">FUNÇÕES</div>
         <div class="code-block-list">
           <div
@@ -384,6 +392,7 @@
       </div>
 
       <div id="trash" class="code-blocks">
+        <!-- Campo para apagar comandos -->
         <div class="code-block-type">APAGAR</div>
         <div class="code-block-list">
           <div id="deleting-area" class="droppable-area">APAGAR</div>
