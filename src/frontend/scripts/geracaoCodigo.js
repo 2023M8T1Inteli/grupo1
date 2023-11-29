@@ -7,24 +7,29 @@ const generator = document.getElementById('gerador') // botão para gerar códig
 
 generator.addEventListener('click', generateCode) // função de gerar código adicionada ao botão
 
-function sendCode(backendURL, code) {
-  // cria um arquivo .txt com o argumento 'code' como conteúdo
-  const blob = new Blob([code], { type: 'text/plain' })
+function sendCode(codeText) {
+  var xhr = new XMLHttpRequest()
 
-  const formData = new FormData()
-  formData.append('file', blob, 'code.txt')
+  xhr.open('POST', 'http://localhost:3000/atividade')
 
-  // realiza o upload do arquivo gerado para o servidor
-  fetch(backendURL + '/upload', {
-    method: 'POST',
-    body: formData
-  })
-    .then(response => {
-      console.log('Arquivo enviado com sucesso.')
-    })
-    .catch(error => {
-      console.error('Ocorreu um erro ao enviar o arquivo:', error)
-    })
+  xhr.setRequestHeader('Content-Type', 'application/json')
+
+  const sendData = {
+    codigo: codeText,
+    cenario: 'descricao',
+    data: '28/11/23',
+    terapeutaId: 2
+  }
+
+  console.log('send data type: ' + typeof sendData)
+
+  xhr.onload = function () {
+    alert('Código enviado para análise com sucesso!')
+    const data = JSON.parse(xhr.response)
+    console.log(data)
+  }
+
+  xhr.send(JSON.stringify(sendData))
 }
 
 function generateCode() {
@@ -55,5 +60,5 @@ function generateCode() {
 
   console.log(codeText)
 
-  //sendCode('http://127.0.0.1:5000/', codeText) // envio do arquivo para o servidor
+  sendCode(codeText)
 }
