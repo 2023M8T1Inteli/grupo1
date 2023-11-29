@@ -137,6 +137,10 @@ class Syntatic:
             return NonLeafNode("ExpressaoRelacional", operador=operator, expressao1=expression1_node, expressao2=expression2_node)
         else:
             return expression1_node
+        
+    def relop(self):
+        #print("relop")
+        self.compare("OPREL")
 
     def sum_expression(self):
         term1_node = self.mult_term()
