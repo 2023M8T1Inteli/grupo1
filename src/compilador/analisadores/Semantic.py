@@ -49,11 +49,11 @@ class Semantic:
         pass
 
 
-    def visitarDeclarations(self, noDeclarations):
+    """ def visitarDeclarations(self, noDeclarations):
         var_declarations = noDeclarations.get("var_declarations")
 
         while var_declarations != None:
-            self.visitarVarDeclaration(var_declarations.get("var_declaration"))
+            self.visitarVarDeclaration(var_declarations.get("var_declaration")) """
 
         
     
