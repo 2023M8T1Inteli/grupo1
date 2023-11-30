@@ -3,24 +3,51 @@ class Semantic:
         self.tree = tree
         self.simbol_table = {}
 
+    def analyze(self):
+        self.visitAlg()
+        print("Analise concluída com sucesso, nenhum erro encontrado.")
 
-    def analisar(self):
-        self.visitarAlg()
-
-
-    def visitarAlg(self):
-        id_programa = self.tree.get("nome")
-
-        if id_programa in self.simbol_table:
-            raise ValueError(f"Erro semântico: programa '{id_programa}' na linha '{self.tree.get("linha")} já declarado.")
-
-        self.simbol_table[id_programa] = 0 #alterar para o tipo do programa
-
-        self.visitarDeclarations(self.tree.get("declarations"))
-        self.visitarBlock(self.tree.get("block"))
+    def visitAlg(self):
+        id_program = self.tree.get("id")
+        self.simbol_table[id_program] = NoTabela("program", id_program.valor, id_program.linha)
+        self.visitBlock(self.tree.get("block"))
 
         return self.simbol_table
+
+    def visitBlock(self, block):
+        self.visitStatementList(block.get("statement_list"))
+
+    def visitStatementList(self, statement_list):
+        statementArray = statement_list.get("statements")
+        for item in statementArray:
+            self.visitStatement(item)
+        pass
     
+    def visitStatement(self, statement):
+        if statement.op == "assign_statement":
+            assign_id = statement.get("id")
+            if assign_id.valor in self.simbol_table:
+                raise ValueError(f"Variável " + assign_id.valor + " na linha " + str(assign_id.linha) + " já declarado") # Falta botar linha
+            self.simbol_table[assign_id.valor] = NoTabela("id", None, assign_id.linha)
+            self.visitExpression(statement.get("expression"))
+
+        elif statement.op == "command_statement":
+            self.visitExpression(statement.get("expression"))
+            pass
+        pass
+
+    def visitExpression(self, expression):
+        if expression:
+            left_expression = self.visitExpression(expression.get("left"))
+            right_expression = self.visitExpression(expression.get("right"))
+            if expression.op == "factor":
+                factor  = expression.get("factor")
+                if factor.op == "id":
+                    if factor.valor not in self.simbol_table:
+                        raise ValueError(f"Variável " + factor.valor + " na linha " + str(factor.linha) + " não foi declarada.")
+                pass
+        pass
+
 
     def visitarDeclarations(self, noDeclarations):
         var_declarations = noDeclarations.get("var_declarations")
@@ -31,7 +58,7 @@ class Semantic:
         
     
 
-    def visitarVarDeclaration(self, noVarDeclaration):
+    """ def visitarVarDeclaration(self, noVarDeclaration):
         id_var = noVarDeclaration.get("ID")
         identifier_list = noVarDeclaration.get("identifier_list")
         identifier_type = noVarDeclaration.get("tipo")
@@ -110,8 +137,18 @@ class Semantic:
             type2 = self.get_node_type(dir)
             
             if type1 != "Inteiro" or type2 != "Inteiro":
-                raise ValueError(f"Erro semântico: operação só é permitida com valores inteiros")
+                raise ValueError(f"Erro semântico: operação só é permitida com valores inteiros") """
             
 
 class NoTabela:
-    pass
+    def __init__(self, type, value, line, **kwargs ):
+        self.type = type
+        self.value = value
+        self.line = line
+        self.dictionary = {}
+        for k, i in kwargs.items():
+            self.dictionary[k] = i
+        pass
+
+    def get(self, i):
+        return self.dictionary.get(i)
