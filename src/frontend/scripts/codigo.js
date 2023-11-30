@@ -159,9 +159,9 @@ function adicionarCorAoCenario(cor) {
       }
       document.getElementById('bloco-cor').innerHTML = cor;
     }
-
   }
 }
+
 
 // Atualize a função adicionarImagem para chamar adicionarImagemAoCenario
 function adicionarImagem(opcao) {
@@ -234,7 +234,14 @@ function previewImages() {
     return;
   }
 
+  if (files.length > 2) {
+    infoBox.textContent = 'Select up to 2 images only';
+    return;
+  }
+
   infoBox.textContent = files.length + ' image(s) selected';
+
+  var loadCounter = 0;
 
   for (var i = 0; i < files.length; i++) {
     var file = files[i];
@@ -244,14 +251,23 @@ function previewImages() {
       var img = document.createElement('img');
       img.src = e.target.result;
       img.draggable = true;
-      img.addEventListener('dragstart', function(event) {
+      img.addEventListener('dragstart', function (event) {
         event.dataTransfer.setData('text/plain', 'dragging'); // Define dados de arrastar
       });
       container.appendChild(img);
+
+      loadCounter++;
+
+      if (loadCounter === files.length) {
+        // Todas as imagens foram carregadas, agora podemos interagir com elas
+        // Aqui você pode adicionar lógica adicional, se necessário
+      }
     };
+
     reader.readAsDataURL(file);
   }
 }
+
 
 function allowDrop(event) {
   event.preventDefault();
