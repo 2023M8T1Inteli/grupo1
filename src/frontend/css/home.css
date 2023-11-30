@@ -3,11 +3,20 @@
     display: flex; /* Exibir como um contêiner flexível */
     flex-direction: row; /* Alinhar itens em uma linha */
     align-items: center; /* Centralizar verticalmente */
-    justify-content: right; /* Alinhar itens à direita */
+    justify-content: flex-end; /* Alinhar itens à direita */
     background-color: #fff; /* Cor de fundo */
     width: 100%; /* Largura total */
-    height: 10%; /* Altura fixa em 10% da altura da viewport */
+    height: 5%; /* Altura reduzida */
     text-align: center; /* Alinhar texto ao centro */
+    padding-right: 20px; /* Espaçamento à direita */
+}
+
+/* Estilo para o texto ao lado da imagem no cabeçalho */
+.header p {
+    margin: 0;
+    margin-right: 10px; /* Espaçamento à direita do texto */
+    font-family: sans-serif; /* Escolha a fonte desejada */
+    font-size: 1.5em; /* Tamanho da fonte */
 }
 
 /* Estilo para o corpo da página */
@@ -18,31 +27,55 @@
     justify-content: space-evenly; /* Distribuir espaço uniformemente entre os itens */
     background-color: #fff; /* Cor de fundo */
     width: 100%; /* Largura total */
-    height: 90%; /* Altura fixa em 90% da altura da viewport */
+    height: 85%; /* Ajustar a altura */
     text-align: center; /* Alinhar texto ao centro */
-    padding-top: 13vh; /* Espaçamento superior equivalente a 13% da altura da viewport */
+    padding-top: 3%;
 }
+
 
 /* Estilo para os quadrados na seção de corpo */
 .quadrado {
-    background-color: #b800b1; /* Cor de fundo do quadrado */
+    background-color: #0073e6ee ; /* Cor de fundo do quadrado */
     display: flex; /* Exibir como um contêiner flexível */
     flex-direction: column; /* Alinhar itens em coluna */
     align-items: center; /* Centralizar conteúdo horizontalmente */
-    margin: 10px; /* Adicionar margem ao redor do quadrado */
+    margin: 0px; /* Adicionar margem ao redor do quadrado */
     justify-content: flex-end; /* Alinhar conteúdo na parte inferior */
-    width: 20%; /* Largura fixa em 20% da largura da viewport */
-    height: 20%; /* Altura fixa em 20% da altura da viewport */
+    width: 30%; /* Largura fixa em 20% da largura da viewport */
+    height: 30%; /* Altura fixa em 20% da altura da viewport */
     padding-left: 2%; /* Espaçamento à esquerda */
     padding-right: 2%; /* Espaçamento à direita */
     border-radius: 4vh; /* Borda arredondada */
+}
+
+.quadrado2 {
+    background-color: #00e6a5 ; /* Cor de fundo do quadrado */
+    display: flex; /* Exibir como um contêiner flexível */
+    flex-direction: column; /* Alinhar itens em coluna */
+    align-items: center; /* Centralizar conteúdo horizontalmente */
+    margin: 0px; /* Adicionar margem ao redor do quadrado */
+    justify-content: flex-end; /* Alinhar conteúdo na parte inferior */
+    width: 30%; /* Largura fixa em 20% da largura da viewport */
+    height: 30%; /* Altura fixa em 20% da altura da viewport */
+    padding-left: 2%; /* Espaçamento à esquerda */
+    padding-right: 2%; /* Espaçamento à direita */
+    border-radius: 4vh; /* Borda arredondada */
+}
+
+/* Efeito hover para os quadrados */
+.quadrado:hover, .quadrado2:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2); /* Sombra para destacar */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
 }
 
 /* Estilo para a label dentro do quadrado */
 .label {
     background-color: #fff; /* Cor de fundo da label */
     width: 100%; /* Preenche a largura do quadrado */
-    border: 2px solid #000; /* Borda da label */
+    border: 0px solid #000; /* Borda da label */
+    border-radius: 4px;
+    font: 1.5em sans-serif;
 }
 
 /* Estilo para o container da imagem */
@@ -52,13 +85,15 @@
 
 /* Estilo para a imagem do avatar */
 img.avatar {
-    width: 5vh; /* Largura fixa em 5% da altura da viewport */
-    border-radius: 5vh; /* Borda arredondada */
+    width: 15vh; /* Largura fixa em 5% da altura da viewport */
+    border-radius: 10vh; /* Borda arredondada */
     margin-left: 2vh; /* Margem à esquerda */
-    margin-right: 2vh; /* Margem à direita */
+    margin-right: 50px; /* Margem à direita */
+    margin-top: 20px;
 }
 
 /* Estilo para a imagem dentro do quadrado de atividades */
 .atividadesImg {
     width: 40vh; /* Largura fixa em 40% da altura da viewport */
 }
+

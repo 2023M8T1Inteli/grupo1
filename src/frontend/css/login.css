@@ -1,0 +1,70 @@
+/* Estilos globais para o corpo do documento */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte do texto */
+    background-color: white; /* Define a cor de fundo como branca */
+    display: flex; /* Utiliza Flexbox para alinhamento */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    height: 100vh; /* Altura total da viewport */
+    margin: 0; /* Remove as margens padrão */
+}
+
+/* Estilos para o container de login */
+.login-container {
+    background-color: white; /* Cor de fundo branca */
+    padding: 40px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Sombra ao redor do container */
+    width: 400px; /* Largura fixa para o container */
+}
+
+/* Estilos para o título do formulário */
+h2 {
+    color: black; /* Cor do texto preta */
+    text-align: center; /* Alinhamento centralizado do texto */
+    margin-bottom: 20px; /* Espaçamento abaixo do título */
+}
+
+/* Estilos para cada grupo de input */
+.input-group {
+    margin-bottom: 20px; /* Espaçamento entre cada grupo de input */
+}
+
+/* Estilos para os rótulos dos campos de entrada */
+.input-group label {
+    display: block; /* Exibe como bloco, ocupando toda a largura */
+    margin-bottom: 8px; /* Espaçamento abaixo do rótulo */
+    color: #333; /* Cor do texto cinza escuro */
+}
+
+/* Estilos para os campos de entrada */
+.input-group input {
+    width: calc(100% - 20px); /* Largura com ajuste para bordas */
+    padding: 10px; /* Espaçamento interno */
+    border: 2px solid black; /* Borda sólida preta */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    outline: none; /* Remove o contorno ao focar */
+}
+
+/* Estilos para campos de entrada focados */
+.input-group input:focus {
+    border-color: #00539C; /* Muda a cor da borda para azul ao focar */
+}
+
+/* Estilos para o botão de submissão */
+button {
+    width: 100%; /* Largura total do container */
+    padding: 12px; /* Espaçamento interno */
+    border: none; /* Sem bordas */
+    background-color: #0073e6; /* Cor de fundo azul */
+    color: white; /* Cor do texto branco */
+    border-radius: 5px; /* Bordas arredondadas */
+    cursor: pointer; /* Estilo do cursor como ponteiro */
+    font-size: 16px; /* Tamanho da fonte */
+}
+
+/* Estilos para o botão ao passar o mouse */
+button:hover {
+    background-color: #00539C; /* Muda a cor de fundo ao passar o mouse */
+}

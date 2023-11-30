@@ -44,10 +44,22 @@
         <div class="imgcontainer">
           <img src="../img/contrast.png" alt="Avatar" class="avatar" />
         </div>
-        <button id="botaoAltoContraste" onclick="altoContraste()">
+
+        <button
+          id="botaoAltoContraste"
+          onclick="altoContraste();openFeedbackModal()"
+        >
           Descritivo Cores
         </button>
       </div>
+      <!-- <div id="modoNoturno">
+        <div class="imgcontainer">
+          <img src="../img/contrast.png" alt="Avatar" class="avatar" />
+        </div>
+        <button id="modoNoturnoButton" onclick="openFeedbackModal()">
+          Modo Noturno
+        </button>
+      </div> -->
     </div>
 
     <!-- Corpo da página -->
@@ -55,48 +67,66 @@
       <!-- Dropdowns para categorias de objetos -->
       <div id="objects">
         <!-- Dropdown Alimentação -->
-          <!-- Opções para Alimentação -->
-          <select id="dropdownUniversal" onchange="adicionarImagem(this.value)">
 
-            <option value="alimentacao">Alimentação</option>
-            <option value="maca">Maçã</option>
-            <option value="banana">Banana</option>
-            <option value="cristianismo">Cristianismo</option>
-            <option value="judaismo">Judaísmo</option>
-            <option value="futebol">Futebol</option>
-            <option value="volei">Vôlei</option>
-            <option value="peixe">Peixe</option>
-            <option value="rato">Rato</option>
-            <option value="arvore">Árvore</option>
-            <option value="flor">Flor</option>
-            <option value="bicicleta">Bicicleta</option>
-            <option value="carro">Carro</option>
-            <option value="natal">Natal</option>
-            <option value="pascoa">Páscoa</option>
-            <option value="verde">Verde</option>
-            <option value="roxo">Roxo</option>
-            <option value="medico">Médico</option>
-            <option value="professor">Professor</option>
-            <option value="guitarra">Guitarra</option>
-            <option value="violino">Violino</option>
-          </select>
+        <!-- Opções para Alimentação -->
+        <select id="dropdownUniversal" onchange="adicionarImagem(this.value)">
+          <option value="alimentacao">Alimentação</option>
+          <option value="maca">Maçã</option>
+          <option value="banana">Banana</option>
+          <option value="cristianismo">Cristianismo</option>
+          <option value="judaismo">Judaísmo</option>
+          <option value="futebol">Futebol</option>
+          <option value="volei">Vôlei</option>
+          <option value="peixe">Peixe</option>
+          <option value="rato">Rato</option>
+          <option value="arvore">Árvore</option>
+          <option value="flor">Flor</option>
+          <option value="bicicleta">Bicicleta</option>
+          <option value="carro">Carro</option>
+          <option value="natal">Natal</option>
+          <option value="pascoa">Páscoa</option>
+          <option value="verde">Verde</option>
+          <option value="roxo">Roxo</option>
+          <option value="medico">Médico</option>
+          <option value="professor">Professor</option>
+          <option value="guitarra">Guitarra</option>
+          <option value="violino">Violino</option>
+        </select>
 
-          <div id="dropdown-container1" data-tooltip="Imagens que vão no game.">
-            <div id="file-upload">
-              <div class="upload">
-                  <a>
-                      <span><i style = "font-family:courier,arial,helvetica;" class="fa fa-camera"></i>Carregar fotos</span>
-                      <div class="files"><input type="file" id="files" name="files[]" multiple="" onchange="previewImages()"></div>
-                  </a>
-              </div>
-              <div class="box">
-                  <div style = "font-family:courier,arial,helvetica;" draggable = "true" class="info-box">Vazio</div>
-                  <div id="container"></div>
+        <div id="dropdown-container1" data-tooltip="Imagens que vão no game.">
+          <div id="file-upload">
+            <div class="upload">
+              <a>
+                <span
+                  ><i
+                    style="font-family: courier, arial, helvetica"
+                    class="fa fa-camera"
+                  ></i
+                  >Carregar fotos</span
+                >
+                <div class="files">
+                  <input
+                    type="file"
+                    id="files"
+                    name="files[]"
+                    multiple=""
+                    onchange="previewImages()"
+                  />
                 </div>
+              </a>
             </div>
-        
+            <div class="box">
+              <div
+                style="font-family: courier, arial, helvetica"
+                draggable="true"
+                class="info-box"
+              >
+                Vazio
+              </div>
+              <div id="container"></div>
+            </div>
           </div>
-
+        </div>
       </div>
 
       <!-- Cenário e Editor -->
@@ -138,7 +168,24 @@
               class="tapete-lateral"
             ></textarea>
             <div id="editor-content">
-              <div id="bloco-imagem" ondrop="dropImagem(event)" ondragover="allowDrop(event)" class="editor-bloco">IMAGEM</div>
+              <div
+                id="bloco-imagem"
+                ondrop="dropImagem(event)"
+                ondragover="allowDrop(event)"
+                class="editor-bloco"
+              >
+                IMAGEM
+              </div>
+            </div>
+
+            <div id="feedbackModal" class="modal">
+              <div class="modal-content">
+                <span class="close" onclick="closeFeedbackModal()"
+                  >&times;</span
+                >
+                <h2>Descritivo de Cores Ativado com Sucesso!</h2>
+
+              </div>
             </div>
           </div>
 
@@ -254,7 +301,7 @@
           </div>
           <div
             id="while-loop"
-            class="argumentative code-word loops"
+            class="argumentative code-block code-word loops"
             draggable="true"
             style="background-color: rgb(196, 127, 0)"
           >
@@ -263,7 +310,9 @@
         </div>
       </div>
 
+      <!-- Comandos lógicos para criar os jogos para o paciente -->
       <div id="relationals" class="code-blocks">
+        <!-- Comandos relacionais -->
         <div class="code-block-type">RELACIONAIS</div>
         <div class="code-block-list">
           <div id="==" class="code-word relationals" draggable="true">
@@ -288,6 +337,7 @@
       </div>
 
       <div id="logicals" class="code-blocks">
+        <!-- Comandos lógicos -->
         <div class="code-block-type">LÓGICOS</div>
         <div class="code-block-list">
           <div id="e" class="code-word logicals" draggable="true">E</div>
@@ -297,6 +347,7 @@
       </div>
 
       <div id="inputs" class="code-blocks">
+        <!-- Comando de leitura -->
         <div class="code-block-type">LEITURA</div>
         <div class="code-block-list">
           <div class="code-word input-functions" id="ler()" draggable="true">
@@ -306,6 +357,7 @@
       </div>
 
       <div id="other-functions" class="code-blocks">
+        <!-- Funções de retorno -->
         <div class="code-block-type">FUNÇÕES</div>
         <div class="code-block-list">
           <div
@@ -340,6 +392,7 @@
       </div>
 
       <div id="trash" class="code-blocks">
+        <!-- Campo para apagar comandos -->
         <div class="code-block-type">APAGAR</div>
         <div class="code-block-list">
           <div id="deleting-area" class="droppable-area">APAGAR</div>

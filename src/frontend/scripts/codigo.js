@@ -1,26 +1,31 @@
-var descreverCores = false
+let descreverCores = false;
+let active = 0
 
-// Função que mostra a descrição das cores
 function altoContraste() {
   let descritoresList = document.getElementsByClassName("descritorCor");
-  // Ligar a descrição das cores
-  if(document.getElementById("botaoAltoContraste").style.backgroundColor != 'lightgreen'){
+
+  // Alterna entre ligar e desligar a descrição das cores
+  descreverCores = !descreverCores;
+
+  if (descreverCores) { // Ligar a descrição das cores
     document.getElementById("botaoAltoContraste").style.backgroundColor = 'lightgreen'
-    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores (Ligado)'
-    for (var i=0;i<descritoresList.length;i+=1){
+    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores (Ligado)';
+    for (var i = 0; i < descritoresList.length; i += 1) {
       descritoresList[i].style.display = 'block';
     }
-    descreverCores = true
   } else { // Desliga a descrição das cores
     document.getElementById("botaoAltoContraste").style.backgroundColor = 'lightgray'
-    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores'
-    document.getElementById('bloco-cor').innerHTML = ''
-    for (var i=0;i<descritoresList.length;i+=1){
+    document.getElementById("botaoAltoContraste").innerHTML = 'Descritivo Cores';
+    // document.getElementsByClassName('descritorCor').innerHTML = '';
+
+    // Remover a exibição dos descritores de cor
+    for (var i = 0; i < descritoresList.length; i += 1) {
       descritoresList[i].style.display = 'none';
     }
-    descreverCores = false
   }
 }
+
+
 
 // Função para trocar a tab editor e cenário
 function trocarTab(evt, tab) {
@@ -41,12 +46,14 @@ function trocarTab(evt, tab) {
   }
 }
 
+// Função para trocar a tab editor e cenário
 function clicarCenario() {
   document.getElementById("botaoCanvas").click();
 }
 
 let offsetX, offsetY;
 
+// Função que aplica uma imagem existente ao cenário 
 function adicionarImagem(opcao) {
   var imagens = {
     alimentacao: 'x.jpg',
@@ -76,6 +83,7 @@ function adicionarImagem(opcao) {
   
   // Se uma opção válida foi selecionada (não vazia), adicione a imagem
   if (opcao && imagens[opcao]) {
+    active = 1;
     var img = document.createElement('img');
     img.src = imagens[opcao];
     img.alt = opcao;
@@ -84,6 +92,7 @@ function adicionarImagem(opcao) {
     
     var container = document.getElementById('canvas'); // Adicionando ao elemento 'canvas'
     container.appendChild(img);
+    
   }
 }
 
@@ -122,8 +131,7 @@ dragover_handler = function(ev) {
   ev.dataTransfer.dropEffect = "move";
 };
 
-/* O restante do JavaScript permanece o mesmo */
-
+// Função que faz a imagem do upload ir para o campo no cenário
 function adicionarImagemAoCenario(src) {
   var imagem = document.getElementById('bloco-imagem');
   if (imagem) {
@@ -134,6 +142,7 @@ function adicionarImagemAoCenario(src) {
   }
 }
 
+// Função que possibilita o arrasto de cores ao cenário 
 function adicionarCorAoCenario(cor) {
   var corBloco = document.getElementById('bloco-cor');
   if (corBloco) {
@@ -209,6 +218,8 @@ document.querySelectorAll('[data-tooltip]').forEach(element => {
   });
 });
 
+
+// Comando que faz com que a imagem do upload apareça previamente
 function previewImages() {
   var container = document.getElementById('container');
   var infoBox = document.querySelector('.info-box');
@@ -238,7 +249,6 @@ function previewImages() {
       });
       container.appendChild(img);
     };
-
     reader.readAsDataURL(file);
   }
 }
@@ -261,16 +271,13 @@ function dropImage(event) {
   }
 }
 
-function allowDrop(event) {
-  event.preventDefault();
-}
-
 function dropImagem(event) {
   event.preventDefault();
 
   // Obtém o arquivo do input de arquivo
   var inputFiles = document.getElementById('files');
   var file = inputFiles.files[0];
+  active += 1;
 
   if (file) {
     // Lê o conteúdo do arquivo como URL e adiciona ao cenário
@@ -281,3 +288,42 @@ function dropImagem(event) {
     reader.readAsDataURL(file);
   }
 }
+
+function redirecionarParaOutraPagina() {
+  // Verificar se o campo de imagem está preenchido
+  const blocoImagem = document.getElementById('bloco-imagem');
+  const conteudoImagem = blocoImagem.textContent || blocoImagem.innerText;
+
+  if (ativadoo > 0) {
+    window.location.href = 'jogo.html';
+  } else {
+    // Se o campo de imagem não estiver preenchido, exibir mensagem ou realizar outra ação
+    openFeedbackModal();
+  }
+}
+
+
+// Lógica do modal de feedback
+document.addEventListener('DOMContentLoaded', function () {
+  const feedbackModal = document.getElementById('feedbackModal');
+  const closeButton = document.querySelector('.close');
+
+  closeButton.addEventListener('click', closeFeedbackModal);
+
+  window.addEventListener('click', function (event) {
+    if (event.target == feedbackModal) {
+      closeFeedbackModal();
+    }
+  });
+});
+
+// Função que abre o modal de erro ao tentar acessar o jogo sem fazer os preenchimentos
+function openFeedbackModal() {
+  document.getElementById('feedbackModal').style.display = 'block';
+}
+
+// Função que faz com que o modal de erro seja fechado
+function closeFeedbackModal() {
+  document.getElementById('feedbackModal').style.display = 'none';
+}
+

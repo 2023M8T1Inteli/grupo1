@@ -1,10 +1,9 @@
-programa "teste2":
-inicio
-_variavel1 = ler()
-    /* Nesta primeira versão recomendamos que vocês
-     não tratem as regras <expression> nem <sum_expression>.
-     Para os comandos abaixo, ao invés de "casar" com um
-     <sum_expression>, case os valores com tokens INTEGER */
-    xyz = ler_varios(1, 2, 3)
-    mostrar(4)
+programa "exemplo4":
+    inicio
+    x = (3 ^ 5) ^ 2
+    y = 3 ^ 5 ^ 2
+    z = (10 + 2 * 50 / 5 - 1) % 2
+    se (3 + 4 -5) % 2 == 0 entao inicio
+        mostrar(10 / 2, 2 * 1)
+    fim
 fim.

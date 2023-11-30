@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!-- Definição do tipo de documento como HTML5 -->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Meta tag para definir o conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta tag para garantir a responsividade em dispositivos móveis -->
+    <title>Cadastro de Paciente</title>
+    <!-- Título da página, aparece na aba do navegador -->
+    <link rel="stylesheet" href="../css/cadastroPaciente.css">
+    <!-- Link para o arquivo CSS externo -->
+</head>
+<body>
+    <div class="cadastro-container">
+        <!-- Div principal que contém o formulário de cadastro -->
+
+        <form id="cadastroForm">
+            <!-- Formulário de cadastro de pacientes -->
+
+            <h2>Cadastro de Paciente</h2>
+            <!-- Título do formulário -->
+
+            <div class="input-group">
+                <label for="nome">Nome</label>
+                <!-- Campo de entrada para o nome do paciente -->
+                <input type="text" id="nome" name="nome" required>
+                <!-- Campo de texto obrigatório para o nome -->
+            </div>
+
+            <div class="input-group">
+                <label for="dataNascimento">Data de Nascimento</label>
+                <!-- Campo de entrada para a data de nascimento do paciente -->
+                <input type="date" id="dataNascimento" name="dataNascimento" required>
+                <!-- Campo de data obrigatório para a data de nascimento -->
+            </div>
+
+            <div class="input-group">
+                <label for="email">E-mail</label>
+                <!-- Campo de entrada para o e-mail do paciente -->
+                <input type="email" id="email" name="email" required>
+                <!-- Campo de e-mail obrigatório para o e-mail -->
+            </div>
+
+            <div class="input-group">
+                <label for="telefone">Telefone</label>
+                <!-- Campo de entrada para o telefone do paciente -->
+                <input type="tel" id="telefone" name="telefone" required>
+                <!-- Campo de telefone obrigatório para o telefone -->
+            </div>
+
+            <div class="input-group">
+                <label for="dificuldade">Dificuldade</label>
+                <!-- Campo de entrada para a dificuldade (campo opcional) -->
+                <input type="text" id="dificuldade" name="dificuldade">
+                <!-- Campo de texto para a dificuldade -->
+            </div>
+
+            <div class="input-group">
+                <label for="grau">Grau</label>
+                <!-- Campo de entrada para o grau (campo opcional) -->
+                <input type="number" id="grau" name="grau">
+                <!-- Campo numérico para o grau -->
+            </div>
+
+            <button type="submit" id="submit">Cadastrar</button>
+            <!-- Botão para enviar o formulário -->
+
+        </form>
+    </div>
+
+    <script src="../scripts/cadastroPaciente.js"></script>
+    <!-- Link para o script JavaScript externo -->
+</body>
+</html>

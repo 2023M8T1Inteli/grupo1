@@ -1,3 +1,9 @@
+html, body {
+  background: white;
+  font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
+
+}
+
 #header {
   display: flex;
   flex-direction: row;
@@ -15,10 +21,13 @@ img.avatar {
   border-radius: 10%;
 }
 
+/* Estilos para a opção 'Sair' */
 #sair {
   margin: 0 6vh 0 2vh;
   display: flex;
   flex-direction: row;
+  font-size: 20px;
+
 }
 
 /* Estilos para o corpo do tapete */
@@ -27,14 +36,32 @@ img.avatar {
   flex-direction: column;
 }
 
-/* #main-container{
+#middle {
   display: flex;
-} */
+  flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 2vh;
+}
+
+#pergunta{
+  text-align: center;
+  font-size: larger;
+
+}
+
+#objeto-img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 #tapete-lateral {
   height: auto;
   width: 20%;
-  position: absolute;
+
   right: 0;
   top: 0;
   border-radius: 15px; /* Bordas arredondadas */
@@ -64,5 +91,69 @@ img.avatar {
 #cenario{
   float: left;
   width: 70%;
-  background-color: blue;
+}
+
+.modal-feedback {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  /*width: 800px; /* Full width */
+  /*height: 800px; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 400px;
+  padding: 20px;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 2px 16px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  height: 300px;
+}
+
+/* Modal Footer */
+.modal-footer {
+  padding: 2px 16px;
+  
+  text-align: center;
+}
+
+.play-again{
+  font-size: larger;
+  cursor: pointer;
+  border: 2px solid #000000;
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4;
+
+
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
