@@ -4,6 +4,7 @@ from Syntactic import Syntatic
 from Tree import NonLeafNode, LeafNode
 from token_patterns import token_patterns
 from pprint import pprint
+from Semantic import Semantic
 
 
 class Compiler:
@@ -26,7 +27,12 @@ class Compiler:
         # Cria uma instância do analisador sintático e faz a análise com base nos tokens
         syntax = Syntatic(tokens)
         tree = syntax.analyze()
-        pprint(tree)
+        #print(tree)
+
+        semantic = Semantic(tree)
+        semantic.analyze()
+
+        
 
 
 if __name__ == "__main__":
