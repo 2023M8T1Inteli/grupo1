@@ -5,6 +5,7 @@ from Tree import NonLeafNode, LeafNode
 from token_patterns import token_patterns
 from pprint import pprint
 from Semantic import Semantic
+from CodeGeneration import CodeGeneration
 
 
 class Compiler:
@@ -32,7 +33,8 @@ class Compiler:
         semantic = Semantic(tree)
         semantic.analyze()
 
-        
+        codeGeneration = CodeGeneration()
+        codeGeneration.run(tree)
 
 
 if __name__ == "__main__":
