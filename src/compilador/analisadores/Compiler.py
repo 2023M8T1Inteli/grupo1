@@ -34,7 +34,7 @@ class Compiler:
         semantic.analyze()
 
         codeGeneration = CodeGeneration()
-        codeGeneration.run(tree)
+        print(codeGeneration.run(tree))
 
 
 if __name__ == "__main__":
