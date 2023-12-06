@@ -1,11 +1,9 @@
 import sys
 from Lexer import Lexer
 from Syntactic import Syntatic
-from Tree import NonLeafNode, LeafNode
 from token_patterns import token_patterns
 from pprint import pprint
 from Semantic import Semantic
-
 
 class Compiler:
     def read_code(file_path):
@@ -21,16 +19,16 @@ class Compiler:
     def compile(source_code):
         # Cria uma instância do analisador léxico e gera os tokens do código
         tokens = Lexer.lexer(source_code, token_patterns)
-        for token in tokens:
-            print(token)
+        #for token in tokens:
+            #print(token)
 
         # Cria uma instância do analisador sintático e faz a análise com base nos tokens
         syntax = Syntatic(tokens)
         tree = syntax.analyze()
-        #print(tree)
+        print("\n" + str(tree) + "\n")
 
-        semantic = Semantic(tree)
-        semantic.analyze()
+        #semantic = Semantic(tree)
+        #semantic.analyze()
 
         
 
