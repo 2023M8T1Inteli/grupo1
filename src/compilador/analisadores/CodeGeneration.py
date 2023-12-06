@@ -6,11 +6,12 @@ class CodeGeneration:
 
     def run(self, tree):
         self.tree = tree
-        statement_list = tree.get("block").get("statement_list").get("statements")
-        if statement_list != None:
-            for statement in statement_list:
-                self.statement(statement)
-            return self.saida
+        statement_list = tree.get("block").get("statement_list")
+        while statement_list != None:
+            statement = statement_list.get("statement")
+            self.statement(statement)
+            statement_list = statement_list.get("next")
+            break
 
     
     def statement(self, statement):
@@ -18,8 +19,8 @@ class CodeGeneration:
             dir = self.assign_statement(statement)
             id = statement.get("id").valor
             self.saida += f"{id} = {dir}\n"
-        elif statement.op == "if_statement":
-            self.if_statement(statement)
+        # elif statement.op == "if_statement":
+        #     self.if_statement(statement)
     
 
     def assign_statement(self, assign_statement):
@@ -28,12 +29,30 @@ class CodeGeneration:
          else:
              return self.input_statement(assign_statement.get("input_statement"))
          
+    def input_statement(self, input_statement):
+        # allan.ler()
+        pass
+         
     
     def expression(self, expression):
-        print(expression)
-        # E = self.sum_expression(expression.get("esq"))
-		# if noExpression.get("oper") == None:
-		# 	return E
-
+        if expression.get("op") == "factor":
+            self.factor(expression)
+        else:
+            print(expression)
+            E = self.visitarSumExpression(expression.get("left"))
+            if expression.get("oper") == None:
+                return E
+            else:
+                D = self.visitarSumExpression(expression.get("right"))
+                oper = expression.get("oper")
+                if oper == "<>":
+                    self.saida += "_TEMP_VAR_REL = " + E + "!=" + D + "\n"
+                    return "_TEMP_VAR_REL"
+                else:
+                    self.saida += "_TEMP_VAR_REL = " + E + expression.get("oper") + D  + "\n"
+                    return "_TEMP_VAR_REL"
+                
+    def sum_expression(self, expression):
+        pass
 
             
