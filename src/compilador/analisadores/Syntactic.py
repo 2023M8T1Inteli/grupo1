@@ -72,10 +72,10 @@ class Syntatic:
         if self.tokenCurrent.tipo == "COMANDO" and (
             self.tokenCurrent.valor == "ler" or self.tokenCurrent.valor == "ler_varios"
         ):
-            return self.input_statement(assign_id.valor)
+            expression_node = self.input_statement()
         else:
             expression_node = self.expression()
-            return NonLeafNode("assign_statement", id = LeafNode("id", assign_id.valor, assign_id.linha), expression=expression_node)
+        return NonLeafNode("assign_statement", id = LeafNode("id", assign_id.valor, assign_id.linha), expression=expression_node)
 
     def if_statement(self):
         self.compare("SE")
@@ -112,12 +112,12 @@ class Syntatic:
             self.compare("RPAR")
             return NonLeafNode("command_statement", function=command, left_exp=left_node, right_exp=right_node)
 
-    def input_statement(self, id):
+    def input_statement(self):
         if self.tokenCurrent.tipo == "COMANDO" and self.tokenCurrent.valor == "ler":
             self.compare("COMANDO", "ler")
             self.compare("LPAR")
             self.compare("RPAR")
-            return NonLeafNode("read") # Checar depois
+            return NonLeafNode("read", parameters=None) # Checar depois
         else:
             self.compare("COMANDO", "ler_varios")
             self.compare("LPAR")
@@ -128,7 +128,7 @@ class Syntatic:
             third_exp_node = self.sum_expression()
             self.compare("RPAR")
 
-            return NonLeafNode("read_multiple", id = LeafNode("id", id.valor, id.linha), first_exp=first_exp_node, second_exp=second_exp_node, third_exp=third_exp_node)
+            return NonLeafNode("read_multiple", first_param=first_exp_node, second_param=second_exp_node, third_param=third_exp_node)
 
     def expression(self):
         left_node = self.sum_expression()
@@ -174,7 +174,7 @@ class Syntatic:
             operator = self.tokenCurrent.valor
             self.compare("OPPOW")
             power_node = self.power_term()
-            return NonLeafNode("power_term", operador=operator, base=factor_node, expoente=power_node)
+            return NonLeafNode("power_term", operator=operator, base=factor_node, exponent=power_node)
         else:
             return factor_node
 
@@ -186,26 +186,26 @@ class Syntatic:
         elif self.tokenCurrent.tipo == "NUMERO":
             number_node = LeafNode("int", self.tokenCurrent.valor, self.tokenCurrent.linha)
             self.compare("NUMERO")
-            return NonLeafNode("factor", operador = None, factor = number_node, left = None, right = None)
+            return NonLeafNode("factor", operator = None, factor = number_node, left = None, right = None)
         elif self.tokenCurrent.tipo == "BOOLEAN":
             boolean_node = LeafNode("bool", self.tokenCurrent.valor, self.tokenCurrent.linha)
             self.compare("BOOLEAN")
-            return NonLeafNode("factor", operador = None, factor = boolean_node, left = None, right = None)
+            return NonLeafNode("factor", operator = None, factor = boolean_node, left = None, right = None)
         elif self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.valor == "+":
             operator_node = LeafNode("opsum", "+", self.tokenCurrent.linha)
             self.compare("OPSUM", "+")
             factor_node = self.factor()
-            return NonLeafNode("factor", operador=operator_node, fator=factor_node, left = None, right = None)
+            return NonLeafNode("factor", operator=operator_node, fator=factor_node, left = None, right = None)
         elif self.tokenCurrent.tipo == "OPSUM" and self.tokenCurrent.valor == "-":
             operator_node = LeafNode("opsum", "-", self.tokenCurrent.linha)
             self.compare("OPSUM", "-")
             factor_node = self.factor()
-            return NonLeafNode("factor", operador=operator_node, fator=factor_node, left = None, right = None)
+            return NonLeafNode("factor", operator=operator_node, fator=factor_node, left = None, right = None)
         elif self.tokenCurrent.tipo == "NAO":
             operator_node = LeafNode("not", None, self.tokenCurrent.linha)
             self.compare("NAO")
             factor_node = self.factor()
-            return NonLeafNode("factor", operador=operator_node, fator=factor_node, left = None, right = None)
+            return NonLeafNode("factor", operator=operator_node, fator=factor_node, left = None, right = None)
         else:
             self.compare("LPAR")
             expression_node = self.expression()
@@ -213,9 +213,8 @@ class Syntatic:
             return expression_node
 
     def boolean(self):
-        boolean_node = LeafNode("BOOLEAN", self.tokenCurrent.valor, self.tokenCurrent.linha)
         if self.tokenCurrent.tipo == "BOOLEAN" and self.tokenCurrent.valor == "verdade":
             self.compare("BOOLEAN", "verdade")
         else:
             self.compare("BOOLEAN", "falso")
-        return boolean_node
+        return LeafNode("BOOLEAN", self.tokenCurrent.valor, self.tokenCurrent.linha)

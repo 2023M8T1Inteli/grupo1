@@ -1,5 +1,11 @@
 programa "teste semântico 2":
 inicio
-    x = 1
-    mostrar(x)
+    se (verdade) entao
+    inicio
+        x = 1
+    fim
+    senao
+    inicio
+        x = 2
+    fim
 fim.
