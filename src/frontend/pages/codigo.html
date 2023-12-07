@@ -173,6 +173,7 @@
                 ondrop="dropImagem(event)"
                 ondragover="allowDrop(event)"
                 class="editor-bloco"
+                draggable="true"
               >
                 IMAGEM
               </div>
@@ -395,7 +396,7 @@
         <!-- Campo para apagar comandos -->
         <div class="code-block-type">APAGAR</div>
         <div class="code-block-list">
-          <div id="deleting-area" class="droppable-area">APAGAR</div>
+          <div id="deleting-area" class="droppable-area" ondrop="dropDelete(event)" ondragover="allowDrop(event)">APAGAR</div>
         </div>
       </div>
     </div>
