@@ -22,8 +22,8 @@ class Compiler:
     def compile(source_code):
         # Cria uma instância do analisador léxico e gera os tokens do código
         tokens = Lexer.lexer(source_code, token_patterns)
-        # for token in tokens:
-        #     print(token)
+        #for token in tokens:
+            #print(token)
 
         # Cria uma instância do analisador sintático e faz a análise com base nos tokens
         syntax = Syntatic(tokens)
@@ -33,7 +33,7 @@ class Compiler:
         # semantic.analyze()
 
         codeGeneration = CodeGeneration()
-        print(codeGeneration.run(tree))
+        codeGeneration.run(tree)
 
 
 if __name__ == "__main__":

@@ -135,7 +135,7 @@ class Syntatic:
         if self.tokenCurrent.tipo == "OPREL":
             operator = self.relop()
             right_node = self.sum_expression()
-            return NonLeafNode("expression", operator = operator, left = left_node, right = right_node)
+            return NonLeafNode("expression", operator = operator.valor, left = left_node, right = right_node)
         else:
             return left_node
         
@@ -164,7 +164,7 @@ class Syntatic:
             operator = self.tokenCurrent.valor
             self.compare("OPMUL")
             factor2_node = self.power_term()
-            return self.mult_term2(NonLeafNode("multi_term2", operador=operator, left=term_node, right=factor2_node))
+            return self.mult_term2(NonLeafNode("multi_term2", operator=operator, left=term_node, right=factor2_node))
         else:
             return term_node
 
