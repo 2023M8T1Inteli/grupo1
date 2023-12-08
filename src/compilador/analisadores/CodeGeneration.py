@@ -1,3 +1,5 @@
+import Funcoes as Funcoes
+
 class CodeGeneration:
     def __init__(self):
         self.tree = None
@@ -41,7 +43,7 @@ class CodeGeneration:
              return self.input_statement(assign_statement.get("input_statement"))
          
     def input_statement(self, input_statement):
-        # allan.ler()
+        Funcoes.ler()
         pass
          
     
