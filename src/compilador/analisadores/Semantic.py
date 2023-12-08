@@ -9,46 +9,56 @@ class Semantic:
 
     def visitAlg(self):
         id_program = self.tree.get("id")
-        self.simbol_table[id_program] = NoTabela("program", id_program.valor, id_program.linha)
+        self.simbol_table[id_program.valor] = NoTabela("program", id_program.linha)
         self.visitBlock(self.tree.get("block"))
 
         return self.simbol_table
 
     def visitBlock(self, block):
-        self.visitStatementList(block.get("statement_list"))
+        used = self.visitStatementList(block.get("statement_list"))
+        if not used:
+            raise ValueError("O bloco que inicia na linha " + str(block.get("line")) + " está vazio.")
 
     def visitStatementList(self, statement_list):
-        statementArray = statement_list.get("statements")
-        for item in statementArray:
-            self.visitStatement(item)
-        pass
+        used = False
+        while statement_list:
+            used = True
+            statement = statement_list.get("statement")
+            self.visitStatement(statement)
+            statement_list = statement_list.get("next")
+        return used
     
     def visitStatement(self, statement):
         if statement.op == "assign_statement":
             assign_id = statement.get("id")
             if assign_id.valor in self.simbol_table:
                 raise ValueError(f"Variável " + assign_id.valor + " na linha " + str(assign_id.linha) + " já declarado") # Falta botar linha
-            self.simbol_table[assign_id.valor] = NoTabela("id", None, assign_id.linha)
             self.visitExpression(statement.get("expression"))
-
+            self.simbol_table[assign_id.valor] = NoTabela("id", assign_id.linha)
+        elif statement.op == "if_statement":
+            self.visitExpression(statement.get("expression"))
+            self.visitBlock(statement.get("if_block"))
+            if statement.get("else_block"):
+                self.visitBlock(statement.get("else_block"))
+        elif statement.op == "while_statement":
+            self.visitExpression(statement.get("expression"))
+            self.visitBlock(statement.get("block"))
         elif statement.op == "command_statement":
             self.visitExpression(statement.get("expression"))
             pass
         pass
 
     def visitExpression(self, expression):
+        # or (self.simbol_table[factor.valor].d("initialized") == False)
         if expression:
             left_expression = self.visitExpression(expression.get("left"))
             right_expression = self.visitExpression(expression.get("right"))
             if expression.op == "factor":
                 factor  = expression.get("factor")
                 if factor.op == "id":
-                    if factor.valor not in self.simbol_table:
+                    if ((factor.valor not in self.simbol_table)):
                         raise ValueError(f"Variável " + factor.valor + " na linha " + str(factor.linha) + " não foi declarada.")
-                pass
-        pass
-
-
+                    
     """ def visitarDeclarations(self, noDeclarations):
         var_declarations = noDeclarations.get("var_declarations")
 
@@ -141,14 +151,17 @@ class Semantic:
             
 
 class NoTabela:
-    def __init__(self, type, value, line, **kwargs ):
+    def __init__(self, type, line, **kwargs ):
         self.type = type
-        self.value = value
+        #self.value = value
         self.line = line
-        self.dictionary = {}
+        self.d = {}
         for k, i in kwargs.items():
-            self.dictionary[k] = i
+            self.d[k] = i
         pass
 
     def get(self, i):
-        return self.dictionary.get(i)
+        return self.d.get(i)
+    
+    def __repr__(self):
+        return f"NoTabela:(type={self.type}, line={self.line}, kwargs={self.d})"

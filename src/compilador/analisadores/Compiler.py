@@ -25,10 +25,10 @@ class Compiler:
         # Cria uma instância do analisador sintático e faz a análise com base nos tokens
         syntax = Syntatic(tokens)
         tree = syntax.analyze()
-        print("\n" + str(tree) + "\n")
+        #print("\n" + str(tree) + "\n")
 
-        #semantic = Semantic(tree)
-        #semantic.analyze()
+        semantic = Semantic(tree)
+        semantic.analyze()
 
         
 
