@@ -18,6 +18,7 @@ class CodeGeneration:
             statement = statement_list.get("statement")
             self.statement(statement)
             statement_list = statement_list.get("next")
+            # break
         print(self.saida)
 
     
@@ -34,21 +35,25 @@ class CodeGeneration:
             self.if_statement(statement)
     
     def if_statement(self, statement):
-        self.saida += "if " + self.expression(statement.get("expression")) + "\n"
+        self.saida += "if " + self.expression(statement.get("expression")) + ":\n"
         
     def assign_statement(self, assign_statement):
-         if assign_statement.get("expression") != None:
+         if assign_statement.get("expression").op not in ["read", "read_multiple"]:
             return self.expression(assign_statement.get("expression"))
          else:
-             return self.input_statement(assign_statement.get("input_statement"))
+             return self.input_statement(assign_statement.get("expression"))
          
     def input_statement(self, input_statement):
-        Funcoes.ler()
-        pass
+        if input_statement.op == "read":
+            return "Funcoes.ler()"
+        else:
+            first_param = self.sum_expression(input_statement.get("first_param"))
+            second_param = self.sum_expression(input_statement.get("second_param"))
+            third_param = self.sum_expression(input_statement.get("third_param"))
+            return "Funcoes.ler_varios(" + first_param + "," + second_param + "," + third_param + ")"
          
     
     def expression(self, expression):
-        print(expression)
         if expression.op == "factor":
             return self.sum_expression(expression)
         elif expression.op == "expression":
@@ -71,8 +76,7 @@ class CodeGeneration:
         if expression != None:
             val1 = self.sum_expression(expression.get("left"))  # visita a subárvore esquerda
             val2 = self.sum_expression(expression.get("right"))  # visita a subárvore direita
-
-            # print(expression)               
+            
             if expression.op == "sum_expression":
                 """
                 Cria o código Python que processa um OPSUM.
@@ -105,6 +109,9 @@ class CodeGeneration:
                     return "_TEMP_VAR_MUL" + str(self.varNumMul)
                 elif mul == "%":
                     self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "%" + val2 + "\n"
+                    return "_TEMP_VAR_MUL" + str(self.varNumMul)
+                elif mul == "e":
+                    self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "and" + val2 + "\n"
                     return "_TEMP_VAR_MUL" + str(self.varNumMul)
                 
             elif expression.op == "powerTerm":
