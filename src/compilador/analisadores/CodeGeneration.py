@@ -13,13 +13,18 @@ class CodeGeneration:
 
     def run(self, tree):
         self.tree = tree
+        self.saida += "import Funcoes as Funcoes\n"
         statement_list = tree.get("block").get("statement_list")
+        self.statement_list(statement_list)
+        print(self.saida)
+
+    def statement_list(self, statement_list_input):
+        statement_list = statement_list_input
         while statement_list != None:
             statement = statement_list.get("statement")
             self.statement(statement)
             statement_list = statement_list.get("next")
             # break
-        print(self.saida)
 
     
     def statement(self, statement):
@@ -33,9 +38,36 @@ class CodeGeneration:
             self.varNumMinus = 0
         elif statement.op == "if_statement":
             self.if_statement(statement)
+        elif statement.op == "command_statement":
+            if statement.get("function") == "mostrar":
+                sumEx = self.sum_expression(statement.get("expression"))
+                self.saida += "Funcoes.mostrar(" + sumEx + ")\n"
+            elif statement.get("function") == "tocar":
+                sumEx = self.sum_expression(statement.get("expression"))
+                self.saida += "Funcoes.tocar(" + sumEx + ")\n"
+            elif statement.get("function") == "esperar":
+                sumEx = self.sum_expression(statement.get("expression"))
+                self.saida += "Funcoes.esperar(int(" + sumEx + "))\n"
+            else:
+                sumEx = self.sum_expression(statement.get("left_exp"))
+                sumExR = self.sum_expression(statement.get("right_exp"))
+                self.saida += "Funcoes.mostrar_tocar(" + sumEx + ", " + sumExR + ")\n"
+        else:
+            self.while_statement(statement)
+
+        
+    def while_statement(self, statement):
+        expression = self.expression(statement.get("expression"))
+        self.saida += "while " + expression + ":\n"
+        self.statement_list(statement.get("block").get("statement_list"))
     
     def if_statement(self, statement):
-        self.saida += "if " + self.expression(statement.get("expression")) + ":\n"
+        expression = self.expression(statement.get("expression"))
+        self.saida += "if " + expression + ":\n"
+        self.statement_list(statement.get("if_block").get("statement_list"))
+        if statement.get("else_block") != None:
+            self.saida += "else:\n"
+            self.statement_list(statement.get("else_block").get("statement_list"))
         
     def assign_statement(self, assign_statement):
          if assign_statement.get("expression").op not in ["read", "read_multiple"]:
@@ -56,7 +88,6 @@ class CodeGeneration:
     def expression(self, expression):
         if expression.op == "factor":
             return self.sum_expression(expression)
-        # elif expression.op == "expression":
         else:
             E = self.sum_expression(expression.get("left"))
             if expression.get("operator") == None:
@@ -76,8 +107,6 @@ class CodeGeneration:
                 else:
                     self.saida += "_TEMP_VAR_REL = " + E + expression.get("operator") + D  + "\n"
                     return "_TEMP_VAR_REL"
-        # else:
-        #     return self.sum_expression(expression)
                 
     def sum_expression(self, expression):
         if expression != None:
@@ -117,9 +146,6 @@ class CodeGeneration:
                 elif mul == "%":
                     self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "%" + val2 + "\n"
                     return "_TEMP_VAR_MUL" + str(self.varNumMul)
-                # elif mul == "e":
-                #     self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "and" + val2 + "\n"
-                #     return "_TEMP_VAR_MUL" + str(self.varNumMul)
                 
             elif expression.op == "powerTerm":
                 """
