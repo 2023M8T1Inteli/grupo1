@@ -56,21 +56,28 @@ class CodeGeneration:
     def expression(self, expression):
         if expression.op == "factor":
             return self.sum_expression(expression)
-        elif expression.op == "expression":
+        # elif expression.op == "expression":
+        else:
             E = self.sum_expression(expression.get("left"))
             if expression.get("operator") == None:
                 return E
             else:
-                D = self.sum_expression(expression.get("right"))
+                if expression.get("right").op == "expression":
+                    D = self.expression(expression.get("right"))
+                else:
+                    D = self.sum_expression(expression.get("right"))
                 oper = expression.get("operator")
                 if oper == "<>":
                     self.saida += "_TEMP_VAR_REL = " + E + "!=" + D + "\n"
                     return "_TEMP_VAR_REL"
+                elif oper == "e":
+                    self.saida += "_TEMP_VAR_REL = " + E + " and " + D  + "\n"
+                    return "_TEMP_VAR_REL"
                 else:
                     self.saida += "_TEMP_VAR_REL = " + E + expression.get("operator") + D  + "\n"
                     return "_TEMP_VAR_REL"
-        else:
-            return self.sum_expression(expression)
+        # else:
+        #     return self.sum_expression(expression)
                 
     def sum_expression(self, expression):
         if expression != None:
@@ -110,9 +117,9 @@ class CodeGeneration:
                 elif mul == "%":
                     self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "%" + val2 + "\n"
                     return "_TEMP_VAR_MUL" + str(self.varNumMul)
-                elif mul == "e":
-                    self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "and" + val2 + "\n"
-                    return "_TEMP_VAR_MUL" + str(self.varNumMul)
+                # elif mul == "e":
+                #     self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "and" + val2 + "\n"
+                #     return "_TEMP_VAR_MUL" + str(self.varNumMul)
                 
             elif expression.op == "powerTerm":
                 """

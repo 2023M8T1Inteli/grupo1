@@ -6,6 +6,4 @@ inicio
     inicio
         mostrar(2)
     fim
-    x = 1 + 2 ^ 3 ^ 5
-    esperar(x % 20)
 fim.
