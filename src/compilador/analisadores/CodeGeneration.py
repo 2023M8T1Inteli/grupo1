@@ -32,8 +32,7 @@ class CodeGeneration:
             self.if_statement(statement)
     
     def if_statement(self, statement):
-        print(statement.d.keys())
-        self.saida += "if " + self.expression(statement.expression) + "\n"
+        self.saida += "if " + self.expression(statement.get("expression")) + "\n"
         
     def assign_statement(self, assign_statement):
          if assign_statement.get("expression") != None:
@@ -47,7 +46,7 @@ class CodeGeneration:
          
     
     def expression(self, expression):
-        # print(expression)
+        print(expression)
         if expression.op == "factor":
             return self.sum_expression(expression)
         elif expression.op == "expression":
