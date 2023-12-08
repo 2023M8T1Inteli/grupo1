@@ -168,13 +168,23 @@ function createFunctionBlock(functionId) {
   else if (functionId == 'play-function') functionWord = ['TOCAR']
   else if (functionId == 'show-play-function')
     functionWord = ['MOSTRAR', 'TOCAR']
+  else if (functionId == 'ler_varios()')
+    functionWord = ['CLICAR', 'VEZES:', 'TOLERAR:']
   else functionWord = ['ESPERAR']
 
   // bloco html que recebe o argumento das funções (representado pelo símbolo "+")
   var addCodeArg = '<div class="add-code-argument">+</div>'
 
+  var blockColor
+
+  if (functionId == 'ler_varios()') {
+    blockColor = 'rgb(144, 0, 255)'
+  } else {
+    blockColor = '#AD0000'
+  }
+
   // monta o bloco html correspondente
-  var block = `<div id="${functionId}-code" class="function-block code-block" draggable="true" style="background-color: #AD0000;">`
+  var block = `<div id="${functionId}-code" class="function-block code-block" draggable="true" style="background-color: ${blockColor};">`
 
   for (let i = 0; i < functionWord.length; i++) {
     block += ` ${functionWord[i]} <div id="body-${i}" class="droppable-area">${addCodeArg}</div>`
