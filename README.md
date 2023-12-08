@@ -39,8 +39,8 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 # Releases
 
-* SPRINT1: *descrição*
-* SPRINT2: *descrição*
+* SPRINT1: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint1)*
+* SPRINT2: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint2)*
 * SPRINT3: *descrição*
 * SPRINT4: *descrição*
 * SPRINT5: *descrição*
@@ -49,4 +49,4 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 <img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/">
 
-<a property="dct:title" rel="cc:attributionURL">Grupo</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName">Inteli, Estudante 1, Estudante 2, Estudante 3, Estudante 4, Estudante 5, Estudante 6</a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+<a property="dct:title" rel="cc:attributionURL">Grupo</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName">Inteli, Allan Casado, Gabriel Nhoncanse, Iago Tavares, Jonas Sales, Luiz Júnior, Mateus Almeida, Mateus Silva e Pedro Dias </a> is licensed under <a href="https://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
