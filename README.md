@@ -16,7 +16,7 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 # Projeto: *Nome do projeto*
 
-# Grupo: *Nome_do_seu_Grupo*
+# Grupo: *Pipoquinhas*
 
 # Integrantes:
 
