@@ -31,7 +31,7 @@ class CodeGeneration:
         if statement.op == "assign_statement":
             dir = self.assign_statement(statement)
             id = statement.get("id").valor
-            self.saida += f"{id} = {dir}\n"
+            self.saida += f"{self.tabs}{id} = {dir}\n"
             self.varNumSum = 0
             self.varNumMul = 0
             self.varNumPow = 0
@@ -41,33 +41,41 @@ class CodeGeneration:
         elif statement.op == "command_statement":
             if statement.get("function") == "mostrar":
                 sumEx = self.sum_expression(statement.get("expression"))
-                self.saida += "Funcoes.mostrar(" + sumEx + ")\n"
+                self.saida += f"{self.tabs}Funcoes.mostrar(" + sumEx + ")\n"
             elif statement.get("function") == "tocar":
                 sumEx = self.sum_expression(statement.get("expression"))
-                self.saida += "Funcoes.tocar(" + sumEx + ")\n"
+                self.saida += f"{self.tabs}Funcoes.tocar(" + sumEx + ")\n"
             elif statement.get("function") == "esperar":
                 sumEx = self.sum_expression(statement.get("expression"))
-                self.saida += "Funcoes.esperar(int(" + sumEx + "))\n"
+                self.saida += f"{self.tabs}Funcoes.esperar(int(" + sumEx + "))\n"
             else:
                 sumEx = self.sum_expression(statement.get("left_exp"))
                 sumExR = self.sum_expression(statement.get("right_exp"))
-                self.saida += "Funcoes.mostrar_tocar(" + sumEx + ", " + sumExR + ")\n"
+                self.saida += f"{self.tabs}Funcoes.mostrar_tocar(" + sumEx + ", " + sumExR + ")\n"
         else:
             self.while_statement(statement)
 
         
     def while_statement(self, statement):
         expression = self.expression(statement.get("expression"))
-        self.saida += "while " + expression + ":\n"
+        self.saida += f"{self.tabs}while " + expression + ":\n"
+        self.tabs += '\t'
         self.statement_list(statement.get("block").get("statement_list"))
+        tablist = list(self.tabs)
+        tablist.pop(0)
+        self.tabs = "".join(tablist)
     
     def if_statement(self, statement):
         expression = self.expression(statement.get("expression"))
-        self.saida += "if " + expression + ":\n"
+        self.saida += f"{self.tabs}if " + expression + ":\n"
+        self.tabs += '\t'
         self.statement_list(statement.get("if_block").get("statement_list"))
         if statement.get("else_block") != None:
-            self.saida += "else:\n"
+            self.saida += f"{self.tabs}else:\n"
             self.statement_list(statement.get("else_block").get("statement_list"))
+        tablist = list(self.tabs)
+        tablist.pop(0)
+        self.tabs = "".join(tablist)
         
     def assign_statement(self, assign_statement):
          if assign_statement.get("expression").op not in ["read", "read_multiple"]:
@@ -99,19 +107,20 @@ class CodeGeneration:
                     D = self.sum_expression(expression.get("right"))
                 oper = expression.get("operator")
                 if oper == "<>":
-                    self.saida += "_TEMP_VAR_REL = " + E + "!=" + D + "\n"
+                    self.saida += f"{self.tabs}_TEMP_VAR_REL = " + E + "!=" + D + "\n"
                     return "_TEMP_VAR_REL"
                 elif oper == "e":
-                    self.saida += "_TEMP_VAR_REL = " + E + " and " + D  + "\n"
+                    self.saida += f"{self.tabs}_TEMP_VAR_REL = " + E + " and " + D  + "\n"
                     return "_TEMP_VAR_REL"
                 else:
-                    self.saida += "_TEMP_VAR_REL = " + E + expression.get("operator") + D  + "\n"
+                    self.saida += f"{self.tabs}_TEMP_VAR_REL = " + E + expression.get("operator") + D  + "\n"
                     return "_TEMP_VAR_REL"
                 
     def sum_expression(self, expression):
         if expression != None:
             val1 = self.sum_expression(expression.get("left"))  # visita a subárvore esquerda
             val2 = self.sum_expression(expression.get("right"))  # visita a subárvore direita
+            # print(expression.get("left"), val2)
             
             if expression.op == "sum_expression":
                 """
@@ -122,7 +131,7 @@ class CodeGeneration:
                 Em seguida, retorne uma string com nome da variável temporária.
                 """
                 self.varNumSum += 1
-                self.saida += "_TEMP_VAR_SUM" + str(self.varNumSum) + " = " + val1 + expression.d.get("operator") + val2 + "\n"
+                self.saida += f"{self.tabs}_TEMP_VAR_SUM" + str(self.varNumSum) + " = " + val1 + expression.d.get("operator") + val2 + "\n"
                 return "_TEMP_VAR_SUM" + str(self.varNumSum)
             
             elif expression.op == "multi_term2":
@@ -138,16 +147,16 @@ class CodeGeneration:
                 mul = expression.d.get("operator")
                 self.varNumMul += 1
                 if mul == "*":
-                    self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "*" + val2 + "\n"
+                    self.saida += f"{self.tabs}_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "*" + val2 + "\n"
                     return "_TEMP_VAR_MUL" + str(self.varNumMul)
                 elif mul == "/":
-                    self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "//" + val2 + "\n"
+                    self.saida += f"{self.tabs}_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "//" + val2 + "\n"
                     return "_TEMP_VAR_MUL" + str(self.varNumMul)
                 elif mul == "%":
-                    self.saida += "_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "%" + val2 + "\n"
+                    self.saida += f"{self.tabs}_TEMP_VAR_MUL" + str(self.varNumMul) + " = " + val1 + "%" + val2 + "\n"
                     return "_TEMP_VAR_MUL" + str(self.varNumMul)
                 
-            elif expression.op == "powerTerm":
+            elif expression.op == "power_term":
                 """
                 Cria o código Python que processa um OPPOW.
                 Ideia principal: crie uma variável temporária (sugestão: _TEMP_VAR_POW@, onde @ é um número inteiro) que
@@ -155,8 +164,10 @@ class CodeGeneration:
 
                 Em seguida, retorne uma string com nome da variável temporária.
                 """
+                val1 = self.sum_expression(expression.get("base")) 
+                val2 = self.sum_expression(expression.get("exponent"))
                 self.varNumPow += 1
-                self.saida += "_TEMP_VAR_POW" + str(self.varNumPow) + " = " + val1 + "**" + val2 + "\n"
+                self.saida += f"{self.tabs}_TEMP_VAR_POW" + str(self.varNumPow) + " = " + val1 + "**" + val2 + "\n"
                 return "_TEMP_VAR_POW" + str(self.varNumPow)
 
             elif expression.op == "factor" and not expression.get("expression"):
@@ -173,7 +184,7 @@ class CodeGeneration:
                 """
                 if expression.get("factor").op in ("id", "num") and expression.get("sinal") == "-":
                     self.varNumMinus += 1
-                    self.saida += "_TEMP_VAR_MINUS" + str(self.varNumMinus) + " = " + "-" + expression.get("factor").valor + "\n"
+                    self.saida += f"{self.tabs}_TEMP_VAR_MINUS" + str(self.varNumMinus) + " = " + "-" + expression.get("factor").valor + "\n"
                     return "_TEMP_VAR_MINUS" + str(self.varNumMinus)
                 elif expression.get("factor").op == "log" and expression.get("factor").valor == "true":
                     return "True"
@@ -194,7 +205,7 @@ class CodeGeneration:
                     Em seguida, retorne uma string com nome da variável temporária.
                     """
                     self.varNumMinus += 1
-                    self.saida += "_TEMP_VAR_MINUS" + str(self.varNumMinus) + " = -" + temp + "\n"
+                    self.saida += f"{self.tabs}_TEMP_VAR_MINUS" + str(self.varNumMinus) + " = -" + temp + "\n"
                     return "_TEMP_VAR_MINUS" + str(self.varNumMinus)
 
                 else:
