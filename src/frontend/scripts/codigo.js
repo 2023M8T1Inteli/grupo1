@@ -244,20 +244,50 @@ function previewImages() {
       var img = document.createElement('img');
       img.src = e.target.result;
       img.draggable = true;
-      img.addEventListener('dragstart', function(event) {
+      img.addEventListener('dragstart', function (event) {
         event.dataTransfer.setData('text/plain', 'dragging'); // Define dados de arrastar
       });
       container.appendChild(img);
+
+      // Enviar a imagem para o servidor usando fetch
+      sendImageToServer(file);
     };
+
     reader.readAsDataURL(file);
   }
+
+  // Criar uma cópia da entrada de arquivo
+  var filesInputClone = filesInput.cloneNode(true);
+
+  // Substituir a entrada original pela cópia
+  filesInput.parentNode.replaceChild(filesInputClone, filesInput);
+
+  // Resetar o valor da cópia
+  filesInputClone.value = '';
 }
+
+function sendImageToServer(imageFile) {
+  var formData = new FormData();
+  formData.append('file', imageFile, imageFile.name); // Usar a chave 'file' aqui
+
+  fetch('http://localhost:3000/up-image', {
+    method: 'POST',
+    body: formData,
+  })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Resposta do servidor:', data);
+    })
+    .catch(error => {
+      console.error('Erro ao enviar a foto:', error);
+    });
+
 
 function allowDrop(event) {
   event.preventDefault();
 }
 
-function dropImage(event) {
+function dropImage(event) {}
   event.preventDefault();
   var data = event.dataTransfer.getData('text/plain');
   if (data === 'dragging') {
@@ -271,21 +301,17 @@ function dropImage(event) {
   }
 }
 
-function dropImagem(event) {
+function dropImage(event) {
   event.preventDefault();
-
-  // Obtém o arquivo do input de arquivo
-  var inputFiles = document.getElementById('files');
-  var file = inputFiles.files[0];
-  active += 1;
-
-  if (file) {
-    // Lê o conteúdo do arquivo como URL e adiciona ao cenário
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      adicionarImagemAoCenario(e.target.result);
-    };
-    reader.readAsDataURL(file);
+  var data = event.dataTransfer.getData('text/plain');
+  if (data === 'dragging') {
+    var img = document.createElement('img');
+    img.src = event.dataTransfer.getData('URL');
+    img.draggable = true;
+    img.addEventListener('dragstart', function(event) {
+      event.dataTransfer.setData('text/plain', 'dragging');
+    });
+    event.target.appendChild(img);
   }
 }
 
@@ -327,3 +353,34 @@ function closeFeedbackModal() {
   document.getElementById('feedbackModal').style.display = 'none';
 }
 
+function displayImage(base64String) {
+  var container = document.getElementById('container');
+  
+  // Limpa a div container
+  container.innerHTML = '';
+
+  // Exibe a imagem na div container
+  var img = document.createElement('img');
+  img.src = 'data:image/png;base64,' + base64String; // Assumindo que o formato da imagem é PNG
+  container.appendChild(img);
+}
+
+// Função para fazer a solicitação GET ao endpoint
+function fetchData() {
+  fetch('http://localhost:3000/up-image')
+    .then(response => response.json())
+    .then(data => {
+      if (data.status === 'Ok!' && data.result.length === 1) {
+        // Se houver exatamente 1 elemento no array 'result', exibe a imagem
+        displayImage(data.result[0].foto);
+      } else {
+        console.log('Nenhum dado encontrado ou mais de um elemento no array "result".');
+      }
+    })
+    .catch(error => {
+      console.error('Erro ao buscar dados:', error);
+    });
+}
+
+// Chama a função fetchData ao carregar a página
+window.onload = fetchData();
