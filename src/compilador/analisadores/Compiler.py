@@ -1,12 +1,10 @@
 import sys
 from Lexer import Lexer
 from Syntactic import Syntatic
-from Tree import NonLeafNode, LeafNode
 from token_patterns import token_patterns
 from pprint import pprint
 from Semantic import Semantic
 from CodeGeneration import CodeGeneration
-
 
 class Compiler:
     def read_code(file_path):

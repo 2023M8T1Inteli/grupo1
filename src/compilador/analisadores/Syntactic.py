@@ -40,10 +40,10 @@ class Syntatic:
         return NonLeafNode("program", id=LeafNode("id", program_id.valor, program_id.linha), block=block_node)
 
     def block(self):
-        self.compare("LBLOCK")
+        noBlock = self.compare("LBLOCK")
         statement_list_node = self.statement_list()
         self.compare("RBLOCK")
-        return NonLeafNode("block", statement_list = statement_list_node)
+        return NonLeafNode("block", statement_list = statement_list_node, line = noBlock.linha)
 
     def statement_list(self):
         statement_node = None
@@ -217,4 +217,4 @@ class Syntatic:
             self.compare("BOOLEAN", "verdade")
         else:
             self.compare("BOOLEAN", "falso")
-        return LeafNode("BOOLEAN", self.tokenCurrent.valor, self.tokenCurrent.linha)
+        return LeafNode("BOOLEAN", self.tokenCurrent.valor, self.tokenCurrent.linha

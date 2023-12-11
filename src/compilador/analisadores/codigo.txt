@@ -5,4 +5,3 @@ b = 9
 c = (3+a)*b/2
 esperar(c)
 tocar(a%4)
-fim.
