@@ -1,5 +1,5 @@
 function redirectAtividades() {
-    document.location.href = '../pages/codigo.html'; // Altere para o caminho correto
+    document.location.href = '../pages/listaAtividades.html'; // Altere para o caminho correto
 }
 
 function redirectPacientes() {
