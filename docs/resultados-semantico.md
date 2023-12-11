@@ -2,7 +2,7 @@
 
 ## Introdução
 
-O Analisador Semântico consiste na terceira etapa do compilador de código produzido no projeto. Sua funcionalidade consiste em analisar a Árvore Sintática gerada no Analisador Sintático e analisar se algum possível erro específico da linguagem ainda esteja no código, como variáveis não declaradas ou tentativa de atribuir um valor a uma variável que ela não pode receber.
+O Analisador Semântico consiste na terceira etapa do compilador de código produzido no projeto. Sua funcionalidade consiste em analisar a Árvore Sintática gerada no Analisador Sintático e averiguar se algum possível erro específico da linguagem ainda esteja no código, como variáveis não declaradas ou tentativa de atribuir um valor a uma variável que ela não pode receber.
 
 ### Exemplo
 
@@ -13,7 +13,7 @@ inicio
 fim.
 ```
 
-O código acima demostra um possível erro que somente o semântico pode detectar: uma variável não inicializada. Na linha 6 podemos encontrar a expressão `x = x * 2`, mesmo ela estando lexicamente e sintaticamente correta (refira-se aos resultados de analisadores anteriores para mais informações), a variável `x` ainda não recebeu nenhum valor até aquele momento, fazendo que a tentativa de multiplicar `x` por `2` seja ambíguo, retornando um erro semântico.
+O código acima demostra um possível erro que somente o semântico pode detectar: uma variável não inicializada. Na linha 3 podemos encontrar a expressão `x = x * 2`, mesmo ela estando lexicamente e sintaticamente correta (refira-se aos resultados de analisadores anteriores para mais informações), a variável `x` ainda não recebeu nenhum valor até aquele momento, fazendo que a tentativa de multiplicar `x` por `2` seja ambíguo, retornando um erro semântico.
 
 ## Resultados
 
