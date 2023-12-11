@@ -35,7 +35,30 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 # Configuração de desenvolvimento
 
-*Procedimento para baixar e executar o código deste projeto.*
+A aplicação foi desenvolvida em uma versão Web com o intuito de aplicação Intranet, sendo pensada para rodar apenas na rede interna da AACD por meio de um servidor local. Para isto, são necessárias algumas instalações para que a aplicação rode sem problemas:
+
+## Pré-Requisitos
+### Node.js
+O Node.js é um ambiente de execução JavaScript que permite executar aplicações JavaScript fora do navegador. Para instalar o Node.js, basta acessar o site oficial do [Node.js](https://nodejs.org/en/) e baixar a versão LTS (Long Term Support) para o seu sistema operacional. Após o download ser concluído, basta executar o instalador e seguir os passos de instalação.
+Concluída a instalação, recomendamos que você verifique se o Node.js foi instalado corretamente usando: node -v. Caso a versão do Node.js seja exibida, a instalação foi bem sucedida.
+
+### npm
+O npm é o gerenciador de pacotes do Node.js. Ele é responsável por instalar e gerenciar as dependências do projeto. Para instalar o npm, basta acessar o site oficial do [npm](https://www.npmjs.com/get-npm) e baixar a versão LTS (Long Term Support) para o seu sistema operacional. Após o download ser concluído, basta executar o instalador e seguir os passos de instalação.
+Concluída a instalação, recomendamos que você verifique se o npm foi instalado corretamente usando: npm -v. Caso a versão do npm seja exibida, a instalação foi bem sucedida.
+
+### Python
+O Python é a linguagem usada para interpretar o código gerado por trás da atividade criada pelo (a) Terapeuta Ocupacional. Para instalar o Python, basta acessar o site oficial do [Python](https://www.python.org/downloads/) e baixar a versão mais recente para o seu sistema operacional. Após o download ser concluído, basta executar o instalador e seguir os passos de instalação.
+Concluída a instalação, recomendamos que você verifique se o Python foi instalado corretamente usando: python --version. Caso a versão do Python seja exibida, a instalação foi bem sucedida.
+
+### Pygame
+O Pygame é uma biblioteca de jogos em Python. Para instalar o Pygame, basta acessar o site oficial do [Pygame](https://www.pygame.org/wiki/GettingStarted) e baixar a versão mais recente para o seu sistema operacional. Após o download ser concluído, basta executar o instalador e seguir os passos de instalação.
+Concluída a instalação, recomendamos que você verifique se o Pygame foi instalado corretamente usando: python -m pygame.examples.aliens. Caso o jogo seja exibido, a instalação foi bem sucedida.
+
+### MySQL
+O MySQL é um sistema de gerenciamento de banco de dados (SGBD), que utiliza a linguagem SQL (Linguagem de Consulta Estruturada, do inglês Structured Query Language) como interface. Para instalar o MySQL, basta acessar o site oficial do [MySQL](https://www.mysql.com/downloads/) e baixar a versão mais recente para o seu sistema operacional. Após o download ser concluído, basta executar o instalador e seguir os passos de instalação.
+Concluída a instalação, recomendamos que você verifique se o MySQL foi instalado corretamente usando: mysql --version. Caso a versão do MySQL seja exibida, a instalação foi bem sucedida.
+
+### 
 
 # Releases
 
