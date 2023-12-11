@@ -4,6 +4,7 @@ from Syntactic import Syntatic
 from token_patterns import token_patterns
 from pprint import pprint
 from Semantic import Semantic
+from CodeGeneration import CodeGeneration
 
 class Compiler:
     def read_code(file_path):
@@ -25,12 +26,12 @@ class Compiler:
         # Cria uma instância do analisador sintático e faz a análise com base nos tokens
         syntax = Syntatic(tokens)
         tree = syntax.analyze()
-        #print("\n" + str(tree) + "\n")
 
-        semantic = Semantic(tree)
-        semantic.analyze()
+        # semantic = Semantic(tree)
+        # semantic.analyze()
 
-        
+        codeGeneration = CodeGeneration()
+        codeGeneration.run(tree)
 
 
 if __name__ == "__main__":

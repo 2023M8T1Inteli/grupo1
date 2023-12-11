@@ -217,4 +217,4 @@ class Syntatic:
             self.compare("BOOLEAN", "verdade")
         else:
             self.compare("BOOLEAN", "falso")
-        return LeafNode("BOOLEAN", self.tokenCurrent.valor, self.tokenCurrent.linha)
+        return LeafNode("BOOLEAN", self.tokenCurrent.valor, self.tokenCurrent.linha
