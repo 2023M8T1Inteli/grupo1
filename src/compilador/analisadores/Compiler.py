@@ -27,8 +27,8 @@ class Compiler:
         syntax = Syntatic(tokens)
         tree = syntax.analyze()
 
-        # semantic = Semantic(tree)
-        # semantic.analyze()
+        semantic = Semantic(tree)
+        semantic.analyze()
 
         codeGeneration = CodeGeneration()
         codeGeneration.run(tree)
