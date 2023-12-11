@@ -29,3 +29,9 @@ model Terapeuta {
   senha    String
   atividades Atividade[]
 }
+
+model upImage {
+  id       Int       @default(autoincrement()) @id
+  usuario  String    @unique
+  foto     String
+}
