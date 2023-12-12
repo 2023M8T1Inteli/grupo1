@@ -47,4 +47,4 @@ Por se tratar de uma aplicação que rodará em uma rede interna, é necessário
 ## Vídeo de Demonstração
 O vídeo a seguir mostra o funcionamento do projeto quando instaladas e executadas as funções descritas anteriormente.
 
-[![Vídeo de Demonstração](./img/video-demo.mp4)]
+[![Vídeo de Demonstração](https://drive.google.com/file/d/14UiRydGiY8HJWlW8AmXfx9uidy6iJiSO/view?usp=drive_link)]
