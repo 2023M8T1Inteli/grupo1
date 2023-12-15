@@ -16,7 +16,7 @@ class CodeGeneration:
         self.saida += "import Funcoes as Funcoes\n"
         statement_list = tree.get("block").get("statement_list")
         self.statement_list(statement_list)
-        print(self.saida)
+        return self.saida
 
     def statement_list(self, statement_list_input):
         statement_list = statement_list_input
