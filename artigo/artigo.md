@@ -1,5 +1,9 @@
 # Artigo
 
+## Abstract
+
+&emsp;Este artigo explora o desenvolvimento e a implementação de uma Interface de Desenvolvimento Integrada (IDE) online para Terapeutas Ocupacionais (TOs) no contexto da AACD, uma instituição brasileira líder em tratamento e reabilitação de pessoas com deficiência física. A IDE é desenhada para ser intuitiva e sem a necessidade de conhecimentos prévios em programação, permitindo aos TOs criar atividades lúdicas e educacionais adaptadas a crianças com paralisia cerebral. Utilizando um tapete sensorial e a linguagem de programação QAL, a IDE facilita a criação de jogos interativos que ajudam a superar barreiras motoras e cognitivas. O projeto, resultado de uma parceria entre a AACD e o Instituto de Tecnologia e Liderança (Inteli), representa um avanço significativo no uso de tecnologia assistiva, promovendo a inclusão e o desenvolvimento integral de crianças com necessidades especiais. 
+
 ## Introdução
 
 &emsp;A paralisia cerebral, definida pela primeira vez em 1843 por William Little como "encefalopatia crônica da infância", é uma patologia ligada a diferentes causas e caracterizada, principalmente, por rigidez muscular. Sigmund Freud, durante sua "fase neurológica" em 1897, sugeriu a expressão "paralisia cerebral" ao estudar o que é conhecido até os tempos atuais como "Síndrome ou Moléstia de Little" (VASCONCELLOS, Roseli; DEL RÉ, Alessandra, 2016).
