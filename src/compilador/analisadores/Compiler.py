@@ -34,16 +34,21 @@ class Compiler:
         codeGeneration = CodeGeneration()
         codigoPython = codeGeneration.run(tree)
 
-        #open text file
-        text_file = open("./exitCode.py", "w")
+        caminho = "./exitCode.py"
+
+        if os.getcwd()[-12:] != "analisadores":
+            caminho = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../compilador/analisadores/exitCode.py'))
         
+        #open text file
+        text_file = open(caminho, "w")
+
         #write string to file
         text_file.write(codigoPython)
         
         #close file
         text_file.close()
 
-        os.system('exitCode.py')
+        os.system('python3 ' + caminho)
 
 
 if __name__ == "__main__":
