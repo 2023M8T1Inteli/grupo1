@@ -29,7 +29,7 @@ Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AA
 
 # Descrição
 
-*Descrição resumida do projeto*
+O projeto desenvolvido em parceria com a AACD consistiu em uma Interface de Desenvolvimento Integrada (IDE) totalmente online, destinada a auxiliar na criação de atividades a serem utilizadas nos tratamentos dos pacientes com paralisia cerebral. Para um bom funcionamento da IDE, foi desenvolvido também um compilador, o qual transforma o programa no-code criado pela Terapeuta Ocupacional em código Python.
 
 # Configuração de desenvolvimento
 
