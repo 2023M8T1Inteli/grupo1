@@ -1,3 +1,4 @@
+import os
 import threading
 import pygame
 
@@ -89,7 +90,7 @@ def ler_varios(quad, qtd, tol):
 
 def mostrar(cod):
     pygame.init()
-    image_file = f"./imagens/{cod}.jpg"
+    image_file = os.path.abspath(os.path.join(os.path.dirname(__file__), f'../../compilador/analisadores/imagens/{cod}.jpg'))
     image = pygame.image.load(image_file)
     screen = pygame.display.set_mode(image.get_size())
     screen.blit(image, (0, 0))
@@ -101,7 +102,7 @@ def mostrar(cod):
 
 def tocar(cod):
     pygame.mixer.init()
-    sound_file = f"./sons/{cod}.mp3"
+    sound_file = os.path.abspath(os.path.join(os.path.dirname(__file__), f'../../compilador/analisadores/sons/{cod}.mp3'))
     pygame.mixer.music.load(sound_file)
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():  
@@ -123,21 +124,4 @@ def mostrar_tocar(cod_img, cod_aud):
 
 def esperar(t):
     pygame.time.delay(t)
-
-
-
-if __name__ == '__main__':
-    SCREEN_WIDTH = 600
-    SCREEN_HEIGHT = 400    
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
-
-    image_file = f"./imagens/tapete.jpg"
-    image = pygame.image.load(image_file)
-    screen = pygame.display.set_mode(image.get_size())
-    screen.blit(image, (0, 0))
-    pygame.display.flip()
-
-    resultado = ler_varios(21, 3, 2)
     
-    if resultado == True:
-        mostrar(10)
