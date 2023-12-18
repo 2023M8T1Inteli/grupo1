@@ -12,9 +12,7 @@
 
 Este é um dos repositórios do projeto de alunos do Inteli em parceria com a AACD no 2º semestre de 2023. Este projeto está sendo desenvolvido por alunos do Módulo 8 do curso de Ciência da Computação.
 
-> Se você é um dos alunos que faz parte deste grupo, veja as [instruções para os alunos](./instrucoes_para_alunos/LEIAME_aluno.md).
-
-# Projeto: *Nome do projeto*
+# Projeto: *Tapete sensorial para apoiar pessoas com leves desordens neurológicas e sem alteração/restrição sensorial em atividades do cotidiano*
 
 # Grupo: *Pipoquinhas*
 
@@ -58,9 +56,7 @@ Concluída a instalação, recomendamos que você verifique se o Pygame foi inst
 O MySQL é um sistema de gerenciamento de banco de dados (SGBD), que utiliza a linguagem SQL (Linguagem de Consulta Estruturada, do inglês Structured Query Language) como interface. Para instalar o MySQL, basta acessar o site oficial do [MySQL](https://www.mysql.com/downloads/) e baixar a versão mais recente para o seu sistema operacional. Após o download ser concluído, basta executar o instalador e seguir os passos de instalação.
 Concluída a instalação, recomendamos que você verifique se o MySQL foi instalado corretamente usando: mysql --version. Caso a versão do MySQL seja exibida, a instalação foi bem sucedida.
 
-### 
-
-# Releases
+# Tags
 
 * SPRINT1: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint1)*
 * SPRINT2: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint2)*
