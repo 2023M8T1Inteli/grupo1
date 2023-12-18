@@ -1,3 +1,4 @@
+import os
 import sys
 from Lexer import Lexer
 from Syntactic import Syntatic
@@ -31,7 +32,18 @@ class Compiler:
         semantic.analyze()
 
         codeGeneration = CodeGeneration()
-        codeGeneration.run(tree)
+        codigoPython = codeGeneration.run(tree)
+
+        #open text file
+        text_file = open("./exitCode.py", "w")
+        
+        #write string to file
+        text_file.write(codigoPython)
+        
+        #close file
+        text_file.close()
+
+        os.system('exitCode.py')
 
 
 if __name__ == "__main__":
