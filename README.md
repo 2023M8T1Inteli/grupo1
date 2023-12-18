@@ -60,9 +60,9 @@ Concluída a instalação, recomendamos que você verifique se o MySQL foi insta
 
 * SPRINT1: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint1)*
 * SPRINT2: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint2)*
-* SPRINT3: *descrição*
-* SPRINT4: *descrição*
-* SPRINT5: *descrição*
+* SPRINT3: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint3)*
+* SPRINT4: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint4)*
+* SPRINT5: *[descrição]*
 
 ## 📋 Licença/License
 
