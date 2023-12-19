@@ -16,7 +16,54 @@
 
 &emsp;O desenvolvimento de tecnologia assistiva para crianças com deficiências motoras e cognitivas é crucial segundo Vitomska (2023), pois oferece oportunidades de interação, aprendizado e expressão adaptadas às suas necessidades específicas. Essas tecnologias podem ajudar a superar barreiras impostas por limitações motoras e cognitivas, permitindo que as crianças participem mais ativamente de atividades educacionais e sociais. Durante a infância, um período essencial para o desenvolvimento de habilidades, a tecnologia assistiva facilita a inclusão, promovendo igualdade de oportunidades e crescimento integral. Além disso, este projeto é relevante pois fomenta o uso de tecnologias assistivas e contribui significativamente para a cultura tecnológica da AACD, incentivando a adoção de inovações que podem transformar a vida de muitas crianças na instituição.
 
-## Trabalhos relacionados
+# Materiais e Métodos
+
+### Sprint 1: Entendimento do problema e definição do escopo
+&emsp;O objetivo principal desta etapa foi obter um entendimento do problema apresentado pela empresa parceira, fazer uma análise de mercado, de público alvo a ser direcionada a solução que será desenvolvida e definir o escopo do projeto.
+
+&emsp;Para isso, foi realizado um workshop com a representante da empresa parceira e identificados os requisitos necessários para a realização do projeto e as restrições que deveriam ser consideradas.
+
+&emsp;Após as informações coletadas, foi feita uma análise de mercado para identificar as soluções existentes e as tecnologias utilizadas. A partir disso, foi possível definir o escopo do projeto e as tecnologias que seriam utilizadas e apresentadas à representante da empresa parceira.
+
+### Sprint 2: Desenvolvimento da aplicação e documentação incial
+
+&emsp;O objetivo principal desta etapa foi desenvolver a aplicação e documentar o processo de desenvolvimento. Para isso, foi feito um planejamento de desenvolvimento, com a definição das tarefas a serem realizadas e a divisão de tarefas entre os integrantes do grupo.
+
+&emsp;Após a definição das tarefas, foi iniciado o desenvolvimento de uma aplicação web, utilizando a linguagem html, css e javascript para sua construção como frontend da solução e iniciados os analisadores responsáveis (léxico e sintático) pelas primeiras etapas do processamento do código que será gerado pela aplicação web.
+
+&emsp;Além do desenvolvimento técnico, iniciou-se também a escrita do artigo científico relacionado ao projeto. Em sua primeira versão, foi apresentada a introdução ao problema e as referências a qual o documento se baseia.
+
+
+### Sprint 3: Aprimoramento da aplicação, desenvolvimento do compilador e documentação
+
+&emsp;Na terceira etapa do projeto, o objetivo principal foi aprimorar a aplicação desenvolvida na etapa anterior, desenvolver o compilador (aprimoramento do léxico e do sintático e início do semântico) e documentar o processo de desenvolvimento.
+
+&emsp;O analisador léxico foi melhorado em sua última versão e testado, o analisador sintático teve aprimoramentos e foi desenvolvida a árvore sintática abstrata, que é a estrutura de dados que representa o código fonte do programa. Além disso, foi iniciado o desenvolvimento do analisador semântico, que é responsável por verificar se o código fonte do programa está de acordo com as regras da linguagem de programação QAL, linguagem de programação baseada em Python que foi desenvolvida para o projeto.
+
+&emsp;A segunda versão do artigo contou com melhorias na introdução e adição da seçaõ trabalhos relacionados, que apresenta os estudos que foram utilizados como base para o desenvolvimento do projeto e adicionadas as referências relevantes para a criação da nova seção.
+
+
+### Sprint 4: Finalização dos analisadores, desenvolvimento do compilador e documentação
+
+&emsp;Na quarta etapa do projeto, o objetivo principal foi finalizar o desenvolvimento dos analisadores e do compilador, atribuir features de acessibilidade pertinentes ao IDE e documentar o processo de desenvolvimento.
+
+&emsp;O analisador e a árvore sintática abstrata foram testados, o analisador foi desenvolvido, testado e finalizado e foi feito o gerador de código, que será a parte responsável por receber a informação da atividade criada pelo TO e gerar o código fonte do programa em QAL. Além disso, foi feita a integração do compilador com o Pygame, biblioteca de jogos em Python, que será responsável por executar o jogo (atividade) criado pelo TO.
+
+&emsp;Na documentação, foi feita a revisão das seções já criadas do artigo e adicionada a seção de resultados, que apresenta o produto final do projeto e os resultados obtidos com o desenvolvimento do projeto.
+
+
+### Sprint 5: Finalização do projeto e documentação
+
+&emsp;Na quinta e última etapa do projeto, o objetivo principal foi finalizar o desenvolvimento do projeto e documentar o processo de desenvolvimento.
+
+&emsp;O analisador semântico foi testado, o gerador de código foi finalizado e foi feita a integração do compilador com o Pygame, biblioteca de jogos em Python, que será responsável por executar o jogo (atividade) criado pelo TO.
+
+&emsp;Na documentação, foi feita a revisão de todas as seções do artigo e adicionada a seção de materiais e métodos, que apresenta as etapas do projeto e as tecnologias utilizadas em cada uma delas.
+
+&emsp;Após todos os ajustes na documentação e no projeto, foi feita a organização do repositório para uma boa compreensão e facilidade de acesso aos conteúdos pelo parceiros atuantes da empresa parceira de projeto.
+
+
+# Trabalhos relacionados
 
 &emsp;A partir de uma revisão bibliográfica aprofundada dos trabalhos com temas relacionados ao contexto em questão é possível extrair informações importantes e reforçar a relevância e a aplicabilidade dos conceitos abordados neste trabalho. Além disso, ao examinar estudos anteriores consegue-se garantir que será desenvolvido um projeto de fato relevante e inovador para o campo da tecnologia assistiva no Brasil.
 
@@ -27,7 +74,8 @@ Esse trabalho aborda o uso da terapia ocupacional com elementos de integração 
 
 &emsp;Além dos estudos mencionados, outros dois trabalhos relevantes são "THE EFFECT OF OCCUPATIONAL THERAPY AND SENSORY INTEGRATION ON THE LEVEL OF SELF-CARE OF CHILDREN WITH AUTISTIC SPECTRUM DISORDERS", de M. V. Vitomska, que examina a influência da terapia ocupacional e integração sensorial no autocuidado em crianças com autismo, destacando a eficácia da integração sensorial em contextos terapêuticos específicos; e "DESAFIOS CONTEMPORÂNEOS: O USO DA TECNOLOGIA ASSISTIVA COMO INSTRUMENTO FACILITADOR DA APRENDIZAGEM", de Evelin Naiara Garcia e Alboni Marisa Dudeque Pianovski Vieira, que aborda a importância da tecnologia assistiva na educação inclusiva, ressaltando seu papel crucial na aprendizagem e inclusão de pessoas com deficiência. Ambos também são estudos importantes e, de certa maneira, se alinham com a proposta do projeto em questão.
 
-&emsp; Sendo assim, esses estudos enfatizam a importância crescente da terapia ocupacional, integração sensorial e tecnologia assistiva na melhoria da qualidade de vida e inclusão educacional de indivíduos com necessidades especiais, evidenciando a relevância e o potencial de inovação da criação de um ambiente de desenvolvimento integrado que permite que, em alto nível, TOs personalizem atividades lúdicas em um tapete sensorial. 
+&emsp; Sendo assim, esses estudos enfatizam a importância crescente da terapia ocupacional, integração sensorial e tecnologia assistiva na melhoria da qualidade de vida e inclusão educacional de indivíduos com necessidades especiais, evidenciando a relevância e o potencial de inovação da criação de um ambiente de desenvolvimento integrado que permite que, em alto nível, TOs personalizem atividades lúdicas em um tapete sensorial.
+
 
 ## Resultados
 
