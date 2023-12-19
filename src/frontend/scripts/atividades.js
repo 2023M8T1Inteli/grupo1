@@ -24,16 +24,18 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 // Adiciona ouvintes de eventos aos botões para navegação
-document
-  .getElementById('novaAtividades')
-  .addEventListener('click', function () {
-    window.location.href = 'codigo.html'
-  })
+document.getElementById('novaAtividade').addEventListener('click', function () {
+  window.location.href = './cadastroAtividade.html'
+})
 
 document.getElementById('home').addEventListener('click', function () {
-  window.location.href = 'home.html' // Redireciona para a página inicial
+  window.location.href = './home.html' // Redireciona para a página inicial
 })
 
 document.getElementById('voltar').addEventListener('click', function () {
   window.history.back() // Volta para a página anterior no histórico de navegação
 })
+
+const dataToStore = { key: 'value' }
+
+localStorage.setItem('myData', JSON.stringify(dataToStore))

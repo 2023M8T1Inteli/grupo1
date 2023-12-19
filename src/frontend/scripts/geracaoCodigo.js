@@ -8,12 +8,23 @@ const generator = document.getElementById('gerador') // botão para gerar códig
 generator.addEventListener('click', generateCode) // função de gerar código adicionada ao botão
 
 function sendCode(codeText) {
-  const postData = {
-    id: 1,
+  const today = new Date()
+
+  const year = today.getFullYear()
+  const month = today.getMonth() + 1
+  const day = today.getDate()
+
+  const formattedDate = `${day.toString().padStart(2, '0')}/${month
+    .toString()
+    .padStart(2, '0')}/${year}`
+
+  const titulo = localStorage.getItem('titulo').titulo
+
+  var novaAtiv = {
     codigo: codeText,
-    cenario: 'descricao do cenario',
-    data: '19/12/2023',
+    cenario: titulo,
     terapeutaId: 1,
+    data: formattedDate,
     pacientes: [
       {
         id: 1,
@@ -23,39 +34,15 @@ function sendCode(codeText) {
   }
 
   axios
-    .post('127.0.0.1:3000/atividade', postData)
+    .post('http://127.0.0.1:3000/atividade', novaAtiv)
     .then(function (response) {
       console.log('Response data:', response.data)
     })
     .catch(function (error) {
+      // Handle errors here
       console.error('Error:', error)
     })
 }
-
-// function sendCode(codeText) {
-//   var xhr = new XMLHttpRequest()
-
-//   xhr.open('POST', 'http://localhost:3000/atividade')
-
-//   xhr.setRequestHeader('Content-Type', 'application/json')
-
-//   const sendData = {
-//     codigo: codeText,
-//     cenario: 'descricao',
-//     data: '28/11/23',
-//     terapeutaId: 2
-//   }
-
-//   console.log('send data type: ' + typeof sendData)
-
-//   xhr.onload = function () {
-//     alert('Código enviado para análise com sucesso!')
-//     const data = JSON.parse(xhr.response)
-//     console.log(data)
-//   }
-
-//   xhr.send(JSON.stringify(sendData))
-// }
 
 function generateCode() {
   // início do programa
