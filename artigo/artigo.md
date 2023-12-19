@@ -91,6 +91,29 @@ Esse trabalho aborda o uso da terapia ocupacional com elementos de integração 
 
 &emsp; Em resumo, o processo para a criação e utilização de uma atividade envolve a elaboração de um enunciado com imagem, a estruturação dos blocos que compõem o programa e a definição da resposta correta (transformada em comandos únicos do teclado que são lidos pelo GregMaker). Posteriormente, ocorre a execução da atividade, a inserção da resposta do paciente pelo tapete e a coleta de feedback. Assim, o desenvolvimento de jogos interativos foi viabilizado integralmente para usuários sem conhecimento técnico em programação, permitindo uma maior personalização das atividades e, consequentemente, melhores resultados nas dinâmicas realizadas com os pacientes.
 
+# Conclusões
+
+&emsp;Este artigo detalhou o desenvolvimento de uma Interface de Desenvolvimento Integrada (IDE) online para Terapeutas Ocupacionais (TOs) na AACD, com o objetivo de auxiliar na reabilitação de crianças com paralisia cerebral. A IDE, projetada para ser acessível a usuários sem conhecimentos prévios em programação, permite aos TOs criar atividades lúdicas e educacionais personalizadas, utilizando um tapete sensorial e a linguagem de programação QAL. Com o projeto agora concluído, ele apresenta um potencial significativo para influenciar positivamente a inclusão e o desenvolvimento integral de crianças com necessidades especiais, embora os testes práticos com pacientes ainda estejam pendentes.
+
+### Avaliação dos Objetivos e Desenvolvimento Atual
+
+&emsp;O projeto alcançou seu objetivo principal de desenvolver uma ferramenta que capacita os terapeutas ocupacionais a criar atividades terapêuticas de forma autônoma e inovadora, sem necessidade de conhecimento técnico em programação. A funcionalidade e a usabilidade da IDE foram alcançadas conforme planejado. No entanto, a eficácia real da IDE em ambientes clínicos com pacientes ainda será avaliada. Espera-se que, uma vez implementada, a ferramenta permita maior engajamento e interação das crianças nas atividades, potencialmente melhorando suas habilidades motoras e cognitivas.
+
+## Sugestões para Trabalhos Futuros
+
+1. **Expansão da Linguagem de Programação QAL**: Refinar e expandir a QAL para incluir mais funcionalidades interativas, permitindo a criação de atividades ainda mais adaptáveis e diversificadas.
+
+2. **Estudo de Impacto a Longo Prazo**: Planejar estudos longitudinais para avaliar o impacto das atividades desenvolvidas na IDE no desenvolvimento cognitivo e motor das crianças, assim que a plataforma estiver em uso regular.
+
+3. **Integração com Outras Tecnologias**: Investigar a integração da IDE com outras ferramentas de reabilitação para ampliar sua aplicabilidade em diferentes contextos terapêuticos.
+
+4. **Sistema de Feedback dos Usuários**: Implementar um mecanismo de feedback contínuo para adaptar a plataforma às necessidades e feedbacks dos usuários (TOs e pacientes).
+
+5. **Extensão para Outras Condições de Deficiência**: Explorar a aplicabilidade da IDE em outras condições além da paralisia cerebral, como autismo ou atrasos no desenvolvimento.
+
+
+&emsp;Estas sugestões visam não apenas a continuidade do trabalho iniciado, mas também sua expansão de maneira a maximizar o impacto positivo da IDE na vida de crianças com necessidades especiais e no campo da terapia ocupacional.
+
 ## Referências
 VASCONCELLOS R.; DEL RÉ, **A. Cerebral Palsy: effects of writing on a child’s writing**. Alfa, São Paulo, v.61, n.2, p.319-349, 2017
 
