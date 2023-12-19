@@ -1,5 +1,5 @@
 export class CreateTerapeutaDto {
-  nome: string;
+  usuario: string;
   senha: string;
   dataNascimento: Date;
   email: string;

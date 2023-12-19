@@ -1,6 +1,6 @@
 export class UpdateTerapeutaDto {
   id: number;
-  nome?: string;
+  usuario?: string;
   senha?: string;
   dataNascimento?: Date;
   email?: string;
