@@ -8,29 +8,54 @@ const generator = document.getElementById('gerador') // botão para gerar códig
 generator.addEventListener('click', generateCode) // função de gerar código adicionada ao botão
 
 function sendCode(codeText) {
-  var xhr = new XMLHttpRequest()
-
-  xhr.open('POST', 'http://localhost:3000/atividade')
-
-  xhr.setRequestHeader('Content-Type', 'application/json')
-
-  const sendData = {
+  const postData = {
+    id: 1,
     codigo: codeText,
-    cenario: 'descricao',
-    data: '28/11/23',
-    terapeutaId: 2
+    cenario: 'descricao do cenario',
+    data: '19/12/2023',
+    terapeutaId: 1,
+    pacientes: [
+      {
+        id: 1,
+        nome: 'paciente1'
+      }
+    ]
   }
 
-  console.log('send data type: ' + typeof sendData)
-
-  xhr.onload = function () {
-    alert('Código enviado para análise com sucesso!')
-    const data = JSON.parse(xhr.response)
-    console.log(data)
-  }
-
-  xhr.send(JSON.stringify(sendData))
+  axios
+    .post('127.0.0.1:3000/atividade', postData)
+    .then(function (response) {
+      console.log('Response data:', response.data)
+    })
+    .catch(function (error) {
+      console.error('Error:', error)
+    })
 }
+
+// function sendCode(codeText) {
+//   var xhr = new XMLHttpRequest()
+
+//   xhr.open('POST', 'http://localhost:3000/atividade')
+
+//   xhr.setRequestHeader('Content-Type', 'application/json')
+
+//   const sendData = {
+//     codigo: codeText,
+//     cenario: 'descricao',
+//     data: '28/11/23',
+//     terapeutaId: 2
+//   }
+
+//   console.log('send data type: ' + typeof sendData)
+
+//   xhr.onload = function () {
+//     alert('Código enviado para análise com sucesso!')
+//     const data = JSON.parse(xhr.response)
+//     console.log(data)
+//   }
+
+//   xhr.send(JSON.stringify(sendData))
+// }
 
 function generateCode() {
   // início do programa
