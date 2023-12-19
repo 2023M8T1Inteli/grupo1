@@ -20,7 +20,7 @@ function validarCampos() {
   var nome = document.getElementById('nome').value
 
   // Retorna verdadeiro se todos os campos estiverem preenchidos
-  return nome
+  return nome && dataNascimento && email && telefone && dificuldade && grau
 }
 
 // Função para mostrar uma mensagem de sucesso após o cadastro
@@ -43,18 +43,7 @@ document
   .addEventListener('submit', function (event) {
     event.preventDefault() // Impede a submissão padrão do formulário
 
-    var novoPaciente = document.getElementById('nome').value
-
     if (validarCampos()) {
-      axios
-        .post('http://127.0.0.1:3000/paciente', { nome: novoPaciente })
-        .then(function (response) {
-          console.log('Response data:', response.data)
-        })
-        .catch(function (error) {
-          // Handle errors here
-          console.error('Error:', error)
-        })
       mostrarMensagemSucesso() // Mostra a mensagem de sucesso se todos os campos estiverem validados
     } else {
       alert('Por favor, preencha todos os campos corretamente.') // Alerta se algum campo estiver vazio
