@@ -36,7 +36,7 @@ function generateCode() {
   // início do programa
   let codeText = 'programa "atividade": '
 
-  codeText += ' inicio '
+  codeText += ' inicio quadrante = ler()'
 
   let codeElements = editor.childNodes // cada elemento do código é um elemento filho (dentro do editor)
 
