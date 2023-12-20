@@ -18,8 +18,8 @@ export class AtividadeService {
     try {
       const { codigo, cenario, data: atividadeData, terapeutaId } = data;
 
-      const caminhoScript = path.resolve(__dirname, '../../../compilador/analisadores/Compiler.py');
-      const caminhoArquivo = path.resolve(__dirname, '../../../compilador/analisadores/codigo.txt');
+      const caminhoScript = path.resolve(__dirname, '../../../../compilador/Compiler.py');
+      const caminhoArquivo = path.resolve(__dirname, '../../../../compilador/codigo.txt');
 
       // Apaga o conteúdo do arquivo
       fs.writeFileSync(caminhoArquivo, '');
