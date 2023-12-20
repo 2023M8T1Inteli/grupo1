@@ -241,7 +241,7 @@ function previewImages() {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      var img = document.createElement('img');
+      let img = document.createElement('img');
       img.src = e.target.result;
       img.draggable = true;
       img.addEventListener('dragstart', function (event) {
@@ -251,8 +251,9 @@ function previewImages() {
 
       // Enviar a imagem para o servidor usando fetch
       sendImageToServer(file);
-    };
+      container.appendChild(img);
 
+    };
     reader.readAsDataURL(file);
   }
 
@@ -365,22 +366,22 @@ function displayImage(base64String) {
   container.appendChild(img);
 }
 
-// Função para fazer a solicitação GET ao endpoint
-function fetchData() {
-  fetch('http://localhost:3000/up-image')
-    .then(response => response.json())
-    .then(data => {
-      if (data.status === 'Ok!' && data.result.length === 1) {
-        // Se houver exatamente 1 elemento no array 'result', exibe a imagem
-        displayImage(data.result[0].foto);
-      } else {
-        console.log('Nenhum dado encontrado ou mais de um elemento no array "result".');
-      }
-    })
-    .catch(error => {
-      console.error('Erro ao buscar dados:', error);
-    });
-}
+// // Função para fazer a solicitação GET ao endpoint
+// function fetchData() {
+//   fetch('http://localhost:3000/up-image')
+//     .then(response => response.json())
+//     .then(data => {
+//       if (data.status === 'Ok!' && data.result.length === 1) {
+//         // Se houver exatamente 1 elemento no array 'result', exibe a imagem
+//         displayImage(data.result[0].foto);
+//       } else {
+//         console.log('Nenhum dado encontrado ou mais de um elemento no array "result".');
+//       }
+//     })
+//     .catch(error => {
+//       console.error('Erro ao buscar dados:', error);
+//     });
+// }
 
 // Chama a função fetchData ao carregar a página
-window.onload = fetchData();
+// window.onload = fetchData();
