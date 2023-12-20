@@ -17,10 +17,10 @@ document.querySelectorAll('.input-group input').forEach(input => {
 // Função para validar se todos os campos do formulário estão preenchidos
 function validarCampos() {
   // Obtém os valores dos campos do formulário
-  var nome = document.getElementById('nome').value
+  var titulo = document.getElementById('titulo').value
 
   // Retorna verdadeiro se todos os campos estiverem preenchidos
-  return nome
+  return titulo
 }
 
 // Função para mostrar uma mensagem de sucesso após o cadastro
@@ -43,19 +43,12 @@ document
   .addEventListener('submit', function (event) {
     event.preventDefault() // Impede a submissão padrão do formulário
 
-    var novoPaciente = document.getElementById('nome').value
-
     if (validarCampos()) {
-      axios
-        .post('http://127.0.0.1:3000/paciente', { nome: novoPaciente })
-        .then(function (response) {
-          console.log('Response data:', response.data)
-        })
-        .catch(function (error) {
-          // Handle errors here
-          console.error('Error:', error)
-        })
-      mostrarMensagemSucesso() // Mostra a mensagem de sucesso se todos os campos estiverem validados
+      const data = { titulo: document.getElementById('titulo').value }
+
+      localStorage.setItem('titulo', JSON.stringify(data))
+
+      window.location.href = './codigo.html'
     } else {
       alert('Por favor, preencha todos os campos corretamente.') // Alerta se algum campo estiver vazio
     }

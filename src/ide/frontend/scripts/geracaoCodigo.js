@@ -8,35 +8,47 @@ const generator = document.getElementById('gerador') // botão para gerar códig
 generator.addEventListener('click', generateCode) // função de gerar código adicionada ao botão
 
 function sendCode(codeText) {
-  var xhr = new XMLHttpRequest()
+  const today = new Date()
 
-  xhr.open('POST', 'http://localhost:3000/atividade')
+  const year = today.getFullYear()
+  const month = today.getMonth() + 1
+  const day = today.getDate()
 
-  xhr.setRequestHeader('Content-Type', 'application/json')
+  const formattedDate = `${day.toString().padStart(2, '0')}/${month
+    .toString()
+    .padStart(2, '0')}/${year}`
 
-  const sendData = {
+  const titulo = localStorage.getItem('titulo').titulo
+
+  var novaAtiv = {
     codigo: codeText,
-    cenario: 'descricao',
-    data: '28/11/23',
-    terapeutaId: 2
+    cenario: titulo,
+    terapeutaId: 1,
+    data: formattedDate,
+    pacientes: [
+      {
+        id: 1,
+        nome: 'paciente1'
+      }
+    ]
   }
 
-  console.log('send data type: ' + typeof sendData)
-
-  xhr.onload = function () {
-    alert('Código enviado para análise com sucesso!')
-    const data = JSON.parse(xhr.response)
-    console.log(data)
-  }
-
-  xhr.send(JSON.stringify(sendData))
+  axios
+    .post('http://127.0.0.1:3000/atividade', novaAtiv)
+    .then(function (response) {
+      console.log('Response data:', response.data)
+    })
+    .catch(function (error) {
+      // Handle errors here
+      console.error('Error:', error)
+    })
 }
 
 function generateCode() {
   // início do programa
   let codeText = 'programa "atividade": '
 
-  codeText += ' inicio '
+  codeText += ' inicio quadrante = ler()'
 
   let codeElements = editor.childNodes // cada elemento do código é um elemento filho (dentro do editor)
 
