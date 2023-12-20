@@ -241,7 +241,7 @@ function previewImages() {
     var reader = new FileReader();
 
     reader.onload = function (e) {
-      var img = document.createElement('img');
+      let img = document.createElement('img');
       img.src = e.target.result;
       img.draggable = true;
       img.addEventListener('dragstart', function (event) {
@@ -254,7 +254,6 @@ function previewImages() {
       container.appendChild(img);
 
     };
-
     reader.readAsDataURL(file);
   }
 
