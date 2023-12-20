@@ -4,6 +4,15 @@ import pygame
 
 def ler():
     pygame.init()
+    SCREEN_WIDTH = 600
+    SCREEN_HEIGHT = 400    
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+    image_file = f"./imagens/3.jpg"
+    image = pygame.image.load(image_file)
+    screen = pygame.display.set_mode(image.get_size())
+    screen.blit(image, (0, 0))
+    pygame.display.flip()
 
     quadrantes = {
         "mouse_up": 11,
