@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- Define o tipo de documento como HTML5 -->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Garante a responsividade em diferentes dispositivos -->
+    <title>Pacientes Cadastrados</title>
+    <!-- Título da página, exibido na aba do navegador -->
+    <link rel="stylesheet" href="../css/listaPacientes.css">
+    <!-- Link para o arquivo CSS externo -->
+</head>
+<body>
+    <div class="top-bar">
+        <!-- Barra superior com botões de ação -->
+        <button id="voltar" type="button">Voltar</button>
+        <!-- Botão para voltar para a página anterior -->
+        <button id="home" type="button">Home</button>
+        <!-- Botão para voltar para a página inicial -->
+        <button id="novaAtividade" type="button">Nova Atividade</button>
+        <!-- Botão para adicionar um novo paciente -->
+    </div>
+    <div class="pacientes-container">
+        <!-- Container para a lista de pacientes cadastrados -->
+        <h2>Atividades Cadastradas</h2>
+        <!-- Título da seção -->
+        <table>
+            <!-- Tabela para exibir os pacientes cadastrados -->
+            <thead>
+                <!-- Cabeçalho da tabela -->
+                <tr>
+                    <!-- Linha do cabeçalho -->
+                    <th>Atividades</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Corpo da tabela, onde as linhas de pacientes serão inseridas pelo JavaScript -->
+            </tbody>
+        </table>
+    </div>
+    <!-- Modal para exibir os detalhes do paciente -->
+    <div id="modalDetalhes" class="modal">
+        <!-- Estrutura do modal -->
+        <div class="modal-content">
+            <!-- Conteúdo do modal -->
+            <span class="close">&times;</span>
+            <!-- Botão para fechar o modal -->
+            <h3>Detalhes das atividades realizadas</h3>
+            <!-- Título do modal -->
+            <table id="tabelaDetalhes">
+                <!-- Tabela para detalhes do paciente -->
+                <thead>
+                    <!-- Cabeçalho da tabela de detalhes -->
+                    <tr>
+                        <!-- Linha do cabeçalho -->
+                        <th>Paciente</th>
+                        <!-- Coluna para atividades realizadas pelo paciente -->
+                        <th>Data da Sessão</th>
+                        <!-- Coluna para a data da sessão de terapia -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Corpo da tabela, onde os detalhes serão inseridos pelo JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="../scripts/listaAtividades.js"></script>
+    <!-- Link para o script JavaScript externo -->
+</body>
+</html>
