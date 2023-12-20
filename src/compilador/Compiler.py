@@ -36,8 +36,8 @@ class Compiler:
 
         caminho = "./exitCode.py"
 
-        if os.getcwd()[-12:] != "analisadores":
-            caminho = os.path.abspath(os.path.join(os.path.dirname(__file__), '../../compilador/analisadores/exitCode.py'))
+        if os.getcwd()[-12:] != "compilador":
+            caminho = os.path.abspath(os.path.join(os.path.dirname(__file__), '../compilador/exitCode.py'))
         
         #open text file
         text_file = open(caminho, "w")
