@@ -90,7 +90,7 @@ def ler_varios(quad, qtd, tol):
 
 def mostrar(cod):
     pygame.init()
-    image_file = os.path.abspath(os.path.join(os.path.dirname(__file__), f'../../compilador/imagens/{cod}.jpg'))
+    image_file = os.path.abspath(os.path.join(os.path.dirname(__file__), f'../compilador/imagens/{cod}.jpg'))
     image = pygame.image.load(image_file)
     screen = pygame.display.set_mode(image.get_size())
     screen.blit(image, (0, 0))
@@ -102,7 +102,7 @@ def mostrar(cod):
 
 def tocar(cod):
     pygame.mixer.init()
-    sound_file = os.path.abspath(os.path.join(os.path.dirname(__file__), f'../../compilador/sons/{cod}.mp3'))
+    sound_file = os.path.abspath(os.path.join(os.path.dirname(__file__), f'../compilador/sons/{cod}.mp3'))
     pygame.mixer.music.load(sound_file)
     pygame.mixer.music.play()
     while pygame.mixer.music.get_busy():  
