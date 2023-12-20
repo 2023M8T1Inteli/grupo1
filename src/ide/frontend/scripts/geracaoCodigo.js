@@ -18,7 +18,9 @@ function sendCode(codeText) {
     .toString()
     .padStart(2, '0')}/${year}`
 
-  const titulo = localStorage.getItem('titulo').titulo
+  //const titulo = localStorage.getItem('titulo').titulo
+
+  const titulo = 'atividade'
 
   var novaAtiv = {
     codigo: codeText,

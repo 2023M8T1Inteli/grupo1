@@ -18,7 +18,7 @@ body {
 
 /* Estilos para todos os botões */
 button {
-    width: 345px; /* Largura fixa para os botões */
+    
     padding: 10px; /* Espaçamento interno */
     border: none; /* Remove a borda padrão */
     background-color: #0073e6; /* Cor de fundo azul */
@@ -27,6 +27,10 @@ button {
     cursor: pointer; /* Cursor como ponteiro ao passar o mouse */
     font-size: 16px; /* Tamanho da fonte */
     margin: 0; /* Remove margens adicionais */
+}
+
+.top-button {
+    width: 345px; /* Largura fixa para os botões */
 }
 
 /* Estilos para botões ao passar o mouse */
@@ -129,3 +133,34 @@ table tr:hover {
     text-decoration: none; /* Remove o sublinhado do texto */
     cursor: pointer; /* Cursor como ponteiro */
 }
+
+.celula {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+  }
+
+  .nome-elemento {
+    text-align: left;
+  }
+
+  .opcoes {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .opcoes button {
+    margin-left: 10px; /* Add margin between the buttons */
+    padding-left: 10px;
+  }
+
+  .opcoes button:first-child {
+    margin-left: 0; /* Remove margin for the first button */
+  }
+
+  .botao-celula{
+    display: inline-block;
+  
+  }
