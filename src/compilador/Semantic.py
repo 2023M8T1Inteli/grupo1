@@ -31,8 +31,6 @@ class Semantic:
     def visitStatement(self, statement):
         if statement.op == "assign_statement":
             assign_id = statement.get("id")
-            if assign_id.valor in self.simbol_table:
-                raise ValueError(f"Variável " + assign_id.valor + " na linha " + str(assign_id.linha) + " já declarado") # Falta botar linha
             self.visitExpression(statement.get("expression"))
             self.simbol_table[assign_id.valor] = NoTabela("id", assign_id.linha)
         elif statement.op == "if_statement":
