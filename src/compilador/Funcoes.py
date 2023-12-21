@@ -8,7 +8,7 @@ def ler():
     SCREEN_HEIGHT = 400    
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-    image_file = f"./imagens/3.jpg"
+    image_file = f"./imagens/1.jpg"
     image = pygame.image.load(image_file)
     screen = pygame.display.set_mode(image.get_size())
     screen.blit(image, (0, 0))
