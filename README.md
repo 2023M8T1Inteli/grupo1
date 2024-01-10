@@ -58,11 +58,45 @@ Concluída a instalação, recomendamos que você verifique se o MySQL foi insta
 
 # Tags
 
-* SPRINT1: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint1)*
-* SPRINT2: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint2)*
-* SPRINT3: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint3)*
-* SPRINT4: *[descrição](https://github.com/2023M8T1Inteli/grupo1/releases/tag/Sprint4)*
-* SPRINT5: *[descrição]*
+SPRINT 1:
+
+* Analisador léxico (versão 1),
+* Entendimento do Negócio,
+* Entendimento do Usuário,
+* Arquitetura inicial;
+
+  
+SPRINT 2 : 
+
+* Analisador léxico (versão 2),
+* Analisador sintático (versão 1),
+* IDE (versão 1),
+* Artigo (versão 1);
+
+
+SPRINT 3 : 
+
+* Analisador sintático (v2) e semântico (v1),
+* IDE (v2),
+* Artigo (v2);
+
+
+SPRINT 4 : 
+
+* Analisador sintático (v3),
+* semântico (v2),
+* Gerador de código(v1),
+* IDE (v3),
+* Artigo (v3);
+
+
+SPRINT 5 : 
+
+* Analisadores léxico,
+* sintático e semântico (versões finais),
+* Refinamento da IDE,
+* Artigo (versão final),
+* Organização do GitHub;
 
 ## 📋 Licença/License
 
